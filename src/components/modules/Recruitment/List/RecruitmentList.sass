@@ -1,0 +1,76 @@
+.recruitment-1
+	@screen -xl
+		@apply section-py
+	.wrapper
+		@screen -xl
+			@apply px-[16px]
+		@screen -lg
+			@apply grid-cols-2 gap-base
+		.col-left
+			.format-content
+				@apply font-medium
+			h1
+				@screen -xl
+					@apply mb-base
+		.col-right
+			@screen -xl
+				@apply pl-0
+.recruitment-2
+	.swiper-column-auto
+		.swiper-slide
+			--spv: 2
+			@screen sm
+				--spv: 1
+			@screen md
+				--spv: 3
+			@screen lg
+				--spv: 4
+				--mr: calc(40/1920*100rem)
+			@apply flex flex-col h-auto
+			.recruitment-item
+				@apply xl:px-5 xl:py-15 p-5 bg-white
+				@apply border border-Utility-gray-100 text-center
+				@apply flex flex-col items-center justify-center flex-1
+				.content
+					@apply flex-1
+					h3
+						@apply xl:whitespace-nowrap
+					.desc
+						@apply body-2
+				.img
+					img
+						@apply object-contain
+.recruitment-3
+	.career-table
+		&::-webkit-scrollbar
+			@apply w-[calc(6/1920*100rem)] h-1
+		&::-webkit-scrollbar-track
+			background-color: rgba(#e5e5e5,.2 )
+		&::-webkit-scrollbar-thumb
+			@apply bg-Primary-1
+		table
+			@apply table-fixed w-full
+		thead
+			@apply bg-Primary-2
+			tr
+				td
+					@apply border-r border-r-gray-200 text-white  font-bold heading-5
+					@apply px-5 h-12
+		tbody
+			tr:nth-child(even)
+				@apply bg-gray-50 px-3 py-5
+			tr
+				td
+					@apply py-3 px-5 border-r border-r-gray-200 border-l border-l-gray-200 border-b border-b-gray-100 text-lg  font-medium
+					>a
+						@apply hover:text-Primary-2 
+					.dowload
+						@apply text-Primary-2 font-medium transition-all ease-in-out cursor-pointer
+						i
+							@apply text-xl
+				td:nth-child(1)
+					@apply font-bold  text-lg 
+	.more
+		a
+			span
+				@apply text-base

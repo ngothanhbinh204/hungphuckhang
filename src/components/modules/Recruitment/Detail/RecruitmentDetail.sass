@@ -1,0 +1,115 @@
+.single-recruitment 
+	.header		
+		.header-bottom
+			.header-nav
+				li
+					&.menu-item-410
+						&>a
+							@apply border-b-Primary-1 text-Primary-1
+.recruitment-detail
+	.wrapper
+		.content
+			.title
+				@apply text-Primary-1
+	.recruitment-detail-tab-item
+		@apply flex items-center gap-6 py-3 border-b border-b-Utility-gray-100
+		.recruitment-location
+			@apply rem:w-[160px] font-bold text-justify
+		.recruitment-location-position
+			@apply w-[calc(100%-8.333333333333334rem-1.66667rem)] 
+	.recruitment-detail-main
+		.col-left
+			.content
+				h3
+					@apply text-Primary-1
+		.col-right
+			.box-info-heading 
+				@apply px-5
+		@screen -lg
+			.col-left
+				@apply w-[60%]
+			.col-right
+				@apply w-[40%]
+		@screen -md
+			@apply flex-col
+			.col-left
+				@apply w-full
+			.col-right
+				@apply w-full
+	.col-right
+		.button
+			.button-link 
+				a
+					@apply text-lg font-bold
+		.box-info
+			@apply border border-[#DCDCDC]
+		.box-info-item
+			@apply p-6 flex flex-col rem:gap-[18px]
+			h3
+				@apply text-xl font-bold leading-7
+			& + .box-info-item
+				@apply border-t border-t-[#DCDCDC]
+		.box-info-date
+			@apply flex items-center gap-[10px] text-base
+			i
+				@apply text-Primary-1 font-normal
+		.box-info-date > span.title
+			@apply text-Primary-1
+.recruitment-2 
+	.item
+		.top
+			.title
+				@apply text-Primary-1
+.recruitment-3 
+	table
+		tbody
+			tr
+				td
+					.dowload
+						@apply py-3 px-6 rounded-full border border-black uppercase font-medium
+						@apply inline-flex items-center justify-center gap-3		
+						&:hover
+							@apply bg-Primary-1 text-white border-transparent
+#form-requirement
+	@apply xl:rem:w-[850px]  relative w-full p-10 
+	.carousel__button
+		position: absolute !important
+		top: 0.5rem !important
+		right: 0.5rem !important
+		background-color: #084734
+		@apply w-8 h-8 z-100 cursor-pointer
+		svg
+			@apply rem:w-[16px] rem:h-[16px]
+	h3
+		@apply text-6xl text-Primary-1 text-center font-bold mb-5 #{!important}
+	form.wpcf7-form.submitting
+		button
+			&[type="submit"]
+				@apply pointer-events-none cursor-not-allowed
+	form
+		&.submitting
+			.form-submit
+				button
+					&::before
+						content: ""
+						position: absolute
+						background-image: url('../img/loading.svg')
+						background-repeat: no-repeat
+						background-size: contain
+						background-position: center					
+						@apply w-[2rem] h-[2rem] top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4
+					span
+						@apply opacity-0 invisible pointer-events-none
+					.icon
+						i
+							@apply opacity-0 invisible pointer-events-none
+	.form-group
+		@apply relative cursor-pointer
+		&:focus
+			outline: none !important
+		input
+			@apply w-full px-6 py-3 border border-neutral-300 text-black rem:text-[16px] leading-6 font-normal 
+			&:focus
+				outline: none !important
+	.form-submit
+		@apply flex justify-center relative 

@@ -1,0 +1,61 @@
+.home-4
+	@apply xl:rem:min-h-[720px] h-full text-white
+	.wrapper
+		.col-right
+			@apply xl:min-h-[560px] h-full flex flex-col justify-end
+			.lists
+				@apply items-end
+			.item
+				@apply relative
+				background: linear-gradient(180deg, rgba(157, 157, 157, 0.35) 0%, rgba(84, 84, 84, 0.35) 100%)
+				backdrop-filter: blur(10px)
+				@apply xl:rem:min-h-[280px] border border-white
+				@apply flex flex-col justify-between
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+				// Item thứ 2 cao hơn
+				// &:last-child
+				// 	@screen -xl
+				// 		@apply col-span-full mx-auto w-min
+				@screen xl
+					&:nth-child(2)
+						@apply rem:translate-y-[-280px] z-10
+						&::before
+							content: ""
+							@apply sq-4 rounded-full bg-Primary-2 absolute -bottom-2 -left-2
+						&::after
+							content: ""
+							@apply sq-4 rounded-full bg-Primary-2 absolute -bottom-2 -right-2 pointer-events-none -z-1
+				&:hover
+					box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.25)
+					border-color: rgba(255, 255, 255, 0.8)
+					.badge
+						transform: scale(1.15) rotate(5deg)
+				.badge
+					@apply absolute rem:top-[20px] rem:right-[20px]
+					@apply sq-10 rounded-full bg-Primary-2
+					@apply flex items-center justify-center
+					@apply rem:text-[20px] font-bold text-white
+					box-shadow: 0 0.25rem 1rem rgba(227, 30, 36, 0.3)
+					transition: transform 0.3s ease
+					z-index: 2
+				.title
+					@apply relative z-10
+					a
+						@apply transition-all duration-300
+						&:hover
+							@apply text-Primary-2
+				.button-more
+					@apply p-6
+					a
+						@apply sq-10 inline-flex items-center justify-center bg-Utility-gray-50
+						@apply transition-all duration-300
+						i
+							@apply text-xl text-Primary-1 font-light
+							@apply transition-all duration-300
+						&:hover							
+							@apply bg-Primary-2
+							transform: scale(1.1)
+							i
+								@apply text-Utility-white
+					
+					

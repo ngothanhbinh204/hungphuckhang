@@ -1,0 +1,103 @@
+.product-detail-1
+	.format-content
+		p
+			@apply mb-2 
+		table
+			@apply w-full table-fixed
+			tbody
+				@apply flex flex-col gap-3
+				tr
+					@apply  bg-Utility-gray-50 flex
+					td
+						@apply font-bold w-2/4
+						&.parameter
+							@apply font-normal 
+	.swiper-slide
+		.img
+			a
+				@apply  bg-neutral-100 h-full
+	.thumb
+		.swiper
+			@apply absolute inset-0
+			.swiper-slide
+				.img
+					@apply h-full 
+					a				
+						img
+							@apply border-2 border-transparent
+			.swiper-slide-thumb-active
+				.img
+					a
+						img
+							@apply border-Primary-2
+	.main
+		@apply overflow-hidden relative
+		.img
+			a
+				@apply ratio:pt-[649_649]
+		.arrow-button
+			@apply flex items-center gap-6 absolute bottom-0 left-0 p-6 z-10
+	.col-left
+		@apply xl:sticky xl:top-25 h-fit
+	.col-right
+		@apply w-full #{!important}
+		.wrap-info-product
+			@apply bg-white rem:mt-[29px] xl:p-8 p-4
+			@apply border-b-3 border-b-Primary-1
+			.info-product-top
+				@apply grid grid-cols-2 gap-6 mb-5 pb-5
+				@apply border-b border-b-Utility-gray-100
+				.item
+					.label
+						@apply body-1 font-semibold mb-3
+					.value
+						@apply flex items-end gap-3 text-Primary-1
+						.number
+							@apply heading-2 font-extrabold
+						.unit
+							@apply body-1 font-secondary font-normal
+			.info-product-bottom
+				.item
+					@apply pb-5 border-b border-b-Utility-gray-100 mb-5 body-1
+					.title
+						@apply font-semibold mb-4
+						.format-content
+							@apply font-secondary font-normal
+			.info-product-certification
+				@apply flex items-center gap-4
+				.text
+					@apply body-1 font-semibold
+				.img-certification
+					@apply rem:w-[75px] rem:h-[75px]
+					img
+						@apply w-full h-full object-contain
+.product-detail-2
+	.wrapper
+		.item
+			@apply transition-all duration-300 border-b-4 border-b-transparent
+			.icon
+				@apply sq-20 inline-flex items-center justify-center
+				img
+					@apply w-full h-full object-contain
+			&:hover
+				@apply bg-white/20 border-b-white
+.other-product
+	.swiper-column-auto
+		.swiper-slide
+			--spv: 1
+			--mr: calc(12/1920*100rem)
+			@screen sm
+				--spv: 2
+			@screen md
+				--spv: 2
+				--mr: calc(40/1920*100rem)
+			@screen lg
+				--spv: 2
+				--mr: calc(24/1920*100rem)
+			@screen xl
+				--spv: 3
+				--mr: calc(80/1920*100rem)
+			.product-item
+				.block-thumb
+					.thumb
+						@apply ratio:pt-[557_520]

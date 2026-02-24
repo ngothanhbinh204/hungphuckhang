@@ -1,0 +1,37 @@
+.home-1
+	.swiper
+		.swiper-slide
+			.home-1-banner
+				@apply relative
+				@screen -md
+					@apply h-screen
+				>a
+					@screen -md
+						@apply h-full
+					@screen -lg
+						@apply pt-[62%]
+			.home-1-content
+				@apply absolute left-0 bottom-[4.5rem]
+				@apply w-full text-white
+				.col-left
+					.title
+						line-height: calc(78/60)
+				.wrapper
+					@screen -lg
+						@apply flex-col items-start gap-5
+	.wrap-pagination
+		.swiper-pagination
+			@apply flex items-center justify-center rem:gap-[10px] bottom-10
+			.swiper-pagination-bullet
+				@apply sq-3 border-2 border-white opacity-50 bg-transparent mx-0 rounded-none
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+				will-change: border-radius, opacity, transform
+			.swiper-pagination-bullet-active
+				@apply rounded-full opacity-100
+				transform: scale(1.2)
+
+	.wrap-button-slide
+		.btn-prev
+			@apply xl:mr-[-10rem] #{!important}
+		.btn-next
+			@apply xl:ml-[-10rem] #{!important}

@@ -1,0 +1,47 @@
+.footer
+	@apply text-Primary-1
+	.footer-top
+		@apply pb-6 border-b border-Primary-1/40 mb-6
+		.footer-top-social 
+			ul
+				@apply flex items-center gap-2
+				li
+					a
+						@apply sq-10 inline-flex items-center justify-center 
+						@apply bg-white text-Primary-1 rounded-full
+					&:hover
+						a
+							@apply bg-Primary-2 text-white
+	.footer-mid
+		@apply pb-6 border-b border-Primary-1/40 mb-6
+		.footer-column
+			@apply xl:pr-7 xl:border-r xl:border-Primary-1/20 last:border-r-0
+			.footer-contact 
+				ul.infos
+					li
+						a
+							@apply flex gap-1 hover:text-Primary-2
+							span
+								@apply font-secondary
+							.icon
+								@apply sq-3 inline-flex items-center justify-center flex-shrink-0 my-1
+								i
+									@apply rem:text-[12px] font-black
+			ul.footer-menu
+				@apply flex flex-col gap-3
+				li
+					a
+						@apply body-1 font-normal 
+						@apply hover:text-Primary-2 font-secondary
+
+	.footer-bottom
+		ul
+			@apply flex items-center
+			li
+				&+li
+					&::before
+						content: '|'
+						@apply text-Primary-1/50
+						@apply mx-3
+				a
+					@apply text-Primary-1/50 body-4 font-normal hover:text-Primary-2

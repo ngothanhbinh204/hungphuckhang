@@ -1,0 +1,35 @@
+section.home-2(class="section-py")
+	.container-fluid 
+		.wrapper(class="grid items-center lg:grid-cols-[37.25%_1fr] grid-cols-1 xl:rem:gap-[78px] gap-base")
+			.col-left 	
+				.sub-title(class="text-Utility-gray-500 uppercase heading-4 mb-3") ABOUT DLH LIME
+				h2.title(class="heading-1 block-title mb-6") Sustainable 
+					span Growth Built on Responsibility and Long-Term 
+					| Partnership
+				.desc(class="body-1 font-normal mb-base font-secondary")
+					p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo amet quos sequi aliquam repellat, quam velit nam aspernatur quasi excepturi, necessitatibus deserunt quis magnam earum ratione incidunt ea assumenda impedit?
+				a(href="#" class="btn btn-primary") 
+					span SEE MORE
+					.icon 
+						img(src="./img/arrow.svg", alt="" class="img-svg")
+			.col-right 
+				.map(class="xl:px-17 px-5 mb-6")
+					.img(class="img-ratio ratio:pt-[532_864]")
+						+PugImg("./img/map.png")
+				.box
+					.wrap-inner(class="flex md:flex-row flex-col md:items-center items-start justify-between")
+						.left(class="rem:max-w-[250px] w-full")
+							.title(class="body-4 text-Utility-gray-500 font-normal uppercase mb-2 font-secondary") OUR NETWORKS
+							.nation(class="heading-3 font-semibold") Asia
+						.right(class="grid grid-cols-3 rem:gap-[10px] flex-1 w-full")
+							-for(var i = 0; i < 3; i++)
+								.wrap-nation
+									.nation-item(class="flex items-center gap-1")
+										.icon 
+											<i class="fa-solid fa-chevrons-right"></i>
+										.name-nation(class="font-secondary") Japan
+									.nation-item(class="flex items-center gap-1")
+										.icon 
+											<i class="fa-solid fa-chevrons-right"></i>
+										.name-nation(class="font-secondary") Japan
+				

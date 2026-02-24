@@ -1,0 +1,77 @@
+section.product-detail-1(class="section-py bg-Utility-gray-50")
+	.container-fluid
+		.product-detail-main(class="flex flex-col lg:flex-row xl:gap-20 gap-base")
+			.col-left(class="xl:rem:max-w-[820px] lg:w-2/4 w-full")
+				.wrapper(class="grid md:grid-cols-[calc(147/820*100%)_1fr] grid-cols-[calc(120/820*100%)_1fr] gap-[calc(24/820*100%)]")
+					.thumb.relative
+						.relative(class="size-full")
+							.swiper
+								.swiper-wrapper
+									-for(i=0;i<6;i++)
+										.swiper-slide
+											.img
+												a(class="img-ratio") 
+													+PugImg()
+						.wrap-button-slide.arrow-vertical
+							.button-prev
+							.button-next
+					.main
+						.swiper
+							.swiper-wrapper
+								-for(i=0;i<6;i++)
+									.swiper-slide
+										.img
+											a(class="img-ratio")
+												+PugImg() 
+						.arrow-button
+							.btn.btn-sw-1.btn-prev
+							.btn.btn-sw-1.btn-next
+			.col-right(class="flex-1")
+				h2(class="text-Primary-1 heading-2 font-extrabold mb-3 title-product") Quicklime
+				.format-content(class="body-1 font-secondary font-normal")
+					p Widely applied in industry, agriculture, and forestry. It is commonly used in metallurgy, sugarcane production, and wastewater treatment, among others.
+				.wrap-info-product
+					.info-product-top 
+						-for(var i = 0; i < 2; i++)
+							.item 
+								.label Size
+								.value 
+									.number 1-10
+									.unit cm
+					.info-product-bottom 
+						-for(var i = 0; i < 2; i++)
+							.item 
+								.title Packaging:
+								.format-content 
+									p Loose cargo or 28 MT per Jumbo Bag/Big Bag (suitable for 20 FT container).
+					.info-product-certification 
+						span.text Certification: 
+						.img-certification
+							img(src="./img/2.png", alt="")
+section.product-detail-2(class="bg-[#005092]")
+	.container-fluid
+		.wrapper(class="grid lg:grid-cols-4 grid-cols-2")
+			-for(var i = 0; i < 4; i++)
+				.item(class="xl:px-6 xl:py-8 p-3 flex flex-col items-center justify-center")
+					.icon 
+						img(src="./img/3.svg", alt="" class="img-svg")
+					.content(class="text-white mt-6 text-center")
+						.title(class="heading-3 font-semibold mb-3") Agri-food
+						.desc(class="body-1 font-normal text-white/50")
+							p Lorem ipsum dolor sit amet consectetur.
+section.other-product(class="section-py")
+	.container-fluid
+		.swiper-column-auto(class="relative autoplay swiper-loop")
+			.wrap-heading(class="flex items-center justify-between mb-base") 
+				h2.title(class="heading-2 font-extrabold text-Primary-1") Other Products
+				.wrap-button(class="lg:flex hidden items-center gap-6")
+					.btn.btn-sw-1.btn-prev.gray
+					.btn.btn-sw-1.btn-next.gray
+			.swiper 
+				.swiper-wrapper
+					-for(var i = 0; i < 4; i++)
+						.swiper-slide
+							+ProductItem()
+			.wrap-button-slide(class="xl:hidden flex")
+				.btn.btn-sw-1.btn-prev.gray
+				.btn.btn-sw-1.btn-next.gray

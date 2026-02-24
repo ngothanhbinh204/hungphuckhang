@@ -1,0 +1,110 @@
+section.recruitment-1 
+	.wrapper(class="grid lg:grid-cols-2 grid-cols-1 items-center")
+		.col-left(class="xl:rem:pr-[120px] ml-auto")
+			.content(class="rem:max-w-[600px] w-full")
+				h2(class="heading-2 text-Primary-2 font-extrabold rem:mb-[58px] mb-base") OUR WORKING ENVIRONMENT
+				.format-content(class="body-1")
+					p Our story began one year ago, the yellow streetcar moves slowly through the milky, overheated fog of this late summer afternoon. The traffic flows under the heatwave, scattering and spreading into the thousand corners of Budapest. The city stalls and children besiege the ice-cream vendors. The car passes in the distance, turns onto the main boulevards, skirts an avenue and emerges on the Elisabeth Bridge. Suspended in the void, acrobatic as the years and water pass by, the monument crosses the river in a majestic span, reestablishing the age-old link between the bourgeois city of Pest and the royal hills of Buda. A hydrofoil passes under the bridge, arriving from Vienna wrapped in a silver cocoon, billions of water droplets glistening in the overheated air, from which the Danube seagulls emerge, twirling.
+				.description(class="ml-10 body-1 font-medium text-Primary-2 italic")
+					p Soon the car is forced to stop, and we continue on foot to the highest point of Mount Gellért, five hundred meters above sea level in the heart of the citadel.
+		.col-right(class="pl-5")
+			.img(class="h-full")
+				a(href="#" class="img-ratio ratio:pt-[880_940] h-full") 
+					+PugImg()
+section.recruitment-2(class="section-py bg-Primary-1")
+	.container 
+		h2(class="heading-2 text-white font-extrabold mb-base text-center") LIFE AT BRUNO PARIS
+		.swiper-column-auto(class="relative autoplay swiper-loop")
+			.swiper 
+				.swiper-wrapper
+					-for(let i = 0; i < 4; i++)
+						.swiper-slide
+							.recruitment-item(class="font-secondary")
+								.img(class="rem:w-[70px]")
+									a(href="#" class="img-ratio") 
+										+PugImg("./img/1.svg")
+								.content(class="flex flex-col gap-2 text-Utility-950 mt-3")
+									h3(class="heading-4 font-bold text-Primary-2") Creative & Collaborative
+									.desc(class="body-1 mt-3")
+										p Our open-space kitchen and design studio encourage constant exchange of ideas, allowing chefs and designers to innovate together.
+			.wrap-button-slide
+				.btn.btn-sw-1.btn-prev
+				.btn.btn-sw-1.btn-next
+section.recruitment-3(class="section-py") 
+	.container 
+		h2(class="heading-2 text-Primary-2 font-extrabold mb-base text-center") JOIN OUR TEAM
+		.career-table.table-responsive
+			table
+				thead 
+					tr 
+						td(class="text-center rem:w-[80px]") No.
+						td(class="lg:rem:w-[595px]  w-auto") Recruitment position
+						td(class="text-center") Area
+						td(class="text-center") Deadline
+						td(class="text-center") 
+				tbody 
+					tr 
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>
+					tr 
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>
+					tr 
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>
+					tr.hidden
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>
+					tr.hidden
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>
+					tr.hidden
+						td(class="text-center p-3") 01
+						td
+							a(href="./recruitmentDetail.html" class="recruitment-link") Nhân viên Marketing 
+						td(class="text-center") TP. Hồ Chí Minh
+						td(class="text-center") 20.06.2024
+						td(class="text-center text-Primary-New-1")
+							.dowload(class="flex items-center gap-3 justify-center") 
+								a(href="#" class=" font-medium") View more
+								<i class="fa-solid fa-arrow-right"></i>	
+		.more(class="flex-center mt-base relative z-50")
+			a.btn.btn-primary.send(href="#" class="flex items-center gap-2") 
+				span MORE
+				.icon 
+					i.fa-regular.fa-chevron-down

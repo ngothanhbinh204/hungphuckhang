@@ -1,0 +1,41 @@
+section.contact(class="section-py")
+	.container 
+		h2.title(class="heading-1 text-center uppercase text-Primary-1 mb-base") Head Office
+		.wrapper-main(class="flex flex-col")
+			-for(var j = 0; j < 2; j++)
+				.wrapper(class="grid lg:grid-cols-2 grid-cols-1 items-center gap-base border-t border-t-Primary-1 py-10")
+					.col-left 
+						h3.title(class="heading-36 font-bold mb-base") Head Office
+						.contact-info(class="flex flex-col gap-4")
+							-for(var i = 0; i < 3; i++)
+								.item(class="flex items-center gap-6 body-1 border-b border-b-Utility-gray-200 pb-4 last:border-b-0 last:pb-0")
+									.label(class="rem:max-w-[240px] w-full font-bold") Address
+									.link(class="flex-1")
+										a(href="#") Lot C2, Doc 2 Street, Phu An Thanh Industrial Park, Ben Luc, Tay Ninh, Vietnam
+					.col-right 
+						.map(class="img-ratio ratio:pt-[380_680]")
+							iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.3561393692544!2d106.69784617605167!3d20.857690793630802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7b0032889f65%3A0x4a6c0d438e72c394!2sTRANSCO!5e0!3m2!1svi!2s!4v1769068193173!5m2!1svi!2s", width="800", height="600", style="border:0;", allowfullscreen, loading="lazy", referrerpolicy="no-referrer-when-downgrade")
+section.contact-2(class="section-py" setBackground="./img/1.jpg")
+	.container 
+		.wrap-form-box(class="rem:max-w-[1160px] w-full mx-auto")
+			.wrap-heading(class="text-center text-white mb-base")
+				h2.title(class="heading-2 uppercase font-bold mb-2") Connect with us now
+				.desc(class="body-1 font-normal")
+					p Please fill out all the information in the form below so that we can contact and assist you quickly and accurately. Our team will respond as soon as possible.
+			form
+				.wrap-form(class="grid md:grid-cols-2 grid-cols-1 gap-4")
+					.form-group
+						input(type="text" placeholder="Full Name")
+					.form-group
+						input(type="text" placeholder="Full Name")
+					.form-group
+						input(type="text" placeholder="Full Name")
+					.form-group
+						input(type="text" placeholder="Full Name")
+					.form-group.textarea(class="w-full")
+						textarea(placeholder="Message")
+				.form-submit(class="flex-center mt-base")
+					button(class="btn btn-primary")
+						span Submit
+						.icon 
+							img(src="./img/arrow.svg", alt="" class="img-svg")

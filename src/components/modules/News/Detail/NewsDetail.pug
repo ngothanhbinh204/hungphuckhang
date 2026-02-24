@@ -1,0 +1,41 @@
+section.news-detail(class="section-py")
+	.container
+		.news-detail-main(class="grid grid-cols-12 gap-base")
+			.col-left(class="lg:col-span-8 col-span-full")
+				.position-relative(class="relative")
+					h1(class="rem:text-[32px] text-Primary-1 font-bold") Vì Sao Bạn Nên Chọn Các Sản Phẩm Của Kiwifood
+					.news-item-meta(class="py-3 flex gap-2 border-b border-b-Neutral-200") 
+						.news-item-date(class="text-Utility-gray-300") August 25, 2025
+					.format-content 
+						p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam itaque reiciendis dolores ducimus rem qui facere nesciunt, voluptatem dolorem libero tempora tenetur modi odit, iure rerum eum dolorum. Neque, molestiae!
+						p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum nostrum iste itaque velit ea veniam, corporis numquam placeat officiis aut magni culpa consectetur esse explicabo quod dignissimos at similique quos!
+						p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam itaque reiciendis dolores ducimus rem qui facere nesciunt, voluptatem dolorem libero tempora tenetur modi odit, iure rerum eum dolorum. Neque, molestiae!
+						p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum nostrum iste itaque velit ea veniam, corporis numquam placeat officiis aut magni culpa consectetur esse explicabo quod dignissimos at similique quos!
+						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero itaque nam autem dignissimos consectetur, necessitatibus voluptas cum ducimus illo nulla saepe eius velit quis quo, officiis facilis perspiciatis quibusdam? Facilis cumque voluptate reprehenderit et incidunt magni atque magnam. Molestias delectus esse accusantium natus rem reiciendis ducimus suscipit quaerat earum atque! Aspernatur vitae qui perspiciatis delectus distinctio expedita provident sapiente hic incidunt consequuntur suscipit animi pariatur quia, iusto veritatis sed velit! Vel a, voluptatum veritatis dicta voluptatibus eos ratione veniam excepturi atque eius quod mollitia, laborum ad asperiores omnis error aut expedita quasi cumque maxime quibusdam qui. Quod, sint optio?
+					.sticky-share-post(class="absolute right-full top-0 mr-5 bottom-0")
+						.detail-share(class="flex lg:flex-col gap-5 sticky top-[calc(var(--header-height)+1.5625rem)]")
+							ul 
+								li 
+									a(href="#") 
+										i.fa-brands.fa-facebook-f
+								li 
+									a(href="#") 
+										i.fa-brands.fa-facebook-f
+								li 
+									a(href="#") 
+										i.fa-brands.fa-facebook-f
+			.col-right(class="lg:col-span-4 col-span-full")
+				h2(class="rem:text-[36px] font-bold text-Primary-1 mb-6") Bài viết liên quan
+				.news-detail-list(class="flex flex-col gap-6")
+					-for(var i = 0; i < 4; i++)
+						.news-item(class="overflow-hidden grid grid-cols-[40.68%_1fr] gap-6 items-center border-none") 
+							.img 
+								a(href="#" class="img-ratio ratio:pt-[101_179] zoom-img") 
+									+PugImg()
+							.content 
+								.top(class="flex items-center gap-2 pb-2 mb-2 border-b border-b-Utility-gray-200")
+									.date 25.08.2025
+									.category(class="text-Primary-1") kiwifood
+								.bottom 
+									.title(class="body-1 font-bold mb-2 line-clamp-2") 
+										a(href="#") Vì Sao Bạn Nên Chọn Các Sản Phẩm Của Kiwifood

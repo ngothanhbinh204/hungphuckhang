@@ -1,0 +1,26 @@
+section.market-detail(class="section-py bg-Utility-gray-50")
+	.container-fluid
+		.wrapper(class="grid items-center lg:grid-cols-[61.10%_1fr] grid-cols-1 gap-base xl:gap-15")
+			.col-left 
+				.img(class="img-ratio ratio:pt-[591_1051] zoom-img")
+					+PugImg()
+			.col-right 
+				h2.title(class="heading-2 font-extrabold text-Primary-1 mb-4") Iron & Steel
+				.format-content(class="body-1 font-secondary text-justify")
+					p Steel is used in buildings, infrastructure, tools, ships, trains, cars, machinery, and electrical appliances. Lime is an essential element for the purification of metal products. The metal production process cannot be conceived without the use of lime, which purifies products created in the steel mill by modifying their composition.
+section.other-market(class="section-py")
+	.container-fluid
+		.swiper-column-auto(class="relative autoplay swiper-loop")
+			.wrap-heading(class="flex md:flex-row flex-col items-center justify-between mb-base") 
+				h2.title(class="heading-2 font-extrabold text-Primary-1") Other Markets & Applications
+				.wrap-button(class="lg:flex hidden items-center gap-6")
+					.btn.btn-sw-1.btn-prev.gray
+					.btn.btn-sw-1.btn-next.gray
+			.swiper 
+				.swiper-wrapper
+					-for(var i = 0; i < 4; i++)
+						.swiper-slide
+							+MarketItem()
+				.wrap-button-slide(class="xl:hidden flex")
+					.btn.btn-sw-1.btn-prev.gray
+					.btn.btn-sw-1.btn-next.gray

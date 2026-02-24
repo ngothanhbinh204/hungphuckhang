@@ -1,0 +1,9 @@
+extends ./_layout/_default.pug
+	
+block var
+	- var title = ''
+	- var bodyClass = 'market-detail'
+	
+block main
+	include ../components/global/Breadcrumb/Breadcrumb
+	include ../components/modules/Market/Detail/MarketDetail

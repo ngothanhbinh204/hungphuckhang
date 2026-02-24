@@ -1,0 +1,79 @@
+header.header 
+	.header-wrapper 
+		.header-logo
+			a(href="#" alt="logo") 
+				+PugImg("./img/logo-hungphuckhang.png")
+		.header-right
+			.header-menu 
+				ul.header-nav 
+					li
+						a(href="./index.html") TRANG CHỦ
+					li(class="menu-item-has-children")
+						a(href="./about.html") GIỚI THIỆU
+						ul.sub-menu
+							li
+								a(href="./about.html") Về chúng tôi
+							li
+								a(href="./about.html") Lịch sử hình thành
+					li
+						a(href="./Service.html") DỊCH VỤ 
+					li
+						a(href="./ProductList.html") BÁN MÁY
+					li
+						a(href="./RentList.html") CHO THUÊ MÁY
+					li
+						a(href="./Repair.html") SỬA CHỮA MÁY
+					li
+						a(href="./contact.html") LIÊN HỆ
+			.header-actions
+				.header-search 
+					i.fa-regular.fa-magnifying-glass
+				+HeaderLanguage()
+				a.header-hotline(href="tel:02838150134")
+					i.fa-solid.fa-phone
+					span HOTLINE: (028) 3815 0134
+			.header-bar
+				i.fa-light.fa-bars
+	.nav-mobile 
+		.header-wrap-head
+			.header-logo
+				a(href="#" alt="logo") 
+					+PugImg("./img/logo-hungphuckhang.png")
+			.header-close
+				i.fa-light.fa-xmark
+		.header-wrap-menu
+			ul.menu-mobile
+				li 
+					a(href="./index.html") TRANG CHỦ
+				li(class="menu-item-has-children") 
+					a(href="./about.html") GIỚI THIỆU
+					ul.sub-menu  
+						li 
+							a(href="./about.html") Về chúng tôi
+						li 
+							a(href="./about.html") Lịch sử hình thành
+				li
+					a(href="./Service.html") DỊCH VỤ
+				li
+					a(href="./ProductList.html") BÁN MÁY
+				li
+					a(href="./RentList.html") CHO THUÊ MÁY
+				li
+					a(href="./Repair.html") SỬA CHỮA MÁY
+				li
+					a(href="./contact.html") LIÊN HỆ
+			.header-mobile-bottom
+				+HeaderLanguage()
+				a.header-hotline(href="tel:02838150134")
+					i.fa-solid.fa-phone
+					span HOTLINE: (028) 3815 0134
+	.header-overlay
+.header-search-form
+	.close.flex.items-center.justify-center.absolute.top-0.right-0.bg-white.text-3xl.cursor-pointer(class="w-12.5 h-12.5")
+		i.fa-light.fa-xmark
+	.container
+		.wrap-form-search-product
+			.productsearchbox
+				input(type="text" placeholder="Tìm kiếm thông tin")
+				button
+					i.fa-light.fa-magnifying-glass

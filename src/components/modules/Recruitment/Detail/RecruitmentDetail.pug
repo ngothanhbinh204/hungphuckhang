@@ -1,0 +1,62 @@
+section.recruitment-detail(class="section-py")
+	.container 
+		.wrapper(class="grid md:grid-cols-2 gap-base")
+			.img 
+				a(href="#" class="img-ratio ratio:pt-[460_680]") 
+					+PugImg()
+			.content 
+				.title(class="rem:text-[24px] font-bold text-Primary-1 pb-6 border-b border-b-neutral-200") Tổng quan công việc
+				.recruitment-detail-tab-left(class="flex flex-col max-lg:w-full")
+					-for(var i = 0; i < 8; i++)
+						.recruitment-detail-tab-item
+							.recruitment-location Vị trí 
+							.recruitment-location-position Trợ lý Marketing
+		.recruitment-detail-main(class="flex gap-10 max-lg:flex-col mt-base") 
+			.col-left(class="lg:w-9/12 w-full flex flex-col gap-base")
+				-for(var i = 0; i < 3; i++)
+					.content(class="p-8 bg-Neutral-50") 
+						h3(class="rem:text-[24px] font-bold leading-8 text-Primary-New-1 pb-3 border-b border-b-neutral-200") Mô tả công việc
+						.format-content(class="mt-5 flex flex-col gap-3") 
+							ul 
+								li Xây dựng kế hoạch, triển khai các hoạt động PR truyền thông phù hợp với chiến lược Marketing tổng thể của sản phẩm hoặc dự án
+								li Xây dựng kế hoạch, triển khai các hoạt động PR truyền thông phù hợp với chiến lược Marketing tổng thể của sản phẩm hoặc dự án
+								li Xây dựng kế hoạch, triển khai các hoạt động PR truyền thông phù hợp với chiến lược Marketing tổng thể của sản phẩm hoặc dự án
+			.col-right(class="lg:w-3/12 w-full")
+				.button(class="flex flex-col gap-3 p-6 bg-neutral-50")
+					a(href="#form-requirement" class="bg-Primary-Green py-3 px-6 text-white font-medium border border-transparent hover:border-Primary-Green hover:bg-transparent hover:text-Primary-Green" data-fancybox) 
+						.button-link(class="flex items-center gap-2 justify-center")
+							span(class="text-lg uppercase font-bold") Ứng tuyển
+							i.fa-regular.fa-plus
+					button(class="border border-Primary-Green py-3 px-6 text-Primary-Green max-xl:p-3 hover:bg-Primary-Green hover:text-white font-medium") 
+						.button-link(class="flex items-center gap-2 justify-center")
+							a(href="#") TẢI HỒ SƠ ỨNG TUYỂN
+							i.fa-regular.fa-file-arrow-down
+				.box-info(class="mt-10 max-lg:border max-lg:border-neutral-300 border border-Neutral-100") 
+					h2.box-info-heading(class="lg:px-3 lg:py-4 p-3 bg-Primary-Green text-white font-bold text-2xl") Vị trí tuyển dụng khác
+					-for(var i = 0; i < 3; i++)
+						.box-info-item
+							h3 Tuyển dụng trợ lý Marketing
+							.box-info-date 
+								i.fa-regular.fa-calendar-star
+								span.title Hạn nộp hồ sơ
+								span.date 20.06.2024
+#form-requirement(style="display: none;" data-fancybox-modal)
+	.popup-content(class="w-full relative z-50")
+		h3(class="title-job text-5xl text-Neutral-Black font-light mb-10") Nhân viên Marketing
+		form(action="")
+			.form-group(class="grid grid-cols-1 gap-5 mb-5") 
+				.form-group
+					input(type="text" name="ho-va-ten" placeholder="Họ và tên")
+				.form-group-
+					input(type="email" name="email" placeholder="Email")
+				.form-group
+					input(type="tel" name="so-dien-thoai" placeholder="Số điện thoại")
+				.form-group
+					input(type="text" name="noi-dung" placeholder="Nội dung")
+				.form-group.form-input-file
+					input(type="file" name="file-cv" )
+				.form-submit(class="relative")
+					button(class="btn btn-primary") 
+						span Ứng tuyển
+						.icon 
+							<i class="fa-light fa-arrow-right-long"></i>

@@ -1,0 +1,27 @@
+section.home-5(class="xl:py-24 py-10" setBackground="./img/bg-home-5.png")
+	.container-fluid 
+		.wrapper(class="grid md:grid-cols-[27.94%_72.06%] grid-cols-1 items-center xl:gap-20 gap-base")
+			.col-left 
+				.sub-title(class="heading-4 font-semibold text-Utility-gray-500 mb-3" data-aos="fade-up" data-aos-duration="500") NEWS 
+				h2.title(class="heading-1 block-title mb-base") Company news and updates
+				a(href="#" class="btn btn-primary" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200") 
+					span SEE MORE
+					.icon 
+						img(src="./img/arrow.svg", alt="" class="img-svg")
+			.col-right 
+				.swiper-column-auto(class="relative")
+					.swiper 
+						.swiper-wrapper
+							-for(var i = 0; i < 4; i++)
+								.swiper-slide 
+									.news-item(class="group")
+										.img 
+											a(href="./NewsDetail.html" class="img-ratio ratio:pt-[318_440] zoom-img") 
+												+PugImg()
+										.content(class="xl:p-6 p-4")
+											h3(class="heading-5 font-semibold group-hover:text-Primary-2 mb-3") 
+												a(href="#") Compare the quality and cost of construction stone by region
+											.bottom-content(class="flex items-center gap-2 font-normal body-4 font-secondary")
+												.day 20.08.2025
+												.dot 
+												.category(class="text-Primary-1") Tin công ty

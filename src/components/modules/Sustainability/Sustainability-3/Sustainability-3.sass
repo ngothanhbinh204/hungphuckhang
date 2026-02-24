@@ -1,0 +1,323 @@
+.section-field-op
+	@apply relative
+	.field-op
+		@apply relative z-1
+		.swiper
+			@apply w-full
+		.swiper-wrapper
+			@apply flex items-stretch
+		.swiper-slide
+			@screen xl
+				@apply flex-1
+				width: auto !important
+			@media (min-width: 768px) and (max-width: 1199.98px)
+				width: auto !important
+				flex-shrink: 0
+			@screen -md
+				width: 100% !important
+				flex-shrink: 0
+	.section-field-op-img
+		transition: background-image 0.8s ease-in-out
+		background-size: cover
+		background-position: center center
+		background-repeat: no-repeat
+		@media (max-width: 1199.98px)
+			min-height: 600px
+		@screen -lg
+			min-height: 500px
+		@screen -md
+			min-height: 450px
+		.field-op-intro-overlay
+			@apply bg-white
+			transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+			opacity: 1
+			visibility: visible
+			backface-visibility: hidden
+			-webkit-font-smoothing: antialiased
+			@apply xl:flex hidden
+			.intro-content-top
+				@screen -lg
+					@apply mb-6
+				.sub-title
+					@apply font-semibold
+					letter-spacing: 0.1em
+					@screen -lg
+						@apply text-sm
+				.desc
+					p
+						@apply leading-relaxed
+						@screen -lg
+							@apply text-sm leading-normal
+			.field-op-intro-grid
+				@apply border-t border-t-gray-200 relative
+				@screen -lg
+					@apply grid grid-cols-2 gap-3
+				@screen -md
+					@apply grid-cols-1 gap-2
+			.intro-item
+				@apply cursor-pointer relative
+				transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+				@screen -lg
+					@apply p-4 rounded-lg border border-gray-200
+				@screen -md
+					@apply p-3
+				&:hover
+					@apply bg-Primary-1
+					h3
+						@apply scale-110
+				&:active
+					@screen -lg
+						@apply bg-Primary-1 scale-95
+				h3
+					transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+					backface-visibility: hidden
+					-webkit-font-smoothing: antialiased
+					background: url('../img/text.jpg') no-repeat center bottom 50%
+					background-clip: text
+					-webkit-background-clip: text
+					-webkit-text-fill-color: transparent
+					@apply select-none bg-cover
+					@screen -lg
+						@apply text-xl
+					@screen -md
+						@apply text-lg
+		&:hover
+			.field-op-intro-overlay
+				@apply opacity-0 invisible
+		.swiper-field-op
+			@apply relative z-0
+		.field-op-list
+			@apply flex items-stretch
+			@screen xl
+				perspective: 1000px
+			&:hover
+				@screen xl
+					.field-op-item
+						.info
+							@apply opacity-0 invisible
+			.field-op-item
+				background: rgba(0, 0, 0, 0.20)
+				backdrop-filter: blur(2px)
+				@apply mr-0 border-r border-r-white h-full
+				@screen xl
+					@apply flex-1
+					transition: flex 0.9s cubic-bezier(0.4, 0, 0.2, 1)
+					will-change: flex
+				@media (min-width: 768px) and (max-width: 1199.98px)
+					@apply border-r-0 border-b border-b-white py-4
+					min-height: auto
+					width: 100%
+				@screen -md
+					@apply py-6
+					min-height: auto
+					width: 100%
+					@apply flex flex-col justify-center
+					background: rgba(0, 0, 0, 0.30)
+					backdrop-filter: blur(4px)
+				&:hover
+					&::before
+						@screen xl
+							animation: sweepFadeLight 0.8s ease-out forwards
+				&:hover:not(.active)
+					@screen xl
+						.wrap-content-top
+							.title-active
+								@apply opacity-100 visible
+								transform: translate3d(-50%, -50%, 0) scale(1)
+							.title
+								@apply opacity-30
+				&:active
+					@media (max-width: 1199.98px)
+						@apply scale-[0.98]
+				&::before
+					content: ''
+					@apply absolute top-0 left-0 w-full h-full pointer-events-none z-10
+					background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)
+					transform: translateX(-100%)
+					opacity: 0
+					@media (max-width: 1199.98px)
+						display: none
+				.info
+					@media (max-width: 1199.98px)
+						@apply px-4
+					@screen -lg
+						@apply px-3
+					@screen -md
+						@apply px-6 py-6
+					.title
+						@apply whitespace-nowrap
+						@media (max-width: 1199.98px)
+							@apply whitespace-normal text-base
+						@screen -lg
+							@apply text-sm
+						span
+							@apply line-clamp-2 -xl:pl-3.5 rem:border-l-[2px] border-transparent -xl:border-Primary-1 transition-300
+							@media (max-width: 1199.98px)
+								@apply pl-0 border-l-0
+				.wrap-content-top
+					@apply relative
+					@media (max-width: 1199.98px)
+						@apply px-4
+					@screen -lg
+						@apply px-3
+					@screen -md
+						@apply px-6
+					.sub-title
+						@apply opacity-0 invisible
+						transform: scaleX(0)
+						transform-origin: left center
+						transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)
+						@media (max-width: 1199.98px)
+							@apply opacity-100 visible transform-none
+					.title-active
+						@apply absolute top-1/2 left-1/2 opacity-0 invisible rem:text-[72px] font-bold text-white uppercase whitespace-nowrap z-10
+						will-change: transform, opacity
+						transform: translate3d(-50%, -50%, 0) scale(0.7)
+						transform-origin: center center
+						transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+						backface-visibility: hidden
+						-webkit-font-smoothing: antialiased
+						line-height: 1.35
+						pointer-events: none
+						text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)
+						@media (max-width: 1199.98px)
+							@apply opacity-100
+					.title
+						@apply relative z-1
+						will-change: transform, color
+						transform: translate3d(0, 0, 0) scale(1)
+						transform-origin: center center
+						transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+						backface-visibility: hidden
+						-webkit-font-smoothing: antialiased
+						@media (max-width: 1199.98px)
+							@apply text-6xl
+				@screen xl
+					&.active
+						background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.40) 100%)
+						backdrop-filter: unset
+						.info
+							@apply opacity-100 visible px-25
+						@screen xl
+							@apply flex-[2]
+							.info
+								transform: translate3d(0, 0, 0)
+								.title span
+									@apply pl-3.5 border-Primary-1
+								.content
+									@apply opacity-100 visible
+							.wrap-content-top
+								@apply text-left px-25 text-white py-20
+								.sub-title
+									@apply mb-3 opacity-100 visible
+									transform: scaleX(1)
+								.title-active
+									@apply opacity-100 visible static inline-block
+									transform: translate3d(-3%, 0, 0) scale(1)
+									transform-origin: left center
+									line-height: 1.35
+									vertical-align: middle
+								.title
+									@apply opacity-0 invisible absolute
+				@media (max-width: 1199.98px)
+					&.active
+						background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.50) 100%)
+						min-height: auto
+						.info
+							@apply opacity-100 visible
+							.title
+								@apply text-white font-semibold mb-2
+							.content
+								@apply opacity-100 visible text-white
+								background: rgba(255, 255, 255, 0.15)
+								backdrop-filter: blur(8px)
+								border: 1px solid rgba(255, 255, 255, 0.2)
+						.wrap-content-top
+							@apply text-white
+							.title
+								@apply text-white font-semibold
+				@screen -md
+					&.active
+						background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.60) 100%)
+						.info
+							.title
+								@apply text-white font-bold text-lg mb-3
+							.content
+								@apply text-white text-sm leading-relaxed
+								background: rgba(255, 255, 255, 0.2)
+								backdrop-filter: blur(10px)
+								border: 1px solid rgba(255, 255, 255, 0.3)
+			.field-op-item
+				&:not(:last-child)::before
+					@apply content-[''] block absolute right-0 top-0 w-[1.12px] h-full z-2 bg-Utility-gray-50
+					@media (max-width: 1199.98px)
+						@apply right-auto bottom-0 top-auto left-0 w-full h-[1.12px]
+				.info
+					@apply w-full
+					will-change: transform, opacity
+					transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), padding 0.9s cubic-bezier(0.4, 0, 0.2, 1)
+					backface-visibility: hidden
+					-webkit-font-smoothing: antialiased
+					@screen xl
+						transform: translate3d(0, calc(100% - (73px + (44px * 2))), 0)
+					@media (max-width: 1199.98px)
+						transform: translate3d(0, 0, 0)
+						@apply opacity-100 visible
+					.title
+						height: calc(1em * 1.35 * 2)
+						-webkit-box-orient: vertical
+						-webkit-line-clamp: 2
+						overflow: hidden
+						display: flex
+						align-items: flex-end
+						backface-visibility: hidden
+						-webkit-font-smoothing: antialiased
+						@media (max-width: 1199.98px)
+							height: auto
+							@apply line-clamp-2 mb-2
+					.content
+						@apply p-4 rounded-5
+						backface-visibility: hidden
+						-webkit-font-smoothing: antialiased
+						@media (max-width: 1199.98px)
+							@apply p-3 text-sm mt-2
+							background: rgba(255, 255, 255, 0.1)
+							backdrop-filter: blur(4px)
+						@screen -lg
+							@apply p-2 text-xs mt-1
+						@screen -md
+							@apply p-2 text-xs mt-1
+				.wrap-content-top
+					@apply z-3
+		// Swiper Navigation & Pagination
+		.swiper-pagination
+			@apply block
+			@screen -md
+				bottom: 20px !important
+				left: 50% !important
+				transform: translateX(-50%)
+			.swiper-pagination-bullet
+				@apply bg-white opacity-50
+				width: 8px
+				height: 8px
+				margin: 0 4px
+				&.swiper-pagination-bullet-active
+					@apply opacity-100
+					@screen -md
+						width: 24px
+						border-radius: 4px
+		.btn-prev, .btn-next
+			@screen -md
+				@apply block
+			@screen xl
+				@apply block
+
+@keyframes sweepFadeLight
+	0%
+		transform: translateX(-100%)
+		opacity: 0
+	50%
+		opacity: 0.5
+	100%
+		transform: translateX(100%)
+		opacity: 0

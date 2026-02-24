@@ -1,0 +1,37 @@
+.sustainability-2
+	.wrapper
+		.col-right
+			.swiper
+				.swiper-slide
+					.box-item
+						@apply bg-Primary-1 border-b-3 border-b-white xl:p-12 p-5
+						.wrap-top
+							.number
+								background: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%)
+								background-clip: text
+								-webkit-background-clip: text
+								-webkit-text-fill-color: transparent
+								@apply xl:rem:text-[128px] text-[80px] font-extrabold
+						.wrap-bottom
+							@apply xl:-translate-y-22.5
+							.format-content
+								@apply space-y-4
+								p
+									@apply mb-0
+								ul
+									@apply pl-6
+									li
+										@apply marker:text-sm
+			.wrap
+				@apply absolute w-full bottom-0 left-0 px-12 pb-12
+				@screen -xl
+					@apply justify-end flex-col-reverse gap-3 items-end
+				.swiper-pagination
+					@apply static w-max
+					.swiper-pagination-bullet
+						@apply rem:w-[9px] rem:h-[9px] bg-transparent border border-white opacity-100
+						@apply transition-all duration-300
+					.swiper-pagination-bullet-active
+						@apply bg-white border-transparent
+				.arrow-button
+					@apply relative z-2

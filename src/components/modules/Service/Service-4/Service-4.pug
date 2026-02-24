@@ -1,0 +1,12 @@
+section.service-4(class="section-py")
+	.container-fluid 
+		h2.title(class="heading-2 font-extrabold mb-base text-center") Other Services
+		.swiper-column-auto(class="relative autoplay swiper-loop")
+			.swiper 
+				.swiper-wrapper
+					-for(var i = 0; i < 8; i++)
+						.swiper-slide
+							+ServiceItem()
+			.arrow-button(class="flex-center gap-6 mt-base") 
+				.btn.btn-sw-1.btn-prev
+				.btn.btn-sw-1.btn-next

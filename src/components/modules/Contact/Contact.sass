@@ -1,0 +1,24 @@
+.contact
+	.wrapper-main
+		.col-left
+			.item
+				.link
+					a
+						@apply hover:text-Primary-2
+.contact-2
+	@apply relative
+	&::before
+		content: ""
+		background: linear-gradient(0deg, rgba(22, 29, 46, 0.60) 0%, rgba(22, 29, 46, 0.60) 100%)
+		@apply absolute top-0 left-0 w-full h-full pointer-events-none z-1
+	.wrap-form-box
+		backdrop-filter: blur(9.550000190734863px)
+		@apply rounded-10 xl:p-16 p-5 bg-white/20 relative z-2
+		form
+			.form-group
+				input, textarea
+					@apply h-12 inline-flex items-center justify-center rounded-full px-6 bg-white/20 placeholder:text-white body-1 font-secondary w-full
+				&.textarea
+					@apply col-span-full 
+					textarea
+						@apply px-6 pt-4 rem:min-h-[128px] h-full resize-none rounded-4

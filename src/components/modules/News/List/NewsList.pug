@@ -1,0 +1,52 @@
+section.news(class="section-py")
+	.container 
+		ul.nav-primary
+			li.active
+				a(href="#") Blog ẩm thực
+			li 
+				a(href="#") Blog ẩm thực
+			li 
+				a(href="#") Blog ẩm thực
+			li 
+				a(href="#") Blog ẩm thực
+		.news-main(class="grid lg:grid-cols-2 rem:gap-[29px] mt-base")
+			.col-left 
+				.news-item(class="overflow-hidden border-none") 
+					.img 
+						a(href="./NewsDetail.html" class="img-ratio ratio:pt-[382_680] zoom-img") 
+							+PugImg()
+					.content(class="mt-5")
+						.top(class="flex items-center gap-2")
+							.date 25.08.2025
+							.category(class="text-Primary-1") kiwifood
+						.bottom 
+							.title(class="title-20 font-bold mb-2") 
+								a(href="#") Vì Sao Bạn Nên Chọn Các Sản Phẩm Của Kiwifood
+							.desc(class="line-clamp-3 text-Utility-gray-800")
+								p Kiwifood Hoàng Lê mang đến cho Khách Hàng sản phẩm nguyên liệu với tính năng và giá cả phù hợp, thu mua từ các nhà máy đạt tiêu chuẩn trên toàn thế giới, chất lượng đảm bảo, sẵn sàng hỗ trợ công nghệ và kiến thức sản phẩm, hàng hóa có sẵn.
+			.col-right 
+				-for(var i = 0; i < 3; i++)
+					.news-item(class="overflow-hidden grid md:grid-cols-2 md:gap-0 gap-4") 
+						.img(class="xl:pr-11")
+							a(href="#" class="img-ratio ratio:pt-[168_328] zoom-img") 
+								+PugImg()
+						.content 
+							.top(class="flex items-center gap-2 pb-4 mb-4 border-b border-b-Utility-gray-200")
+								.date 25.08.2025
+								.category(class="text-Primary-1") kiwifood
+							.bottom 
+								.title(class="title-20 font-bold mb-2 line-clamp-2") 
+									a(href="#") Vì Sao Bạn Nên Chọn Các Sản Phẩm Của Kiwifood
+								.desc(class="line-clamp-3 text-Utility-gray-800")
+									p Kiwifood Hoàng Lê mang đến cho Khách Hàng sản phẩm nguyên liệu với tính năng và giá cả phù hợp, thu mua từ các nhà máy đạt tiêu chuẩn trên toàn thế giới, chất lượng đảm bảo, sẵn sàng hỗ trợ công nghệ và kiến thức sản phẩm, hàng hóa có sẵn.
+		.news-list(class="grid md:grid-cols-3 gap-base mt-base") 
+			-for(var i = 0; i < 6; i++)
+				+NewsItem()
+		.pagination(class="mt-base")
+			ul.page-numbers
+				li 
+					a.active(href="#") 1 
+				li 
+					a(href="#") 2
+				li 
+					a(href="#") 3

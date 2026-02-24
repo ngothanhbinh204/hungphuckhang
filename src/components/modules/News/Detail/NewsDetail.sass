@@ -1,0 +1,57 @@
+body
+	&.single-post
+		.page-banner-main
+			@apply hidden
+.news-detail
+	.col-left
+		.news-item-meta 
+			@apply mb-6
+		.news-item-meta>*+*
+			@apply pl-2 border-l border-l-Utility-gray-500
+		.format-content
+			h2, h3, h4
+				@apply font-normal text-Primary-1 mb-3
+			b
+				@apply font-medium
+			p
+				@apply mb-6
+			ol
+				list-style: number
+				@apply pl-5 flex flex-col gap-2
+			table
+				@apply my-6
+				tbody
+					tr
+						td
+							@apply border border-Utility-gray-200 p-2
+		.sticky-share-post
+			@apply mr-10
+			ul
+				@apply flex flex-col gap-3
+				li
+					a
+						@apply sq-12 inline-flex items-center justify-center
+						@apply bg-transparent text-Primary-1 rounded-full border-2 border-Primary-1
+					&:hover
+						a
+							@apply bg-Primary-1 text-Utility-white
+	.col-right
+		@apply sticky h-fit top-36
+		.news-detail-list
+			.news-item
+				.title
+					@apply  line-clamp-2 mb-0
+				.desc
+					@apply line-clamp-2
+				.content
+					@apply bg-transparent p-0
+					.top
+						@apply pb-2 mb-2
+				&:hover
+					.content
+						.top
+							.category
+								@apply text-Primary-1
+						.bottom
+							.title
+								@apply text-Primary-1
