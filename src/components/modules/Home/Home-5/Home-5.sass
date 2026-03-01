@@ -1,14 +1,89 @@
 .home-5
-	@apply overflow-hidden
+	@apply py-6 lg:pb-0 lg:pt-8 bg-white overflow-hidden
+	
+	.home5-wrapper
+		@apply flex flex-col lg:flex-row items-stretch
+		
+	.col-left
+		@apply w-full lg:w-1/2 relative
+		.image-block
+			@apply relative w-full h-full overflow-hidden
+			@apply img-ratio ratio:pt-[600_960] lg:ratio:pt-[1200_960] xl:ratio:pt-[880_960]
+			.img-main
+				@apply absolute inset-0 w-full h-full
+				img
+					@apply absolute inset-0 w-full h-full object-cover 
+					@apply opacity-0 pointer-events-none
+					transition: opacity 0.8s ease-in-out
+					&.active
+						@apply opacity-100 z-1 pointer-events-auto
+						
 	.col-right
-		.swiper-column-auto
-			.swiper-slide
-				--spv: 2
-				--mr: calc(12/1920*100rem)
-				@screen sm
-					--spv: 2
-				@screen md
-					--spv: 2
-				@screen lg
-					--spv: 2.66
-					--mr: calc(40/1920*100rem)
+		@apply w-full lg:w-1/2 flex items-center
+		@apply py-6 lg:py-0 pl-4 pr-4 lg:pl-10 xl:pl-25
+	.content-inner
+		@apply w-full lg:rem:max-w-[calc(100%-80px)] xl:rem:max-w-[calc(100%-260px)]
+		.block-title
+			@apply heading-36 font-bold text-Primary-1 mb-6 lg:mb-10 uppercase
+			
+	.accordion-list
+		@apply flex flex-col gap-6
+		// @apply min-h-[500px] lg:min-h-[550px]
+		
+	.accordion-item
+		@apply bg-Utility-gray-50 p-4 lg:p-5 transition-all duration-500 ease-linear cursor-pointer
+		@apply border border-transparent
+		@apply flex items-start gap-6 lg:gap-8
+		
+		.item-icon
+			@apply flex-none
+			.icon-wrap
+				@apply sq-16 p-3 flex-center rounded-full bg-white transition-all duration-500
+				img
+					@apply w-full h-full object-contain transition-all duration-500
+		
+		.item-content
+			@apply flex-1 flex flex-col gap-3 my-auto
+			.title-wrap
+				h3
+					@apply rem:text-[24px] font-bold text-Utility-gray-950 transition-all duration-500
+					@apply leading-[1.35]
+		
+			.item-body
+				display: grid
+				grid-template-rows: 0fr
+				@apply opacity-0 overflow-hidden
+				transition: grid-template-rows 0.5s ease-in-out, opacity 0.4s ease-in-out
+				
+				.inner
+					@apply min-h-0 
+					@apply flex flex-col gap-3
+					.desc
+						@apply rem:text-[18px] text-white leading-1.4 font-normal
+					.btn-more
+						@apply inline-flex items-center gap-3 text-white font-normal rem:text-[18px] opacity-70
+						i
+							@apply transform transition-transform duration-300
+						&:hover
+							i
+								@apply translate-x-1
+						
+		&.active
+			@apply bg-Primary-1
+			.icon-wrap
+				@apply bg-white
+			.title-wrap
+				h3
+					@apply text-white
+			.item-body
+				grid-template-rows: 1fr
+				@apply opacity-100
+				.desc
+					@apply text-white/90
+				.btn-more
+					@apply text-white
+					
+		&:not(.active):hover
+			@apply bg-white shadow-md
+			.title-wrap h3
+				@apply text-Primary-1

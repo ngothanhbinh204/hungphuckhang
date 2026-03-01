@@ -1,47 +1,109 @@
 .footer
-	@apply text-Primary-1
+	@apply py-12 lg:py-16 bg-white border-t border-Utility-gray-100 overflow-hidden
+	
 	.footer-top
-		@apply pb-6 border-b border-Primary-1/40 mb-6
-		.footer-top-social 
-			ul
-				@apply flex items-center gap-2
-				li
-					a
-						@apply sq-10 inline-flex items-center justify-center 
-						@apply bg-white text-Primary-1 rounded-full
-					&:hover
-						a
-							@apply bg-Primary-2 text-white
-	.footer-mid
-		@apply pb-6 border-b border-Primary-1/40 mb-6
-		.footer-column
-			@apply xl:pr-7 xl:border-r xl:border-Primary-1/20 last:border-r-0
-			.footer-contact 
-				ul.infos
-					li
-						a
-							@apply flex gap-1 hover:text-Primary-2
-							span
-								@apply font-secondary
-							.icon
-								@apply sq-3 inline-flex items-center justify-center flex-shrink-0 my-1
-								i
-									@apply rem:text-[12px] font-black
-			ul.footer-menu
-				@apply flex flex-col gap-3
-				li
-					a
-						@apply body-1 font-normal 
-						@apply hover:text-Primary-2 font-secondary
-
+		@apply mb-12
+		
+	.footer-grid
+		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.8fr_1.2fr_1fr] gap-10 lg:rem:gap-[52px]
+		
+	.footer-col
+		@apply flex flex-col
+		
+	.footer-title
+		@apply relative pl-5 mb-6 rem:text-[20px] font-bold text-Utility-gray-950 uppercase leading-snug
+		&::before
+			content: ""
+			@apply absolute left-0 top-0 w-1 h-full bg-Primary-1
+			
+	.contact-list
+		@apply flex flex-col gap-2
+		li
+			@apply flex items-start gap-5 text-Utility-gray-950 rem:text-[16px]
+			i
+				@apply mt-1 rem:text-[18px] flex-shrink-0
+			span
+				@apply leading-relaxed
+				
+	.menu-list
+		@apply flex flex-col gap-2
+		li
+			a
+				@apply relative text-Utility-gray-950 body-2 transition-all duration-300 leading-1.4
+				@apply hover:text-Primary-1 inline-block
+				&:before
+					content: ""
+					@apply absolute left-0 -bottom-[2px] w-0 h-[1px] bg-Primary-1
+					@apply transition-all duration-300
+				&:hover:before
+					@apply w-full
+				
+	.license-info
+		@apply mt-4
+		p
+			@apply body-3 text-Utility-gray-950
+			
+	.footer-col.support-box
+		@apply w-full
+		.support-card
+			@apply bg-Primary-1 text-white p-5 h-full flex flex-col
+			
+			.card-header
+				@apply flex items-center gap-6
+				i
+					@apply rem:text-[20px]
+				h3
+					@apply heading-4 font-semibold uppercase
+		.support-card, .card-body
+			@apply flex flex-col gap-4
+			.card-body
+				@apply flex flex-col
+				.support-item
+					@apply flex flex-col gap-1
+					.label
+						@apply text-white heading-6
+					.phone
+						@apply rem:text-[24px] font-bold block hover:underline transition-all
+					.email
+						@apply text-white body-3 hover:underline transition-all font-bold
+						
+				.divider
+					@apply h-[1px] bg-white/20 w-full
+					
 	.footer-bottom
-		ul
-			@apply flex items-center
-			li
-				&+li
-					&::before
-						content: '|'
-						@apply text-Primary-1/50
-						@apply mx-3
-				a
-					@apply text-Primary-1/50 body-4 font-normal hover:text-Primary-2
+		@apply pt-12 border-t border-[#1515154d]
+		
+		.bottom-wrapper
+			@apply flex flex-wrap items-center justify-between gap-10
+			
+		.left-box
+			@apply flex flex-wrap items-center gap-10
+			.bottom-logo
+				@apply transition-opacity hover:opacity-80
+				img
+					@apply rem:max-h-[46px] w-auto
+			.copyright
+				@apply text-Utility-gray-950 opacity-50 heading-6 font-bold
+				
+		.right-box
+			@apply flex flex-wrap items-center gap-6
+			
+		.bottom-links
+			@apply flex items-center gap-6
+			a
+				@apply text-Utility-gray-950 body-4 transition-colors hover:text-Primary-1
+				@apply relative
+				&:not(:last-child)::after
+					content: "|"
+					@apply absolute -right-3 rem:text-Utility-gray-300 pointer-events-none
+					
+		.social-links
+			@apply flex items-center gap-2.5
+			a
+				@apply sq-12 flex-center bg-Primary-1 text-white transition-all duration-500
+				@apply hover:bg-Utility-gray-900
+				i
+					@apply rem:text-[20px]
+					
+.divider
+	@apply h-[1px] bg-white/30 w-full

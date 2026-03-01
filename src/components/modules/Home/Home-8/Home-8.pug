@@ -1,0 +1,59 @@
+section.home-8
+	.container
+		h2.block-title(class="rem:text-[36px]" data-aos="fade-up") Tin tức nổi bật
+		.tabs-wrapper(data-aos="fade-up" data-aos-delay="200")
+			ul.tabs-list
+				li.tab-item.active(data-tab="all") Tất cả
+				li.tab-item(data-tab="company") Tin tức
+				li.tab-item(data-tab="market") Kiến thức
+				li.tab-item(data-tab="event") Sự kiện
+		
+		.news-slider-relative(data-aos="fade-up" data-aos-delay="400")
+			.swiper.home-8-swiper
+				.swiper-wrapper
+					- for (var s = 0; s < 3; s++)
+						.swiper-slide
+							.news-group
+								// Bài viết lớn nằm full hàng
+								.news-item.big-item
+									a.img(href="./NewsDetail.html")
+										img(src="./img/bg-home-4.png", alt="")
+									.content
+										.meta
+											span.date 03.06.2026
+											span.category Tin công ty
+										h3.title
+											a(href="./NewsDetail.html") Cách in từ điện thoại thiết bị di động ra máy photocopy
+										p.desc Ngày nay, máy photocopy trở thành một công cụ vô cùng hữu ích trong công việc, chính vì vậy mà việc sử dụng máy photocopy trở thành kỹ năng cần thiết mà mỗi người nên có. Tuy nhiên, không phải lúc nào chúng ta cũng có thể kết nối máy tính với máy photocopy để hoàn thành công việc.
+
+								// Hai bài viết nhỏ nằm bên dưới
+								.small-items
+									.news-item.small-item
+										a.img(href="./NewsDetail.html")
+											img(src="./img/bg-home-6.png", alt="")
+										.content
+											.meta
+												span.date 03.06.2026
+												span.category Tin thị trường
+											h3.title
+												a(href="./NewsDetail.html") Kinh nghiệm chọn máy photocopy cho trường học
+											p.desc Ngày nay, máy photocopy trở thành một công cụ vô cùng hữu ích trong công việc, chính vì vậy mà việc sử dụng máy photocopy trở thành kỹ năng cần thiết mà mỗi người nên có. Tuy nhiên, không phải lúc nào chúng ta cũng có thể kết nối máy tính với máy photocopy để hoàn thành công việc.
+									
+									.news-item.small-item
+										a.img(href="./NewsDetail.html")
+											img(src="./img/bg-home-4.png", alt="")
+										.content
+											.meta
+												span.date 03.06.2026
+												span.category Tin sự kiện
+											h3.title
+												a(href="./NewsDetail.html") Các loại mực thường dùng trong ngành in ấn
+											p.desc Ngày nay, máy photocopy trở thành một công cụ vô cùng hữu ích trong công việc, chính vì vậy mà việc sử dụng máy photocopy trở thành kỹ năng cần thiết mà mỗi người nên có. Tuy nhiên, không phải lúc nào chúng ta cũng có thể kết nối máy tính với máy photocopy để hoàn thành công việc.
+	
+			.swiper-nav-wrapper
+				.swiper-button-prev.home-8-prev
+					i.fa-light.fa-chevron-left
+				.swiper-button-next.home-8-next
+					i.fa-light.fa-chevron-right
+		.block-btn.text-center(data-aos="fade-up" data-aos-delay="600")
+			a(href="./NewsList.html" class="btn btn-primary") Xem tất cả

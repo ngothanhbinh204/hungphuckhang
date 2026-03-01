@@ -1,0 +1,29 @@
+section.home-7
+	.bg-pattern
+		img(src="./img/bg_doitac.svg", alt="")
+	.container
+		h2.block-title(class="rem:text-[36px]" data-aos="fade-up") Đối tác khách hàng
+		.swiper-wrapper-relative
+			.swiper.home-7-swiper(data-aos="fade-up" data-aos-delay="200")
+				.swiper-wrapper
+					-
+						var partners = [
+							{ logo: "./img/logo_doitac.png", name: "Partner 1" },
+							{ logo: "./img/logohpk.svg", name: "Partner 2" },
+							{ logo: "./img/logo_doitac.png", name: "Partner 3" },
+							{ logo: "./img/logo_doitac.png", name: "Partner 4" },
+							{ logo: "./img/logo_doitac.png", name: "Partner 5" },
+							{ logo: "./img/logo_doitac.png", name: "Partner 6" }
+						]
+						var allPartners = [...partners, ...partners, ...partners]
+					each partner in allPartners
+						.swiper-slide
+							.partner-item
+								.partner-logo
+									img(src=partner.logo, alt=partner.name)
+							.hover-line
+			.swiper-nav-wrapper
+				.swiper-button-prev.home-7-prev
+					i.fa-light.fa-chevron-left
+				.swiper-button-next.home-7-next
+					i.fa-light.fa-chevron-right

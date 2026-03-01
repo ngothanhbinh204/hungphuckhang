@@ -31,24 +31,24 @@ $(document).ready(function () {
 		".product-item .block-info .info-name",
 		".product-item .block-info",
 	);
-	const lenis = new Lenis({
-		duration: 0.5, // thay vì 0.3
-		easing: (t) => 1 - Math.pow(1 - t, 3), // easing mượt hơn
-		smooth: true,
-		direction: "vertical",
-		gestureDirection: "vertical",
-		smoothTouch: true,
-	});
+	// const lenis = new Lenis({
+	// 	duration: 0.5,
+	// 	easing: (t) => 1 - Math.pow(1 - t, 3), 
+	// 	smooth: true,
+	// 	direction: "vertical",
+	// 	gestureDirection: "vertical",
+	// 	smoothTouch: true,
+	// });
 
-	// RAF loop for Lenis
-	function raf(time) {
-		lenis.raf(time);
-		requestAnimationFrame(raf);
-	}
-	requestAnimationFrame(raf);
+	// // RAF loop for Lenis
+	// function raf(time) {
+	// 	lenis.raf(time);
+	// 	requestAnimationFrame(raf);
+	// }
+	// requestAnimationFrame(raf);
 
-	// Expose lenis to window for debugging
-	window.lenis = lenis;
+	// // Expose lenis to window for debugging
+	// window.lenis = lenis;
 
 	setTimeout(() => {
 		AOS.init({

@@ -60,52 +60,58 @@
 					a
 						@apply bg-Primary-1 text-white
 	.product-item
-		@apply relative
-		// .block-thumb
-		// 	.thumb  
-		// 		@apply img-ratio ratio:pt-[1_1]
-		.block-info
-			border-image-source: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 85%, rgba(255,255,255,0) 100%)
-			border-image-slice: 1
-			@apply absolute-center w-full h-full z-2 text-center
-			@apply rem:border-[16px] xl:gap-5 xl:p-8 xl:rem:border-[20px] xl:px-10 xl:py-8
-			.child
-				background: linear-gradient(180deg, rgba(0, 91, 165, 0.00) 68.52%, rgba(0, 91, 165, 0.30) 92.22%)
-				@apply absolute inset-0 flex flex-col justify-end gap-y-5 xl:px-10 px-4 xl:py-8 py-5 z-1
-			&::before
-				background: linear-gradient(180deg, rgba(0, 91, 165, 0.00) 68.52%, rgba(0, 91, 165, 0.30) 92.22%)
-				@apply content-[''] absolute inset-0 z-1 transition-500 
-			&::after
-				@apply content-[''] absolute inset-0 -z-1 lg:opacity-0 lg:invisible transition-500
-				backdrop-filter: blur(6px)
-				background: radial-gradient(294.79% 141.42% at 0% 0%, rgba(0, 91, 165, 0.80) 0%, rgba(0, 116, 212, 0.40) 100%)
-			.info-name 
-				@apply heading-3 text-white line-clamp-2 font-semibold uppercase
-				@apply xl:rem:translate-y-[calc(var(--offset-bottom)-32px)] transition-500 shrink-0
-			.desc-project-list    
-				@apply flex flex-col gap-y-6 body-1 text-white overflow-y-auto overflow-scroll-1
-				@apply xl:opacity-0 xl:invisible transition-500
-				.title
-					@apply font-bold
-			.btn-primary
-				@apply xl:opacity-0 xl:invisible transition-500
-		@screen lg
-			&:hover
-				.block-info
-					&::after
-						@apply opacity-100 visible
-					&::before
-						@apply opacity-0 invisible
-					.info-name
-						@apply translate-y-0
-					.desc-project-list
-						@apply opacity-100 visible
-					.btn-primary
-						@apply opacity-100 visible
-	.news-item
-		@apply border-b border-b-Utility-gray-200
+		@apply bg-white p-4 h-full flex flex-col transition-all duration-300 relative border border-Utility-gray-100
+		.img
+			@apply relative mb-4 overflow-hidden img-ratio ratio:pt-[1_1] rem:max-h-[256px] flex items-center justify-center
+			a
+				@apply block w-full h-full
+			img
+				@apply w-full h-full object-contain transition-transform duration-500 p-2 lg:p-5
+		
 		.content
-			@apply bg-white
+			@apply flex flex-col flex-1
+			
+			.title
+				@apply text-xl font-semibold mb-2 line-clamp-2 h-14 overflow-hidden leading-[1.4]
+				a
+					@apply text-Utility-gray-950 transition-colors duration-300
+			
+			.tags
+				@apply flex items-center gap-2 mb-1
+				.tag
+					@apply rem:text-[14px] font-bold px-2 py-[2px] text-white
+					&.discount
+						@apply bg-Utility-gray-950
+					&.bestseller
+						@apply bg-Primary-1
+			
+			.price
+				@apply flex flex-wrap items-end gap-x-4 gap-y-2 mb-4 border-b border-[#F1F3F4] pb-3
+				.current
+					@apply rem:text-[24px] font-bold text-Utility-gray-950
+				.old
+					@apply rem:text-[14px] text-Utility-gray-600 line-through mb-1 font-normal
+			
+			.specs
+				@apply mt-auto
+				ul
+					@apply flex flex-col gap-1
+					li
+						@apply flex items-start gap-2 rem:text-[16px] text-Utility-gray-600
+						span
+							@apply text-Utility-gray-600 rem:text-[16px]
+						.icon
+							@apply text-Primary-1 mt-0.5 shrink-0 rem:text-[16px]
+		&:hover
+			@apply border-Primary-1
+
+			.title a
+				@apply text-Primary-1
+		
+	.news-item
+		@apply border border-b-Utility-gray-200
+		.content
+			@apply bg-transparent
 			.bottom-content
 				.dot
 					@apply sq-1 rounded-full bg-black

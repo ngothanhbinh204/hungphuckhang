@@ -1,27 +1,73 @@
-section.home-5(class="xl:py-24 py-10" setBackground="./img/bg-home-5.png")
-	.container-fluid 
-		.wrapper(class="grid md:grid-cols-[27.94%_72.06%] grid-cols-1 items-center xl:gap-20 gap-base")
-			.col-left 
-				.sub-title(class="heading-4 font-semibold text-Utility-gray-500 mb-3" data-aos="fade-up" data-aos-duration="500") NEWS 
-				h2.title(class="heading-1 block-title mb-base") Company news and updates
-				a(href="#" class="btn btn-primary" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200") 
-					span SEE MORE
-					.icon 
-						img(src="./img/arrow.svg", alt="" class="img-svg")
-			.col-right 
-				.swiper-column-auto(class="relative")
-					.swiper 
-						.swiper-wrapper
-							-for(var i = 0; i < 4; i++)
-								.swiper-slide 
-									.news-item(class="group")
-										.img 
-											a(href="./NewsDetail.html" class="img-ratio ratio:pt-[318_440] zoom-img") 
-												+PugImg()
-										.content(class="xl:p-6 p-4")
-											h3(class="heading-5 font-semibold group-hover:text-Primary-2 mb-3") 
-												a(href="#") Compare the quality and cost of construction stone by region
-											.bottom-content(class="flex items-center gap-2 font-normal body-4 font-secondary")
-												.day 20.08.2025
-												.dot 
-												.category(class="text-Primary-1") Tin công ty
+section.home-5
+	.home5-wrapper
+		.col-left
+			.image-block
+				.img-main
+					//- List tất cả ảnh dịch vụ để hỗ trợ CSS Fade mượt mà
+					img.active(src="./img/bg-home-4.png", alt="Bán máy Photocopy")
+					img(src="./img/bg-home-6.png", alt="Cho thuê máy Photocopy")
+					img(src="./img/bg-home-4.png", alt="Sửa chữa máy Photocopy")
+					img(src="./img/bg-banner-home.png", alt="Đào tạo kỹ thuật")
+		.col-right
+			.content-inner
+				h2.block-title DỊCH VỤ CỦA CHÚNG TÔI
+				.accordion-list
+					//- Item 0
+					.accordion-item.active(data-index="0")
+						.item-icon
+							.icon-wrap
+								img(src="./img/photocopy_icon.svg", alt="")
+						.item-content
+							.title-wrap
+								h3 Bán máy Photocopy
+							.item-body
+								.inner
+									p.desc Cung cấp máy photocopy chính hãng, đa dạng thương hiệu và cấu hình, đáp ứng linh hoạt nhu cầu sử dụng từ văn phòng đến cửa hàng dịch vụ in ấn.
+									a.btn-more(href="./ServiceDetail.html") 
+										span Tìm hiểu thêm
+										i.fa-light.fa-chevron-right
+					
+					//- Item 1
+					.accordion-item(data-index="1")
+						.item-icon
+							.icon-wrap
+								img(src="./img/photocopy_icon.svg", alt="")
+						.item-content
+							.title-wrap
+								h3 Cho thuê máy Photocopy
+							.item-body
+								.inner
+									p.desc Giải pháp cho thuê máy photocopy linh hoạt, tiết kiệm chi phí đầu tư ban đầu cho doanh nghiệp, đảm bảo máy luôn hoạt động tốt.
+									a.btn-more(href="./ServiceDetail.html") 
+										span Tìm hiểu thêm
+										i.fa-light.fa-chevron-right
+
+					//- Item 2
+					.accordion-item(data-index="2")
+						.item-icon
+							.icon-wrap
+								img(src="./img/photocopy_icon.svg", alt="")
+						.item-content
+							.title-wrap
+								h3 Sửa chữa máy Photocopy
+							.item-body
+								.inner
+									p.desc Dịch vụ sửa chữa chuyên nghiệp, nhanh chóng với linh kiện chính hãng, giúp máy photocopy của bạn khôi phục hiệu suất tối ưu.
+									a.btn-more(href="./ServiceDetail.html") 
+										span Tìm hiểu thêm
+										i.fa-light.fa-chevron-right
+
+					//- Item 3
+					.accordion-item(data-index="3")
+						.item-icon
+							.icon-wrap
+								img(src="./img/photocopy_icon.svg", alt="")
+						.item-content
+							.title-wrap
+								h3 Đào tạo kỹ thuật sửa chữa máy Photocopy
+							.item-body
+								.inner
+									p.desc Khóa học chuyên sâu từ cơ bản đến nâng cao về kỹ thuật sửa chữa máy photocopy, hỗ trợ việc làm ngay sau khi kết thúc khóa học.
+									a.btn-more(href="./ServiceDetail.html") 
+										span Tìm hiểu thêm
+										i.fa-light.fa-chevron-right

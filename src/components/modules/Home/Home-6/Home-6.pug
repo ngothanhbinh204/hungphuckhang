@@ -1,12 +1,41 @@
-section.home-6(setBackground="./img/bg-home-6.png")
-	.container-fluid 
-		.wrap-content(class="grid md:grid-cols-2 grid-cols-1 items-center gap-8 rem:max-w-[857px] w-full xl:py-15 xl:px-10 p-4 text-white")
-			.col-left 
-				h2.title(class="heading-1 block-title") Shaping Industries. Building Trust.
-			.col-right(class="xl:rem:pl-[14px]")
-				.desc(class="body-1 font-normal font-secondary mb-8") 
-					p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui dolorem, harum ipsam suscipit provident voluptatibus officia id, saepe obcaecati omnis aperiam ad natus corporis explicabo! Distinctio repellat quos quia in.
-				a(href="#" class="btn btn-primary" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200") 
-					span SEE MORE
-					.icon 
-						img(src="./img/arrow.svg", alt="" class="img-svg")
+section.home-6
+	.bg-pattern
+		img(src="./img/bg_partent_2.svg", alt="")
+	.container
+		h2.block-title.text-center.text-white.uppercase.mb-10.font-bold(class="rem:text-[36px]" data-aos="fade-down" data-aos-duration="800") Cam kết chất lượng
+		.wrapper
+			-
+				var commitmentList = [
+					{
+						title: "Giao hàng tận nơi",
+						desc: "Sản phẩm sẽ được giao tận nơi và lắp đặt cho khách hàng",
+						icon: "./img/icon_box.svg"
+					},
+					{
+						title: "Hỏa tốc",
+						desc: "Giao trong ngày đối với khu vực nội thành",
+						icon: "./img/icon_box.svg"
+					},
+					{
+						title: "An toàn tuyệt đối",
+						desc: "Sản phẩm được bảo vệ an toàn, tránh hư hỏng trong quá trình vận chuyển",
+						icon: "./img/icon_box.svg"
+					},
+					{
+						title: "Hỗ trợ kỹ thuật",
+						desc: "Sản phẩm sẽ được giao tận nơi và lắp đặt cho khách hàng",
+						icon: "./img/icon_box.svg"
+					},
+					{
+						title: "Bảo hành & hậu mãi",
+						desc: "Hỗ trợ bảo hành và xử lý sự cố trong quá trình sử dụng máy, đảm bảo thiết bị vận hành ổn định.",
+						icon: "./img/icon_box.svg"
+					}
+				]
+			each item, index in commitmentList
+				.item(data-aos="fade-up" data-aos-duration="800" data-aos-delay=100*(index+1))
+					.icon-box
+						.circle-dashed
+						img(src=item.icon, alt=item.title)
+					h3.title= item.title
+					p.desc= item.desc

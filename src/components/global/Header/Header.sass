@@ -4,29 +4,30 @@
 	@apply bg-white shadow-Shadow-2
 	.header-wrapper
 		@apply flex items-center justify-between
-		@apply xl:h-[calc(52/1920*100rem)] h-14
-		@apply xl:px-[calc(40/1920*100rem)] px-4
+		@apply xl:h-[calc(64/1920*100rem)]
+		@apply xl:pl-[calc(80/1920*100rem)] pl-4
+		@apply -xl:py-2.5
 		// ── LOGO ──────────────────────────────────────────────
 		.header-logo
-			@apply rem:h-[36px] w-auto flex-shrink-0
+			@apply w-auto flex-shrink-0 h-[calc(46/1920*100rem)]
 			a
 				@apply h-full block
 				img
 					@apply h-full w-auto object-contain
 		// ── RIGHT SIDE ────────────────────────────────────────
 		.header-right
-			@apply flex items-center gap-[calc(24/1920*100rem)] h-full
+			@apply flex items-center gap-[calc(40/1920*100rem)] h-full
 			// ── NAV MENU ──────────────────────────────────────
 			.header-menu
 				@apply h-full
 				@apply xl:flex hidden
 				ul.header-nav
-					@apply flex items-center h-full gap-[calc(28/1920*100rem)]
+					@apply flex items-center h-full gap-[calc(55/1920*100rem)]
 					> li
 						@apply relative h-full inline-flex flex-col justify-center
 						> a
-							@apply inline-flex items-center uppercase whitespace-nowrap
-							@apply rem:text-[14px] font-semibold text-Utility-gray-950-maintext
+							@apply inline-flex items-center uppercase whitespace-nowrap leading-[1.4]
+							@apply rem:text-[18px] font-semibold text-Utility-gray-950
 							@apply transition-300
 						&:hover
 							> a
@@ -51,43 +52,56 @@
 							> li
 								a
 									@apply block px-5 py-3
-									@apply rem:text-[14px] font-medium text-Utility-gray-950-maintext uppercase
+									@apply rem:text-[14px] font-medium text-Utility-gray-950 uppercase
 									@apply hover:text-Primary-1 hover:bg-Utility-gray-50
 									@apply transition-300
 			// ── HEADER ACTIONS ────────────────────────────────
 			.header-actions
-				@apply xl:flex hidden items-center gap-[calc(12/1920*100rem)]
+				@apply xl:flex hidden items-center gap-[calc(30/1920*100rem)] h-full
 				.header-search
 					@apply inline-flex items-center justify-center cursor-pointer
-					@apply rem:w-[34px] rem:h-[34px]
-					@apply text-Utility-gray-950-maintext hover:text-Primary-1 transition-300
+					@apply rem:w-[40px] rem:h-[20px]
+					@apply text-Utility-gray-950 hover:text-Primary-1 transition-300
 					i
-						@apply rem:text-[18px] font-normal pointer-events-none
+						@apply rem:text-[20px] font-normal pointer-events-none
 				// ── LANGUAGE ──────────────────────────────────
 				.header-language
-					@apply relative
-					&:hover
-						.header-language-active
-							&::after
-								@apply rotate-180
-						.header-language-list
-							@apply opacity-100 pointer-events-auto
-					.header-language-active
-						@apply flex items-center cursor-pointer
-						@apply rem:text-[13px] font-semibold text-Utility-gray-950-maintext
-						ul
-							> li
-								> a
-									@apply flex items-center gap-1 text-Utility-gray-950-maintext font-semibold
-						&::after
-							content: '\f0d7'
-							@apply font-awesome font-bold ml-1
-							@apply transition-300 rem:text-[10px] text-Utility-gray-950-maintext
-						li:not(.wpml-ls-current-language)
-							@apply hidden
-						.wpml-ls
-							@apply p-0
-					.header-language-list
+					@apply relative px-4
+					ul
+						@apply flex gap-2.5 items-center cursor-pointer
+						a
+							@apply inline-flex items-center gap-2.5
+							@apply text-Utility-gray-300
+							@apply h-full
+							@apply font-normal uppercase whitespace-nowrap
+							@apply rem:text-[14px]
+							@apply transition-300
+							i
+								@apply rem:text-[18px] text-white
+				// .header-language
+				// 	@apply relative
+				// 	&:hover
+				// 		.header-language-active
+				// 			&::after
+				// 				@apply rotate-180
+				// 		.header-language-list
+				// 			@apply opacity-100 pointer-events-auto
+				// 	.header-language-active
+				// 		@apply flex items-center cursor-pointer
+				// 		@apply rem:text-[13px] font-semibold text-Utility-gray-950
+				// 		ul
+				// 			> li
+				// 				> a
+				// 					@apply flex items-center gap-1 text-Utility-gray-950 font-semibold
+				// 		&::after
+				// 			content: '\f0d7'
+				// 			@apply font-awesome font-bold ml-1
+				// 			@apply transition-300 rem:text-[10px] text-Utility-gray-950
+				// 		li:not(.wpml-ls-current-language)
+				// 			@apply hidden
+				// 		.wpml-ls
+				// 			@apply p-0
+				// 	.header-language-list
 						@apply absolute top-full left-1/2 -translate-x-1/2
 						@apply bg-Primary-1 text-white
 						@apply rem:min-w-[60px] py-2
@@ -101,19 +115,19 @@
 								@apply hidden
 				// ── HOTLINE BUTTON ────────────────────────────
 				a.header-hotline
-					@apply inline-flex items-center gap-2
+					@apply inline-flex items-center gap-2.5
 					@apply bg-Primary-1 text-white
-					@apply xl:rem:h-[40px] rem:h-[36px]
-					@apply px-4 font-semibold uppercase whitespace-nowrap
-					@apply rem:text-[13px]
+					@apply h-full
+					@apply px-4 font-medium uppercase whitespace-nowrap
+					@apply rem:text-[16px]
 					@apply hover:bg-Primary-2 transition-300
 					i
-						@apply rem:text-[13px] text-white
+						@apply rem:text-[18px] text-white
 			// ── HAMBURGER (mobile) ────────────────────────────
 			.header-bar
 				@apply sq-10 flex-shrink-0
 				@apply items-center justify-center xl:hidden flex
-				@apply text-2xl text-Utility-gray-950-maintext cursor-pointer
+				@apply text-2xl text-Utility-gray-950 cursor-pointer
 				.active
 					i
 						&::before
@@ -145,7 +159,7 @@
 				> li
 					@apply border-b border-b-Utility-gray-100
 					> a
-						@apply block py-3 px-2 text-[16px] font-semibold text-Utility-gray-950-maintext uppercase
+						@apply block py-3 px-2 text-[16px] font-semibold text-Utility-gray-950 uppercase
 						@apply transition-300
 					&.menu-item-has-children
 						> a

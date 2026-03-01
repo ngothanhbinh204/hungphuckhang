@@ -2,7 +2,7 @@ header.header
 	.header-wrapper 
 		.header-logo
 			a(href="#" alt="logo") 
-				+PugImg("./img/logo-hungphuckhang.png")
+				+PugImg("./img/logohpk.svg")
 		.header-right
 			.header-menu 
 				ul.header-nav 
@@ -28,9 +28,10 @@ header.header
 			.header-actions
 				.header-search 
 					i.fa-regular.fa-magnifying-glass
-				+HeaderLanguage()
+				.header-language
+					+HeaderLanguageHorizontal()
 				a.header-hotline(href="tel:02838150134")
-					i.fa-solid.fa-phone
+					i.fa-regular.fa-phone
 					span HOTLINE: (028) 3815 0134
 			.header-bar
 				i.fa-light.fa-bars
@@ -63,7 +64,7 @@ header.header
 				li
 					a(href="./contact.html") LIÊN HỆ
 			.header-mobile-bottom
-				+HeaderLanguage()
+				+HeaderLanguageHorizontal()
 				a.header-hotline(href="tel:02838150134")
 					i.fa-solid.fa-phone
 					span HOTLINE: (028) 3815 0134

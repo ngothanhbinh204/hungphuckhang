@@ -1,0 +1,59 @@
+.home-7
+	@apply py-8 lg:rem:py-[90px] bg-white overflow-hidden relative
+	.container
+		@apply lg:px-0 lg:rem:max-w-[1560px]
+	.bg-pattern
+		@apply absolute inset-0 w-full h-full z-0 pointer-events-none
+		img
+			@apply w-full h-full object-cover mix-blend-overlay
+			
+	.block-title
+		@apply text-center text-Primary-1 uppercase mb-8 font-bold
+	.swiper-wrapper-relative
+		@apply relative px-10 lg:px-20
+		
+	.home-7-swiper
+		@apply w-full overflow-hidden
+		@apply pt-2 lg:pt-5
+		@apply rem:h-[320px] lg:rem:h-[350px] 
+		.swiper-wrapper
+			@apply flex flex-wrap 
+		.swiper-slide
+			@screen lg
+				height: calc((100% - 60px) / 2) !important
+			@screen -lg
+				height: calc((100% - 60px) / 2) !important	
+			@apply mt-0 #{!important}
+	.swiper-slide
+		.partner-item
+			@apply bg-white border border-Utility-gray-50 px-7 py-6 flex-center rem:h-[120px] lg:rem:h-[130px] relative transition-all duration-500 ease-in-out			
+			.partner-logo
+				@apply relative z-10 w-full h-full flex-center transition-all duration-500
+				img
+					@apply w-full h-full object-contain 
+					
+		.hover-line
+			@apply absolute rem:bottom-[10px] left-1/2 -translate-x-1/2 w-10 rem:h-[4px] bg-Primary-1 -z-1 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+			
+		&:hover
+			.partner-item
+				@apply rem:-translate-y-[10px] border-Primary-1/10
+				box-shadow: 4px 4px 24px 0 rgba(0, 0, 0, 0.12)
+			.hover-line
+				@apply bottom-0
+				
+	// .home-7-prev, .home-7-next
+	// 	@apply absolute -translate-y-1/2 z-20 sq-10 flex-center bg-white border-2 border-Utility-gray-300 text-Utility-gray-400 transition-all
+	// 	@apply hover:bg-Primary-1 hover:border-Primary-1 hover:text-white
+	// 	@apply after:content-none 
+	// 	@apply rem:top-[calc(50%_+_10px)]
+	// 	i
+	// 		@apply rem:text-[18px] text-Utility-gray-600 font-normal transition-all duration-500 ease-in-out
+	// 	&:hover
+	// 		i
+	// 			@apply text-white
+			
+	// .home-7-prev
+	// 	@apply left-0
+	// .home-7-next
+	// 	@apply right-0

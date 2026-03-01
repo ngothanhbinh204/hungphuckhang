@@ -1,51 +1,75 @@
+.space-to-header
 section.home-1
-	.slide(class="relative")
+	.banner-slide
 		.swiper
 			.swiper-wrapper
-				.swiper-slide 
-					.home-1-banner(class="relative")
-						a(href="#" class="img-ratio ratio:pt-[960_1920]") 
-							+PugImg("./img/banner.png")
-					.home-1-content 
-						.container-fluid 
-							.wrapper(class="flex justify-between items-end pb-6 border-b border-b-white/50")
-								.col-left
-									h2.title(class="heading-banner font-bold uppercase block-title") DLH LIME
-									.desc(class="rem:text-[32px] font-semibold") From Mine to Market: Excellence solutions
-								.col-right(data-aos="fade-left" data-aos-duration="600" data-aos-delay="400" )
-									a(href="#" class="btn btn-primary") 
-										span SEE MORE
-										.icon 
-											img(src="./img/arrow.svg", alt="" class="img-svg")
-				.swiper-slide 
-					.home-1-banner(class="relative")
-						a(href="#" class="img-ratio ratio:pt-[960_1920]") 
-							+PugImg()
-					.home-1-content 
-						.container-fluid 
-							.wrapper(class="flex justify-between items-end pb-6 border-b border-b-white/50")
-								.col-left
-									h2.title(class="heading-banner font-bold uppercase") DLH LIME
-									.sub-title(class="rem:text-[32px] font-semibold") From Mine to Market: Excellence solutions
-								.col-right 
-									a(href="#" class="btn btn-primary") 
-										span SEE MORE
-										.icon 
-											img(src="./img/arrow.svg", alt="" class="img-svg")
-				.swiper-slide 
-					.home-1-banner(class="relative")
-						a(href="#" class="img-ratio ratio:pt-[960_1920]") 
-							+PugImg()
-					.home-1-content 
-						.container-fluid 
-							.wrapper(class="flex justify-between items-end pb-6 border-b border-b-white/50")
-								.col-left
-									h2.title(class="heading-banner font-bold uppercase") DLH LIME
-									.sub-title(class="rem:text-[32px] font-semibold") From Mine to Market: Excellence solutions
-								.col-right 
-									a(href="#" class="btn btn-primary") 
-										span SEE MORE
-										.icon 
-											img(src="./img/arrow.svg", alt="" class="img-svg")
-			.wrap-pagination
-				.swiper-pagination
+				//- Slide 1
+				.swiper-slide
+					.slide-item
+						//- Background layers
+						.slide-bg
+							a(href="#" class="img-ratio ratio:pt-[1200_1920] lg:ratio:pt-[880_1920]")
+								+PugImg("./img/bg-banner-home.png")
+							.slide-overlay
+							img.layer-union(src="./img/Union.svg" alt="")
+						.slide-content
+							.slide-decorations
+								img.deco-goctren(src="./img/goctren.svg" alt="")
+								img.deco-gocduoi(src="./img/gocduoi.svg" alt="")
+							.slide-inner
+								.slide-info
+									h2.slide-title Hưng Phúc Khang
+									p.slide-desc Đối tác phân phối &amp; dịch vụ máy photocopy, máy in chuyên nghiệp
+									.slide-button
+										a(href="./ProductList.html" class="btn btn-primary") XEM SẢN PHẨM
+								.slide-image
+									+PugImg("./img/product-banner.png")
+
+				//- Slide 2
+				.swiper-slide
+					.slide-item
+						.slide-bg
+							a(href="#" class="img-ratio ratio:pt-[1200_1920] lg:ratio:pt-[880_1920]")
+								+PugImg("./img/banner.png")
+							.slide-overlay
+							img.layer-union(src="./img/Union.svg" alt="")
+						.slide-content
+							.slide-decorations
+								img.deco-goctren(src="./img/goctren.svg" alt="")
+								img.deco-gocduoi(src="./img/gocduoi.svg" alt="")
+							.slide-inner
+								.slide-info
+									h2.slide-title Hưng Phúc Khang
+									p.slide-desc Đối tác phân phối &amp; dịch vụ máy photocopy, máy in chuyên nghiệp
+									.slide-button
+										a(href="./ProductList.html" class="btn btn-primary") XEM SẢN PHẨM
+								.slide-image
+									+PugImg("./img/product-banner.png")
+
+				//- Slide 3
+				.swiper-slide
+					.slide-item
+						.slide-bg
+							a(href="#" class="img-ratio ratio:pt-[1200_1920] lg:ratio:pt-[880_1920]")
+								+PugImg("./img/bg-banner-home.png")
+							.slide-overlay
+							img.layer-union(src="./img/Union.svg" alt="")
+						.slide-content
+							.slide-decorations
+								img.deco-goctren(src="./img/goctren.svg" alt="")
+								img.deco-gocduoi(src="./img/gocduoi.svg" alt="")
+							.slide-inner
+								.slide-info
+									h2.slide-title Hưng Phúc Khang
+									p.slide-desc Đối tác phân phối &amp; dịch vụ máy photocopy, máy in chuyên nghiệp
+									.slide-button
+										a(href="./ProductList.html" class="btn btn-primary") XEM SẢN PHẨM
+								.slide-image
+									+PugImg("./img/product-banner.png")
+
+		//- Navigation controls
+		.slide-controls
+			.btn-prev
+				i.fa-thin.fa-chevron-left
+			.btn-next
+				i.fa-thin.fa-chevron-right

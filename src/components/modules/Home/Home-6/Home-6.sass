@@ -1,10 +1,44 @@
 .home-6
-	@apply rem:min-h-[622px] h-full pt-8 relative
-	&::before
-		content: ""
-		background: linear-gradient(180deg, #FFF -2.73%, rgba(255, 255, 255, 0.95) 15.75%, rgba(255, 255, 255, 0.80) 36.38%, rgba(255, 255, 255, 0.00) 100%)
-		@apply absolute w-full rem:h-[227px] pointer-events-none top-0 left-0 z-1
-	.wrap-content 
-		background: radial-gradient(294.79% 141.42% at 0% 0%, rgba(0, 80, 146, 0.80) 0%, rgba(0, 80, 146, 0.40) 100%)
-		backdrop-filter: blur(6px) 
-		@apply relative z-2
+	@apply relative py-12 lg:rem:py-[80px] bg-Primary-1 overflow-hidden
+	
+	.bg-pattern
+		@apply absolute inset-0 w-full h-full z-0 pointer-events-none
+		mix-blend-mode: darken
+		img
+			@apply w-full h-full object-cover mix-blend-overlay
+			
+	.container
+		@apply relative z-10
+		
+	.wrapper
+		@apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5
+		
+	.item
+		@apply bg-white py-6 px-3 lg:py-10 lg:px-5 flex flex-col items-start gap-3 h-full
+		@screen -lg
+			&:last-child:nth-child(odd)
+				grid-column: 1 / -1
+		
+		.icon-box
+			@apply relative sq-20 flex-center
+			img
+				@apply sq-10 object-contain relative z-1
+			.circle-dashed
+				@apply absolute inset-0 rounded-full
+				animation: rotate-dashed 10s linear infinite
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none'%3E%3Ccircle cx='40' cy='40' r='39.5' stroke='%23C60E24' stroke-dasharray='6 6'/%3E%3C/svg%3E")
+				
+		.title
+			@apply text-2xl lg:rem:text-[23px] font-bold text-Utility-gray-950 leading-[1.35]
+			@apply mt-5
+			
+		.desc
+			@apply text-lg text-Utility-gray-950 font-normal leading-1.4
+			
+			
+			
+@keyframes rotate-dashed
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(-360deg)

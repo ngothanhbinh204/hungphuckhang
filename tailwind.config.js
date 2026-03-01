@@ -260,13 +260,13 @@ module.exports = {
 					"gray-300": "#bdbdbd",
 					"gray-400": "#989898",
 					"gray-500": "#818181",
-					"gray-600": "#656565",
+					"gray-600": "#666666",
 					"gray-700": "#525252",
 					"gray-800": "#464646",
 					"gray-900": "#3d3d3d",
-					"gray-950": "#292929",
-					"gray-600-secondary-text": "#666666",
-					"gray-950-maintext": "#151515",
+					"gray-950": "#151515",
+					"gray-secondary-text": "#666666",
+					"gray-primary-text": "#151515",
 					"black": "#000000",
 					"Error-1": "#e30e00",
 					"Error-2": "#e30e00",
@@ -529,12 +529,17 @@ module.exports = {
 				},
 				".heading-4": {
 					fontSize: "16px",
+					lineHeight: "1.4",
 					[`@media (min-width: ${theme("screens.lg")})`]: {
 						fontSize: "calc(20/1920*100rem)", // xl
 					},
 				},
 				".heading-5": {
 					"font-size": "calc(18/1920*100rem)",
+				},
+				".heading-6": {
+					"font-size": "calc(14/1920*100rem)",
+					"line-height": "1.4",
 				},
 				".heading-36": {
 					fontSize: "28px",
@@ -561,6 +566,8 @@ module.exports = {
 				},
 				".body-3": {
 					"font-size": "calc(16/1920*100rem)",
+					lineHeight: "1.4",
+					
 				},
 				".body-4": {
 					fontSize: "14px",

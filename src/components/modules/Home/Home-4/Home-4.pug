@@ -1,15 +1,38 @@
-section.home-4(class="section-py" setBackground="./img/bg-home-4.png")
-	.container-fluid 
-		.wrapper(class="grid xl:grid-cols-2 grid-cols-1 rem:gap-[42px] items-center")
-			.col-left 
-				.sub-title(class="heading-4 font-semibold uppercase mb-3") CORE PRODUCTION SYSTEM
-				h2.title(class="heading-1 block-title") Advanced technology – the foundation of superior quality
-			.col-right 
-				.lists(class="grid lg:grid-cols-3 grid-cols-2 xl:gap-0 gap-base")
-					-for(var i = 0; i < 3; i++)
-						.item 
-							.title(class="py-10 px-6 heading-3 font-semibold") 
-								a(href="#") Calcined Dolomite Kiln Technology
-							.button-more(class="inline-flex justify-end")
-								a(href="#") 
-									<i class="fa-light fa-arrow-right-long"></i>
+section.home-4.section.bg-Utility-gray-50
+		.container-seller
+			.section-header
+				.title.flex.items-center.justify-center.gap-2
+					.icon-fire
+						+PugImg("./img/fire_icon.svg")
+					h2.title-sale SẢN PHẨM ĐANG GIẢM GIÁ
+				.tabs
+					ul
+						li.tab-item.active(data-tab="all") Máy photocopy Ricoh
+						li.tab-item(data-tab="cat-1") Máy photocopy đa chức năng
+						li.tab-item(data-tab="cat-2") Máy in màu Konica
+						li.tab-item(data-tab="cat-3") Máy sao chụp khổ rộng
+			
+			.relative
+				.swiper.home-4-swiper.px-4
+					.swiper-wrapper
+						- 
+							var products = [
+								{ cat: 'cat-1', name: 'Máy photocopy Ricoh' },
+								{ cat: 'cat-2', name: 'Máy in màu Konica' },
+								{ cat: 'cat-3', name: 'Máy sao chụp khổ rộng' },
+								{ cat: 'cat-1', name: 'Máy photocopy Ricoh 2' },
+								{ cat: 'cat-2', name: 'Máy in màu Konica 2' },
+								{ cat: 'cat-3', name: 'Máy sao chụp khổ rộng 2' },
+								{ cat: 'cat-1', name: 'Máy photocopy Ricoh 3' },
+								{ cat: 'cat-2', name: 'Máy in màu Konica 3' },
+							]
+						each item in products
+							.swiper-slide.h-auto(data-category=item.cat)
+								+ProductItem(item)
+				.swiper-nav-wrapper
+					.swiper-button-prev
+						i(class="fa-solid fa-chevron-left")
+					.swiper-button-next
+						i(class="fa-solid fa-chevron-right")
+				.block-btn.text-center.mt-8
+					a(href="#" class="btn btn-primary") Xem tất cả

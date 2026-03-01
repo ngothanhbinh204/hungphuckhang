@@ -209,6 +209,30 @@ function swiperBanner() {
 		speed: 700,
 		pagination: { el: ".home-1 .swiper-pagination", clickable: true },
 		navigation: { nextEl: ".home-1 .btn-next", prevEl: ".home-1 .btn-prev" },
+		on: {
+			init: function () {
+				// Apply animations to the initial active slide
+				applySlideAnimations(this.slides[this.activeIndex]);
+			},
+			slideChangeTransitionStart: function () {
+				// Remove animations from all slides before transition starts
+				this.slides.forEach(slide => {
+					const slideInfo = slide.querySelector(".slide-info");
+					const slideImage = slide.querySelector(".slide-image");
+					if (slideInfo) slideInfo.classList.remove("fadeUp");
+					if (slideImage) slideImage.classList.remove("fadeRight");
+				});
+			},
+			slideChangeTransitionEnd: function () {
+				// Apply animations to the new active slide after transition ends
+				applySlideAnimations(this.slides[this.activeIndex]);
+
+				// Handle video playback
+				const currentSlide = this.slides[this.activeIndex];
+				const isVideo = handleVideo(currentSlide);
+				if (!isVideo) this.autoplay.start();
+			},
+		},
 	});
 
 	function handleVideo(slide) {
@@ -228,21 +252,20 @@ function swiperBanner() {
 		return true;
 	}
 
-	swiper.on("slideChangeTransitionEnd", () => {
-		swiper.slides.forEach((slide, index) => {
-			const v = slide.querySelector("video");
-			if (v && index !== swiper.activeIndex) {
-				v.pause();
-				v.currentTime = 0;
-				v.onended = null;
-			}
-		});
+	function applySlideAnimations(slide) {
+		if (!slide) return;
+		const slideInfo = slide.querySelector(".slide-info");
+		const slideImage = slide.querySelector(".slide-image");
 
-		const currentSlide = swiper.slides[swiper.activeIndex];
-		const isVideo = handleVideo(currentSlide);
-		if (!isVideo) swiper.autoplay.start();
-	});
+		if (slideInfo) {
+			slideInfo.classList.add("fadeUp");
+		}
+		if (slideImage) {
+			slideImage.classList.add("fadeRight");
+		}
+	}
 
+	// Initial check for video on load
 	if (swiper.slides[swiper.activeIndex]) {
 		handleVideo(swiper.slides[swiper.activeIndex]);
 	}

@@ -1,3 +1,4 @@
+include ../components/modules/Product/ProductItem.pug
 mixin subscribeForm()
 	.subscribe-form
 		form(action="") 
@@ -65,9 +66,8 @@ mixin HeaderLanguageHorizontal()
 		li.wpml-ls-item
 			a(href="") 
 				span.wpml-ls-native VN
-		li.wpml-ls-item
-			a(href="") 
-				span.wpml-ls-native VN
+				span /
+				span.wpml-ls-native EN
 mixin BtnPrimary(text="")
 	a(href="", class='btn-primary btn ' + attributes.class)
 		span=text
@@ -136,19 +136,32 @@ mixin NewsItem()
 				.category(class="text-Primary-1") Tin công ty
 mixin ProductItem()
 	.product-item
-		.block-thumb 
-			.thumb(class="img-ratio ratio:pt-[540_373]") 
-				+PugImg("./img/product.png")
-		.block-info 
-			.child
-				h4.info-name QUICKLIME 
-				ul.desc-project-list 
-					p Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, similique non nostrum necessitatibus corrupti eaque esse cumque commodi aspernatur doloribus fugit, dignissimos provident suscipit! Dicta maxime perspiciatis odit iusto laboriosam.
-				.btn-view-more 
-					a(href="#" class="btn btn-primary") 
-						span SEE MORE
-						.icon 
-							img(src="./img/arrow.svg", alt="" class="img-svg")
+		.img
+			a(href="#") 
+				+PugImg("./img/pro1.png")
+		.content
+			h3.title
+				a(href="#") Máy Photocopy Ricoh Aficio MP 3555
+			.tags
+				span.tag.discount -20%
+				span.tag.bestseller bestseller
+			.price
+				span.current 10,250,000đ
+				span.old 12,725,000đ
+			.specs
+				ul
+					li
+						span.icon
+							i(class="fa-solid fa-check")
+						span Tốc độ copy: 43 tờ/ phút
+					li
+						span.icon
+							i(class="fa-solid fa-check")
+						span Khổ giấy: A4 - A5 - A6
+					li
+						span.icon
+							i(class="fa-solid fa-check")
+						span Tiện ích: In qua mạng - đảo 2 mặt tự động
 mixin MarketItem()
 	.market-item
 		.img

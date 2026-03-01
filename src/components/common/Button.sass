@@ -1,5 +1,5 @@
 .btn
-	@apply cursor-pointer select-none transition-all duration-300
+	@apply cursor-pointer select-none transition-all duration-300 rem:text-[20px]
 	&.loading
 		@apply bg-transparent #{!important}
 		span,.icon
@@ -28,10 +28,10 @@
 				@apply text-Utility-white
 		
 	&.btn-primary
-		@apply rem:h-[46px] inline-flex items-center justify-center px-6 bg-Utility-white gap-4
-		@apply border border-Primary-1
+		@apply rem:h-[48px] inline-flex items-center justify-center px-6 bg-Utility-white gap-4  rem:text-[20px] font-semibold text-Primary-1 uppercase leading-1.4
+		@apply border-2 border-Primary-1
 		&:hover
-			@apply text-white bg-Primary-2 border-transparent
+			@apply text-white bg-Primary-1 border-transparent
 			span
 				@apply text-white
 			.icon
@@ -41,7 +41,7 @@
 						@apply fill-white
 						stroke-width: 0
 		span
-			@apply rem:text-[16px] font-semibold text-Primary-1 uppercase
+			@apply rem:text-[20px] font-semibold text-Primary-1 uppercase leading-1.4
 			@apply transition-all duration-300
 		.icon
 			@apply rem:w-[30px] flex items-center
@@ -53,3 +53,45 @@
 					stroke-width: 0
 					vector-effect: non-scaling-stroke
 
+
+
+.space-to-header
+	@apply pt-[var(--header-height)]
+
+.swiper-nav-wrapper
+	@apply flex items-center gap-3 mt-6
+	@screen lg
+		@apply absolute inset-0 pointer-events-none mt-0 block
+		height: 100%
+	
+	@screen -lg
+		@apply relative w-full justify-center
+		
+		&.nav-right
+			@apply justify-end
+		&.nav-left
+			@apply justify-start
+		&.nav-between
+			@apply justify-between
+
+.swiper-button-prev, .swiper-button-next
+	@apply static z-20 sq-10 flex-center bg-white border-2 border-Utility-gray-300 text-Utility-gray-400 transition-all
+	@apply hover:bg-Primary-1 hover:border-Primary-1 hover:text-white
+	@apply after:content-none pointer-events-auto
+	margin: 0
+	
+	@screen lg
+		@apply absolute top-1/2 -translate-y-1/2
+	i
+		@apply rem:text-[18px] text-Utility-gray-600 font-normal transition-all duration-500 ease-in-out
+	&:hover
+		i
+			@apply text-white
+
+.swiper-button-prev
+	@screen lg
+		@apply left-0 lg:rem:left-[16px] xl:left-0
+
+.swiper-button-next
+	@screen lg
+		@apply right-0 lg:rem:right-[16px] xl:right-0

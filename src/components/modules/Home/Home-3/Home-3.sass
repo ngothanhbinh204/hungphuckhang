@@ -1,14 +1,24 @@
-.home-3
-	background: #008CFF0D
-	@apply overflow-hidden
-	.swiper-column-auto
-		.swiper-slide
-			--spv: 1
-			--mr: calc(12/1920*100rem)
-			@screen sm
-				--spv: 2
-			@screen md
-				--spv: 2
-			@screen lg
-				--spv: 4
-				--mr: calc(20/1920*100rem)
+.home-counter
+	@apply relative py-12 lg:rem:py-[120px] bg-Primary-1 text-white overflow-hidden
+	.bg-pattern
+		@apply absolute inset-0 w-full h-full z-0 pointer-events-none
+		// background: lightgray 0px -511.734px / 100% 305.346% no-repeat
+		mix-blend-mode: darken
+		img
+			@apply w-full h-full object-cover mix-blend-overlay
+	.wrapper
+		@apply grid grid-cols-2 lg:grid-cols-4 relative z-10
+		.item
+			@apply text-center flex flex-col items-center justify-center py-4 lg:py-0 border-r border-white/20 last:border-r-0
+			@media (max-width: 1023px)
+				&:nth-child(2)
+					@apply border-r-0
+				&:nth-child(1), &:nth-child(2)
+					@apply border-b border-white/20 pb-8 mb-8
+				&:nth-child(3), &:nth-child(4)
+					@apply pt-0
+			
+			.number
+				@apply font-secondary rem:text-[40px] lg:text-[60px] xl:rem:text-[72px] font-bold leading-[1.15] mb-2
+			.desc
+				@apply text-base lg:text-lg font-bold tracking-wide

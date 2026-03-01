@@ -1,17 +1,17 @@
-section.home-3(class="section-py")
-	.container-fluid 
-		.wrap-heading(class="flex md:flex-row flex-col gap-base md:gap-0 md:items-end items-start justify-between xl:mb-15 mb-base")
-			.left(class="md:w-2/4 w-full")
-				.sub-title(class="heading-4 text-Utility-gray-500 font-semibold uppercase mb-3" data-aos="fade-up" data-aos-duration="500") MAIN PRODUCT
-				h2.title(class="heading-1 block-title") Comprehensive mineral solutions for all industries
-			.right(class="flex-1 justify-end flex" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200")
-				a(href="#" class="btn btn-primary") 
-					span SEE MORE
-					.icon 
-						img(src="./img/arrow.svg", alt="" class="img-svg")
-		.swiper-column-auto(class="relative")
-			.swiper 
-				.swiper-wrapper
-					-for(var i = 0; i < 4; i++)
-						.swiper-slide 
-							+ProductItem()
+section.home-counter
+	.bg-pattern
+		img(src="./img/bg_count.png", alt="")
+	.container
+		.wrapper
+			.item
+				.number(data-count="5") 5+
+				.desc Năm kinh nghiệm
+			.item
+				.number(data-count="40") 40+
+				.desc Kỹ thuật viên
+			.item
+				.number(data-count="150") 150+
+				.desc Dòng máy khác nhau
+			.item
+				.number(data-count="3000") 3000+
+				.desc Khách hàng

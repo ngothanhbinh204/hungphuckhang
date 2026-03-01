@@ -1,0 +1,82 @@
+.home-8
+	@apply py-10 lg:py-20 bg-white
+	.block-title
+		@apply text-center text-Primary-1 uppercase font-bold
+	.container
+		@apply flex flex-col gap-10
+		@apply lg:px-0 lg:rem:max-w-[1560px]
+	
+	.tabs-wrapper
+		@apply flex-center
+		.tabs-list
+			@apply flex flex-wrap gap-2 lg:gap-4
+			.tab-item
+				@apply px-6 py-2 bg-Utility-gray-100 text-Utility-gray-600 font-bold cursor-pointer transition-all
+				@apply hover:bg-Primary-1/10 hover:text-Primary-1
+				&.active
+					@apply bg-Primary-1 text-white
+					
+	.news-slider-relative
+		@apply relative px-0 lg:px-20
+		
+	.news-group
+		@apply flex flex-col gap-4 lg:gap-5
+		
+	.news-item
+		@apply bg-Utility-gray-50 p-4 lg:p-5 flex flex-col xl:flex-row transition-all duration-300
+		.img
+			@apply flex-none overflow-hidden 
+			@apply w-full rem:h-[200px]
+			@apply xl:rem:sq-[240px] 
+			img
+				@apply w-full h-full object-cover transition-transform duration-500
+		.content
+			@apply flex flex-col gap-5 px-0 py-5 lg:px-10 lg:py-5
+			@apply justify-center
+			.meta
+				@apply flex items-center gap-5 text-sm
+				.date
+					@apply text-Utility-gray-500 font-normal
+				.category
+					@apply text-[#c33] font-semibold
+			.title
+				@apply font-semibold text-Utility-gray-950 transition-colors
+				@apply hover:text-Primary-1
+				@apply text-xl
+				a
+					@apply line-clamp-2 leading-1.4
+			.desc
+				@apply text-Utility-gray-800 text-base line-clamp-3 leading-1.4
+				
+		&:hover
+			@apply border-Primary-1
+			.img img
+				@apply scale-110
+		// &.big-item
+		// 	@apply items-center
+		// 	.img
+		// 		@apply w-[140px] h-[140px] lg:w-[240px] lg:h-[240px]
+			
+				
+		&.small-item
+			.content
+				.desc
+					@apply lg:hidden
+					display: -webkit-box
+				
+	.small-items
+		@apply grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10
+		
+	.btn-view-all
+		@apply inline-block px-10 py-3 border border-Primary-1 text-Primary-1 font-bold transition-all
+		@apply hover:bg-Primary-1 hover:text-white		
+	// @screen -lg
+	// 	.news-item
+	// 		@apply flex-col
+	// 		.img
+	// 			@apply w-full h-[200px]
+	// 	.news-group
+	// 		@apply gap-4
+	.swiper-button-prev, .swiper-button-next
+		top: unset
+		@apply lg:bottom-[20%] translate-y-0
