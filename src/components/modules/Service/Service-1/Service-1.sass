@@ -1,0 +1,53 @@
+.service-1
+	@apply relative bg-white overflow-hidden py-10 lg:py-20
+	
+	.container-full
+		@apply relative rem:px-[16px] lg:rem:pl-[100px] xl:rem:pl-[260px]
+		
+	.wrapper
+		@apply flex flex-wrap lg:flex-nowrap items-center
+		
+	.col-content
+		@apply w-full lg:w-1/2 relative z-10
+		@apply pr-4 lg:pr-14 xl:rem:pr-[95px]
+		@apply flex flex-col gap-6 lg:gap-10
+		
+		.block-title
+			@apply rem:text-[42px] lg:rem:text-[60px] text-Utility-gray-950 uppercase font-bold leading-[1.2]
+			
+		.desc
+			@apply body-1 text-Utility-gray-950 leading-relaxed
+			
+	.counter-wrapper
+		@apply grid grid-cols-1 sm:grid-cols-2 gap-y-8
+		
+		.item
+			@apply flex flex-col gap-2
+			.number
+				@apply heading-36 lg:rem:text-[60px] xl:rem:text-[72px] font-bold text-Primary-1 leading-none font-secondary
+			.desc
+				@apply body-2 font-bold text-Utility-gray-950 tracking-wider leading-1.4
+				
+	.btn-list
+		@apply flex flex-wrap items-center gap-4
+		.btn
+			@apply rem:min-w-[180px] lg:rem:min-w-[205px]
+			@apply flex-center uppercase transition-all px-6
+				
+	.col-image
+		@apply w-full lg:w-1/2 relative mt-10 lg:mt-0
+		@apply lg:rem:pr-[60px]
+		.img
+			@apply relative w-full overflow-hidden img-ratio ratio:pt-[450_824] xl:rem:pt-[687px]
+			img
+				@apply w-full h-full object-contain
+				
+	@screen -lg
+		.container-full
+			@apply px-4
+		.col-content
+			@apply pr-4
+		.col-image
+			@apply px-0
+			.img
+				@apply pt-[70%]

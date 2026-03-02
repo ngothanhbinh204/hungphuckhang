@@ -110,6 +110,7 @@ export function swiperInit() {
 	});
 	swiperBanner();
 	swiperProductDetail();
+	swiperRelatedProducts();
 	swiperFieldOp();
 
 	const about_5 = new Swiper(`.about-5 .swiper`, {
@@ -117,10 +118,6 @@ export function swiperInit() {
 		spaceBetween: 0,
 		slidesPerView: "auto",
 		speed: 500,
-		// autoplay: {
-		// 	delay: 3500,
-		// 	disableOnInteraction: false,
-		// },
 		centeredSlides: true,
 		navigation: {
 			prevEl: `.about-5 .btn-prev`,
@@ -130,11 +127,9 @@ export function swiperInit() {
 		on: {
 			init: function () {
 				handlePD15VisibleSlide(this);
-
 			},
 			slideChange: function () {
 				handlePD15VisibleSlide(this);
-
 			},
 		},
 	});
@@ -275,64 +270,40 @@ function swiperBanner() {
 
 // Product Detail
 function swiperProductDetail() {
-	const swiperThumb = new Swiper(".product-detail-1 .thumb .swiper", {
-		modules: [Mousewheel],
+	const thumbSwiper = new Swiper(".product-detail-summary .thumb-swiper", {
+		modules: [Navigation],
 		speed: 700,
 		observer: true,
 		observeParents: true,
 		slideToClickedSlide: true,
-		rewind: true,
-		allowTouchMove: false,
-		direction: "vertical",
 		slidesPerView: 4,
-		spaceBetween: 12,
+		spaceBetween: 16,
 		breakpoints: {
-			576: {
-				slidesPerView: 4,
-				spaceBetween: 12,
-			},
-			768: {
-				slidesPerView: 4,
-				spaceBetween: 12,
-			},
-			1024: {
-				slidesPerView: 4,
-				spaceBetween: 8,
-			},
-
-			1920: {
-				slidesPerView: 4,
-				spaceBetween: 20,
-			},
+			576: { slidesPerView: 4, spaceBetween: 16 },
+			1024: { slidesPerView: 5, spaceBetween: 20 },
 		},
 	});
 
-	const swiperDetail = new Swiper(".product-detail-1 .main .swiper", {
-		modules: [Thumbs, Navigation, Autoplay],
-		spaceBetween: 12,
-		slidesPerView: "auto",
-		rewind: true,
-		thumbs: {
-			swiper: swiperThumb,
+	const mainSwiper = new Swiper(".product-detail-summary .main-swiper", {
+		modules: [Thumbs, Navigation, EffectFade, Autoplay],
+		spaceBetween: 0,
+		slidesPerView: 1,
+		effect: "slide",
+		fadeEffect: {
+			crossFade: false,
+			slideEffect: "slide",
 		},
-		autoplay: {
-			delay: 4500,
-			disableOnInteraction: false,
+		thumbs: {
+			swiper: thumbSwiper,
 		},
 		speed: 700,
 		observer: true,
 		observeParents: true,
 		navigation: {
-			prevEl: ".product-detail-1 .btn-prev",
-			nextEl: ".product-detail-1 .btn-next",
+			prevEl: ".product-detail-summary .swiper-button-prev",
+			nextEl: ".product-detail-summary .swiper-button-next",
 		},
 	});
-
-	// Gán ra window để sử dụng bên ngoài
-	window.productDetailSwiper = {
-		swiperThumb,
-		swiperDetail,
-	};
 }
 
 // Field Operation Swiper - Sustainability Section
@@ -508,6 +479,39 @@ function swiperFieldOp() {
 				});
 			}
 		}
+	});
+}
+
+// Sản phẩm liên quan
+function swiperRelatedProducts() {
+	const swiperEl = document.querySelector(".product-related-swiper");
+	if (!swiperEl) return;
+
+	new Swiper(swiperEl, {
+		modules: [Navigation, Pagination, Autoplay],
+		speed: 700,
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 20,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+			1200: {
+				slidesPerView: 4,
+				spaceBetween: 24,
+			},
+		},
+		navigation: {
+			nextEl: ".product-related .swiper-button-next",
+			prevEl: ".product-related .swiper-button-prev",
+		},
 	});
 }
 

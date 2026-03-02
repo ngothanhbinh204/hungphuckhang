@@ -62,7 +62,7 @@
 	.product-item
 		@apply bg-white p-4 h-full flex flex-col transition-all duration-300 relative border border-Utility-gray-100
 		.img
-			@apply relative mb-4 overflow-hidden img-ratio ratio:pt-[1_1] rem:max-h-[256px] flex items-center justify-center
+			@apply relative mb-3 overflow-hidden img-ratio ratio:pt-[1_1] rem:max-h-[256px] flex items-center justify-center
 			a
 				@apply block w-full h-full
 			img
@@ -86,7 +86,7 @@
 						@apply bg-Primary-1
 			
 			.price
-				@apply flex flex-wrap items-end gap-x-4 gap-y-2 mb-4 border-b border-[#F1F3F4] pb-3
+				@apply flex flex-wrap items-end gap-x-4 gap-y-2 mb-3 border-b border-[#F1F3F4] pb-3
 				.current
 					@apply rem:text-[24px] font-bold text-Utility-gray-950
 				.old
@@ -97,11 +97,11 @@
 				ul
 					@apply flex flex-col gap-1
 					li
-						@apply flex items-start gap-2 rem:text-[16px] text-Utility-gray-600
+						@apply flex items-center gap-2 rem:text-[16px] text-Utility-gray-600
 						span
-							@apply text-Utility-gray-600 rem:text-[16px]
+							@apply text-Utility-gray-600 rem:text-[16px] leading-1.4
 						.icon
-							@apply text-Primary-1 mt-0.5 shrink-0 rem:text-[16px]
+							@apply text-Primary-1 mt-0.5 shrink-0 rem:text-[12px] font-normal
 		&:hover
 			@apply border-Primary-1
 

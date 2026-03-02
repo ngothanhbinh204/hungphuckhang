@@ -1,21 +1,17 @@
-section.about-1(class="section-py bg-Utility-gray-50")
-	.container-fluid 
-		.wrap-heading(class="text-center mb-base")
-			.sub-title(class="heading-4 font-semibold text-Utility-gray-500 mb-3") FACILITIES
-			h2.title(class="heading-1 uppercase") FACILITIES
-		.swiper-column-auto(class="relative swiper-loop autoplay")
-			.swiper 
-				.swiper-wrapper
-					-for(var i = 0; i < 4; i++)
-						.swiper-slide
-							.facility-item
-								.img(class="img-ratio ratio:pt-[465_828]")
-									+PugImg()
-								.content(class="mt-6 text-center")
-									h3.title(class="heading-2 font-extrabold text-Primary-1 mb-4")
-										a(href="#") Factory  1
-									.desc(class="body-1 font-normal font-secondary") 
-										p Lot 20, Phu Thu Industrial Cluster, Nhi Chieu Ward, Hai Phong City, Viet Nam.
-			.wrap-button-slide
-				.btn.btn-sw-1.btn-prev
-				.btn.btn-sw-1.btn-next
+section.about-1.sliding-titles-section
+	.container-full
+		.wrapper
+			.col-info
+				.sub-title VỀ HƯNG PHÚC KHANG
+				.title-wrapper
+					.title-list
+						.title-item(style="background-image: url('./img/bg-banner-home.png')") BÁN MÁY
+						.title-item(style="background-image: url('./img/text.jpg')") SỬA CHỮA
+						.title-item(style="background-image: url('./img/1.jpg')") ĐÀO TẠO KỸ THUẬT
+						.title-item(style="background-image: url('./img/1.jpg')" aria-hidden="true") BÁN MÁY
+				.line
+				.desc
+					p Hưng Phúc Khang hoạt động trong lĩnh vực máy photocopy với định hướng cung cấp các giải pháp phù hợp cho nhu cầu sử dụng thực tế của doanh nghiệp, văn phòng và cửa hàng photocopy. Trọng tâm không nằm ở số lượng thiết bị, mà ở khả năng vận hành ổn định, tính hiệu quả trong sử dụng và sự phù hợp với từng mô hình khai thác. Danh mục sản phẩm tập trung vào các dòng máy photocopy đến từ những thương hiệu uy tín và được sử dụng rộng rãi trên thị trường như Ricoh, Konica, cùng các dòng máy photocopy đa chức năng và máy sao chụp khổ rộng. Các thiết bị được lựa chọn dựa trên mức độ ổn định, khả năng vận hành và sự phù hợp với nhu cầu sử dụng thực tế. Để đảm bảo giá trị sử dụng không dừng lại ở thời điểm bàn giao thiết bị, Hưng Phúc Khang phát triển hệ thống dịch vụ đi kèm xuyên suốt quá trình vận hành. Các hoạt động bán máy, cho thuê, sửa chữa, bảo trì và đào tạo kỹ thuật được triển khai đồng bộ nhằm hỗ trợ kịp thời, hạn chế gián đoạn và duy trì hiệu suất ổn định cho máy photocopy trong suốt thời gian sử dụng.
+					p Hưng Phúc Khang hoạt động trong lĩnh vực máy photocopy với định hướng cung cấp các giải pháp phù hợp cho nhu cầu sử dụng thực tế của doanh nghiệp, văn phòng và cửa hàng photocopy. Trọng tâm không nằm ở số lượng thiết bị, mà ở khả năng vận hành ổn định, tính hiệu quả trong sử dụng và sự phù hợp với từng mô hình khai thác. Danh mục sản phẩm tập trung vào các dòng máy photocopy đến từ những thương hiệu uy tín và được sử dụng rộng rãi trên thị trường như Ricoh, Konica, cùng các dòng máy photocopy đa chức năng và máy sao chụp khổ rộng. Các thiết bị được lựa chọn dựa trên mức độ ổn định, khả năng vận hành và sự phù hợp với nhu cầu sử dụng thực tế. Để đảm bảo giá trị sử dụng không dừng lại ở thời điểm bàn giao thiết bị, Hưng Phúc Khang phát triển hệ thống dịch vụ đi kèm xuyên suốt quá trình vận hành. Các hoạt động bán máy, cho thuê, sửa chữa, bảo trì và đào tạo kỹ thuật được triển khai đồng bộ nhằm hỗ trợ kịp thời, hạn chế gián đoạn và duy trì hiệu suất ổn định cho máy photocopy trong suốt thời gian sử dụng.
+				//- a.btn.btn-primary(href="#") VỀ CHÚNG TÔI
+				

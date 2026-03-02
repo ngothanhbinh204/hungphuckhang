@@ -28,11 +28,10 @@
 				input, select, textarea
 					@apply w-full bg-white border border-transparent px-5 py-2.5 rem:text-[18px] text-Utility-gray-800 placeholder:text-Utility-gray-800
 					@apply focus:border-Primary-1/50 focus:ring-4 focus:ring-Primary-1/10 outline-none transition-all
-					@apply rounded-sm
 				select
 					@apply w-full bg-white border border-transparent px-5 py-2.5 rem:text-[18px] text-Utility-gray-800 placeholder:text-Utility-gray-800
 					@apply focus:border-Primary-1/50 focus:ring-4 focus:ring-Primary-1/10 outline-none transition-all
-					@apply rounded-sm appearance-none cursor-pointer pr-12
+					@apply appearance-none cursor-pointer pr-12
 					
 					&:focus + &:after
 						@apply rotate-180
@@ -53,7 +52,9 @@
 					
 					
 		.form-button
-			@apply mt-7.5
+			@apply mt-0 lg:mt-5 text-left 
+			@screen -md
+				@apply text-center
 			button
 				@extend .btn
 				@extend .btn-primary

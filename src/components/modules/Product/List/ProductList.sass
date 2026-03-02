@@ -1,5 +1,102 @@
-.product
-	.product-item
-		.block-thumb
-			.thumb
-				@apply xl:ratio:pt-[557_520]
+.product-list
+	@apply py-10 lg:rem:pt-[100px] lg:rem:pb-[80px] bg-white
+	
+	.container-full
+		@apply rem:px-[16px] lg:rem:px-[60px] xl:rem:px-[80px]
+		
+	.wrapper
+		@apply flex flex-wrap lg:flex-nowrap gap-6 lg:rem:gap-[60px] xl:rem:gap-[88px]
+		
+	.sidebar
+		@apply w-full lg:rem:w-[260px] xl:rem:w-[300px] shrink-0
+		
+		.sticky-sidebar
+			@apply lg:sticky lg:top-[120px] flex flex-col gap-6
+			
+		.side-box
+			@apply flex flex-col
+			.box-title
+				@apply bg-Primary-1 text-white px-5 py-2.5 font-bold rem:text-[18px] uppercase tracking-wider
+			
+			.category-list
+				@apply bg-Utility-gray-50 flex flex-col
+				li
+					@apply border-b border-Utility-gray-100 last:border-0
+					a
+						@apply block px-5 py-3 text-Utility-gray-900 font-bold rem:text-[15px] transition-all
+					&.active, &:hover
+						a
+							@apply text-Primary-1
+							
+			.price-range
+				@apply bg-Utility-gray-50 p-5 pt-8 pb-10
+				.range-slider
+					@apply h-1 bg-Utility-gray-200 relative mb-6
+					&::before
+						content: ''
+						@apply absolute top-1/2 -translate-y-1/2 left-0 w-full h-full bg-Primary-1
+					&::after
+						content: ''
+						@apply absolute top-1/2 -translate-y-1/2 left-0 w-3 h-3 bg-Utility-gray-300 rounded-full
+					.handle-mock
+						@apply absolute top-1/2 -translate-y-1/2 right-0 w-3 h-3 bg-Utility-gray-300 rounded-full
+						
+				.range-info
+					@apply flex justify-between body-4 font-bold text-Utility-gray-900
+
+	.main-content
+		@apply flex-1 min-w-0
+		
+		.content-header
+			@apply flex flex-wrap items-center justify-between gap-4 mb-6
+			.title
+				@apply rem:text-[30px] xl:rem:text-[36px] font-bold text-Primary-1 uppercase
+			.sort-block
+				@apply relative flex items-center gap-5 body-2 font-bold text-Utility-gray-800
+				select
+					@apply bg-Utility-gray-50 px-5 py-2.5 border-0 outline-none rem:min-w-[226px] font-normal text-Utility-gray-800
+					@apply focus:border-Primary-1/50 focus:ring-4 focus:ring-Primary-1/10 outline-none transition-all
+					@apply appearance-none cursor-pointer pr-12
+					option
+						@apply bg-Utility-gray-50
+					&:focus + &:after
+						@apply rotate-180
+
+				&:has(select)::after
+					content: "\f078"
+					font-family: "Font Awesome 6 Pro"
+					font-weight: 400
+					@apply absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300
+					@apply text-Utility-gray-800 rem:text-[18px]
+					
+				&:has(select:focus)::after
+					@apply rotate-180 text-Primary-1
+		.product-grid
+			@apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5
+			
+		.pagination-wrapper
+			@apply mt-10 flex justify-center
+			
+.pagination
+	@apply flex items-center gap-3
+	li
+		@apply transition-all duration-500 ease-in-out w-12 h-12
+		a
+			@apply flex-center border-2 border-Primary-1 w-full h-full rem:text-[18px] font-bold text-Primary-1 transition-all duration-500
+		&:hover
+			@apply rem:w-[80px]
+			a
+				@apply bg-Primary-1 text-white border-Primary-1
+		&.disabled
+			a
+				@apply bg-Utility-gray-50 text-Utility-gray-200 border-Utility-gray-200
+		&.active
+			a
+				@apply bg-Primary-1 text-white border-Primary-1
+	
+	// Specific Overrides for Product Item in List
+	// .product-item
+	// 	.content
+	// 		.price
+	// 			.current
+	// 				@apply text-Primary-1

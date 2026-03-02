@@ -52,7 +52,18 @@
 				path
 					stroke-width: 0
 					vector-effect: non-scaling-stroke
+		i
+			@apply rem:text-[20px] font-normal
 
+	&.btn-primary
+		@apply bg-white border-2 border-Primary-1 text-Primary-1 font-semibold
+		@apply hover:bg-Primary-1 hover:text-white
+				
+	&.btn-primary-solid
+		@apply rem:h-[48px] inline-flex items-center justify-center px-6 bg-Utility-white gap-4  rem:text-[20px] font-semibold text-Primary-1 uppercase leading-1.4
+		@apply bg-Primary-1 border-2 border-Primary-1 text-white font-semibold
+		@apply hover:bg-white hover:text-Primary-1
+		
 
 
 .space-to-header

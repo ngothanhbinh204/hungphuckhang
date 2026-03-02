@@ -1,77 +1,250 @@
-section.product-detail-1(class="section-py bg-Utility-gray-50")
-	.container-fluid
-		.product-detail-main(class="flex flex-col lg:flex-row xl:gap-20 gap-base")
-			.col-left(class="xl:rem:max-w-[820px] lg:w-2/4 w-full")
-				.wrapper(class="grid md:grid-cols-[calc(147/820*100%)_1fr] grid-cols-[calc(120/820*100%)_1fr] gap-[calc(24/820*100%)]")
-					.thumb.relative
-						.relative(class="size-full")
-							.swiper
-								.swiper-wrapper
-									-for(i=0;i<6;i++)
-										.swiper-slide
-											.img
-												a(class="img-ratio") 
-													+PugImg()
-						.wrap-button-slide.arrow-vertical
-							.button-prev
-							.button-next
-					.main
-						.swiper
-							.swiper-wrapper
-								-for(i=0;i<6;i++)
-									.swiper-slide
-										.img
-											a(class="img-ratio")
-												+PugImg() 
-						.arrow-button
-							.btn.btn-sw-1.btn-prev
-							.btn.btn-sw-1.btn-next
-			.col-right(class="flex-1")
-				h2(class="text-Primary-1 heading-2 font-extrabold mb-3 title-product") Quicklime
-				.format-content(class="body-1 font-secondary font-normal")
-					p Widely applied in industry, agriculture, and forestry. It is commonly used in metallurgy, sugarcane production, and wastewater treatment, among others.
-				.wrap-info-product
-					.info-product-top 
-						-for(var i = 0; i < 2; i++)
-							.item 
-								.label Size
-								.value 
-									.number 1-10
-									.unit cm
-					.info-product-bottom 
-						-for(var i = 0; i < 2; i++)
-							.item 
-								.title Packaging:
-								.format-content 
-									p Loose cargo or 28 MT per Jumbo Bag/Big Bag (suitable for 20 FT container).
-					.info-product-certification 
-						span.text Certification: 
-						.img-certification
-							img(src="./img/2.png", alt="")
-section.product-detail-2(class="bg-[#005092]")
-	.container-fluid
-		.wrapper(class="grid lg:grid-cols-4 grid-cols-2")
-			-for(var i = 0; i < 4; i++)
-				.item(class="xl:px-6 xl:py-8 p-3 flex flex-col items-center justify-center")
-					.icon 
-						img(src="./img/3.svg", alt="" class="img-svg")
-					.content(class="text-white mt-6 text-center")
-						.title(class="heading-3 font-semibold mb-3") Agri-food
-						.desc(class="body-1 font-normal text-white/50")
-							p Lorem ipsum dolor sit amet consectetur.
-section.other-product(class="section-py")
-	.container-fluid
-		.swiper-column-auto(class="relative autoplay swiper-loop")
-			.wrap-heading(class="flex items-center justify-between mb-base") 
-				h2.title(class="heading-2 font-extrabold text-Primary-1") Other Products
-				.wrap-button(class="lg:flex hidden items-center gap-6")
-					.btn.btn-sw-1.btn-prev.gray
-					.btn.btn-sw-1.btn-next.gray
-			.swiper 
+section.product-detail-summary
+	.container
+		.wrapper
+			.col-left(data-aos="fade-right")
+				.gallery-main
+					.swiper.main-swiper
+						.swiper-wrapper
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/product-banner.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/product-banner.png", alt="")
+							.swiper-slide
+								a(href="./img/pro1.png", data-fancybox="product-gallery")
+									.img
+										img(src="./img/pro1.png", alt="")
+						.swiper-nav-wrapper
+							.swiper-button-prev
+								i.fa-light.fa-chevron-left
+							.swiper-button-next
+								i.fa-light.fa-chevron-right
+					.swiper.thumb-swiper
+						.swiper-wrapper
+							.swiper-slide
+								.img
+									img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								.img
+									img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								.img
+									img(src="./img/product-banner.png", alt="")
+							.swiper-slide
+								.img
+									img(src="./img/pro1.png", alt="")
+							.swiper-slide
+								.img
+									img(src="./img/product-banner.png", alt="")
+							.swiper-slide
+								.img
+									img(src="./img/pro1.png", alt="")
+
+			.col-right(data-aos="fade-left")
+				.summary-top
+					.tags
+						span.tag.discount -20%
+						span.tag.bestseller bestseller
+					.sku SKU 12345678
+				
+				h1.product-title Ricoh IM 3500
+				
+				.price-block
+					.price
+						span.current 10,250,000đ
+						span.old 12,725,000đ
+					.vat-note Giá chưa bao gồm VAT 10%
+				
+				.config-block
+					.label Cấu hình
+					.buttons
+						a.btn-config(href="#")
+							i.fa-light.fa-copy
+							span Sao chụp
+						a.btn-config(href="#")
+							i.fa-light.fa-print
+							span In
+						a.btn-config(href="#")
+							i.fa-light.fa-scanner-image
+							span Scan
+				
+				.promotion-box
+					.box-title Ưu đãi đặc quyền
+					ul.promo-list
+						li
+							span.num 1
+							span.text 
+								strong Bảo hành: 
+								span 24 tháng/50,000 trang
+						li
+							span.num 2
+							span.text 
+								strong Bảo trì: 
+								span 05 năm
+								| , tận nơi miễn phí
+						li
+							span.num 3
+							span.text 
+								strong Giá cho thuê máy photo/1 tháng : 
+								span 1,400,000 đồng
+				
+				.description-summary
+					.label Mô tả
+					ul.checkmark-list
+						li
+							strong Tốc độ copy: 
+									span 43 tờ/ phút
+						li
+							strong Định mức: 
+									span 8,000 trang
+						li
+							strong Vượt trội: 
+									span 90 đồng
+						li
+							strong Sử dụng các thiết bị di động thông minh để kết nối và làm việc từ xa
+				
+				.action-buttons
+					a.btn.btn-primary-solid.btn-large(href="#")
+						span LIÊN HỆ NGAY
+					p.note Nếu muốn sử dụng nhiều máy cùng 1 lúc mà không cần đầu tư vốn quá nhiều, bạn hãy tham khảo dịch vụ 
+						a(href="#") cho thuê máy photocopy
+					
+					a.btn.btn-detail-full(href="#")
+						i.fa-light.fa-download
+						span Tính năng chi tiết Ricoh IM 3500
+				
+				.share-block
+					span Chia sẻ
+					.social-links
+						a.facebook(href="#")
+							i.fa-brands.fa-facebook-f
+						a.linkedin(href="#")
+							i.fa-brands.fa-linkedin-in
+
+section.product-detail-accordion
+	.container 
+		.accordion-wrapper.bg-Utility-gray-50
+			.accordion-item.active
+				.accordion-header
+					h2 Thông số kỹ thuật máy photocopy Ricoh IM 3500
+					.icon-toggle
+						span
+				.accordion-content
+					.view-more-wrap
+						.inner
+							.content-left
+								p Nếu muốn sử dụng nhiều máy cùng 1 lúc mà không cần đầu tư vốn quá nhiều, bạn hãy tham khảo dịch vụ cho thuê máy photocopy:
+								ul.dot-list
+									- 
+										var specs = [
+											{label: "Tốc độ In/Copy", value: "35 trang/phút"},
+											{label: "Độ phân giải", value: "600 x 600 dpi"},
+											{label: "Khổ giấy tối đa", value: "A3 (tối thiểu là A6)"},
+											{label: "Màn hình", value: "Cảm ứng SOP 10.1 inch"},
+											{label: "Tự động đảo mặt bản sao", value: "Có"},
+											{label: "Tỷ lệ thu phóng", value: "25%-400%"},
+											{label: "Dung lượng bộ nhớ", value: "4GB + 320GB HDD"},
+											{label: "Nguồn gốc", value: "Nhập khẩu từ Mỹ - Hàng trưng bày"}
+										]
+									each spec in specs
+										li
+											strong= spec.label + ": "
+											span= spec.value
+							.content-right
+								.img
+									img(src="./img/pro1.png", alt="")
+						
+						.more-content(style="display: none;")
+							.inner.mt-10
+								p Nội dung bổ sung cho thông số kỹ thuật... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					
+					.btn-view-more
+						a.btn-toggle-content.btn.btn-primary(href="javascript:void(0)") 
+							span XEM THÊM
+							i.fa-light.fa-chevron-down
+
+			.accordion-item
+				.accordion-header
+					h2 GIỚI THIỆU
+					.icon-toggle
+						span
+				.accordion-content
+					.view-more-wrap
+						.inner
+							.content-left
+								p Nếu muốn sử dụng nhiều máy cùng 1 lúc mà không cần đầu tư vốn quá nhiều, bạn hãy tham khảo dịch vụ cho thuê máy photocopy:
+								ul.dot-list
+									- 
+										var specs = [
+											{label: "Tốc độ In/Copy", value: "35 trang/phút"},
+											{label: "Độ phân giải", value: "600 x 600 dpi"},
+											{label: "Khổ giấy tối đa", value: "A3 (tối thiểu là A6)"},
+											{label: "Màn hình", value: "Cảm ứng SOP 10.1 inch"},
+											{label: "Tự động đảo mặt bản sao", value: "Có"},
+											{label: "Tỷ lệ thu phóng", value: "25%-400%"},
+											{label: "Dung lượng bộ nhớ", value: "4GB + 320GB HDD"},
+											{label: "Nguồn gốc", value: "Nhập khẩu từ Mỹ - Hàng trưng bày"}
+										]
+									each spec in specs
+										li
+											strong= spec.label + ": "
+											span= spec.value
+							.content-right
+								.img
+									img(src="./img/pro1.png", alt="")
+						
+						.more-content(style="display: none;")
+							.inner.mt-10
+								p Nội dung bổ sung cho thông số kỹ thuật... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					
+					.btn-view-more
+						a.btn-toggle-content.btn.btn-primary(href="javascript:void(0)") 
+							span XEM THÊM
+							i.fa-light.fa-chevron-down
+
+include ../../../global/Contact/Contact
+
+section.product-related.section
+	.container-seller
+		.section-header.text-center.mb-10
+			h2.section-title MẪU MÁY LIÊN QUAN
+		
+		.relative
+			.swiper.product-related-swiper
 				.swiper-wrapper
-					-for(var i = 0; i < 4; i++)
-						.swiper-slide
-							+ProductItem()
-			.wrap-button-slide(class="xl:hidden flex")
-				.btn.btn-sw-1.btn-prev.gray
-				.btn.btn-sw-1.btn-next.gray
+					- 
+						var relatedProducts = [
+							{ cat: 'cat-1', name: 'Máy photocopy Ricoh' },
+							{ cat: 'cat-2', name: 'Máy in màu Konica' },
+							{ cat: 'cat-3', name: 'Máy sao chụp khổ rộng' },
+							{ cat: 'cat-1', name: 'Máy photocopy Ricoh 2' },
+							{ cat: 'cat-2', name: 'Máy in màu Konica 2' },
+							{ cat: 'cat-3', name: 'Máy sao chụp khổ rộng 2' },
+						]
+					each item in relatedProducts
+						.swiper-slide.h-auto
+							+ProductItem(item)
+			.swiper-nav-wrapper
+				.swiper-button-prev
+					i.fa-light.fa-chevron-left
+				.swiper-button-next
+					i.fa-light.fa-chevron-right

@@ -1,5 +1,49 @@
-section.product(class="section-py")
-	.container-fluid
-		.wrapper-list(class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 xl:gap-20 gap-base")
-			-for(var i = 0; i < 6; i++)
-				+ProductItem()
+section.product-list
+	.container-full
+		.wrapper
+			.sidebar
+				.side-box.sticky-sidebar
+					.box-category
+						.box-title DANH MỤC SẢN PHẨM
+						ul.category-list
+							li.active
+								a(href="#") Máy photocopy Ricoh
+							li
+								a(href="#") Máy photocopy đa chức năng
+							li
+								a(href="#") Máy in màu Konica
+							li
+								a(href="#") Máy sao chụp khổ rộng
+					.box-price
+						.box-title GIÁ SẢN PHẨM
+						.price-range
+							.range-slider
+								.handle-mock
+							.range-info
+								span 0
+								span 500,000,000đ
+
+			.main-content
+				.content-header
+					h2.title MÁY PHOTOCOPY RICOH
+					.sort-block
+						span SẮP XẾP
+						select
+							option(value="all") Tất cả
+							option(value="newest") Mới nhất
+							option(value="price-low") Giá thấp đến cao
+							option(value="price-high") Giá cao đến thấp
+				
+				.product-grid
+					- for(var i = 0; i < 12; i++)
+						.product-column
+							+ProductItem()
+				
+				.pagination-wrapper
+					ul.pagination
+						li.active
+							a(href="#") 1
+						li
+							a(href="#") 2
+						li
+							a(href="#") 3

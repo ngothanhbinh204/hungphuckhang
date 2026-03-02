@@ -8,151 +8,114 @@ const homeSection = utils.$("section[class*='home-']");
 
 
 export const homePage = {
-	home_2: () => {
-		const section = document.querySelector('.home-2');
-		if (!section) return;
+	slidingTitles: () => {
+		const sections = document.querySelectorAll('.sliding-titles-section');
+		if (!sections.length) return;
 
-		const titleWrapper = section.querySelector('.title-wrapper');
-		if (!titleWrapper) return;
-		
-		const titleList = titleWrapper.querySelector('.title-list');
-		const items = titleList.querySelectorAll('.title-item');
-		if (items.length <= 1) return;
-
-		const setWrapperHeight = () => {
-			if (intervalId) {
-				clearInterval(intervalId);
-			}
-
-			titleList.style.transition = 'none';
-			titleList.style.transform = 'translateY(0)';
+		sections.forEach(section => {
+			const titleWrapper = section.querySelector('.title-wrapper');
+			if (!titleWrapper) return;
 			
-			// Reset height to auto to get the real height of the first item
-			titleWrapper.style.height = 'auto';
-			
-			// Force reflow
-			void titleWrapper.offsetHeight;
-			
-			const itemHeight = items[0].offsetHeight;
+			const titleList = titleWrapper.querySelector('.title-list');
+			const items = titleList.querySelectorAll('.title-item');
+			if (items.length <= 1) return;
 
-			// Nếu tính được height > 0 thì mới set, tránh trường hợp bị 0px
-			if (itemHeight > 0) {
-				titleWrapper.style.height = `${itemHeight}px`;
-			} else {
-				// Fallback nếu không tính được height (ví dụ đang hidden)
-				titleWrapper.style.height = 'auto'; 
-			}
-			
-			// Khôi phục lại trạng thái và khởi động lại animation
-			currentIndex = 0; // Reset index về 0 để chạy lại từ đầu cho ổn định
-			
-			startAnimation();
-		};
-		
-		// Wait for fonts to load before setting initial height
-		document.fonts.ready.then(() => {
-			setTimeout(setWrapperHeight, 100);
-		});
-		
-		// Check xem event listener có thực sự được attach hay không
-		
-		// Lắng nghe sự kiện resize của window thay vì ResizeObserver để tránh loop vô hạn
-		let resizeTimer;
-		const handleResize = () => {
-			clearTimeout(resizeTimer);
-			resizeTimer = setTimeout(() => {
-				setWrapperHeight();
-			}, 100);
-		};
-		
-		window.addEventListener('resize', handleResize);
+			let currentIndex = 0;
+			const totalItems = items.length;
+			let intervalId;
 
-		let currentIndex = 0;
-		const totalItems = items.length;
-		let intervalId;
-
-		const startAnimation = () => {
-			if (intervalId) clearInterval(intervalId);
-
-			const runLoop = () => {
-				// Kiểm tra lại height mỗi lần chạy để đảm bảo luôn đúng kể cả sau khi resize
+			const setWrapperHeight = () => {
+				if (intervalId) clearInterval(intervalId);
+				titleList.style.transition = 'none';
+				titleList.style.transform = 'translateY(0)';
+				titleWrapper.style.height = 'auto';
+				void titleWrapper.offsetHeight;
 				const itemHeight = items[0].offsetHeight;
-				if (itemHeight === 0) {
-					return; // Nếu height = 0 thì không chạy (tránh lỗi)
+				if (itemHeight > 0) {
+					titleWrapper.style.height = `${itemHeight}px`;
 				}
-
-				currentIndex++;
-				
-				titleList.style.transition = 'transform 0.5s ease-in-out';
-				titleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
-
-				if (currentIndex === totalItems - 1) {
-					setTimeout(() => {
-						titleList.style.transition = 'none';
-						titleList.style.transform = `translateY(0)`;
-						currentIndex = 0;
-					}, 500);
-				}
+				currentIndex = 0;
+				startAnimation();
+			};
+			
+			const startAnimation = () => {
+				if (intervalId) clearInterval(intervalId);
+				const runLoop = () => {
+					const itemHeight = items[0].offsetHeight;
+					if (itemHeight === 0) return;
+					currentIndex++;
+					titleList.style.transition = 'transform 0.5s ease-in-out';
+					titleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
+					if (currentIndex === totalItems - 1) {
+						setTimeout(() => {
+							titleList.style.transition = 'none';
+							titleList.style.transform = `translateY(0)`;
+							currentIndex = 0;
+						}, 500);
+					}
+				};
+				intervalId = setInterval(runLoop, 2000);
 			};
 
-			intervalId = setInterval(runLoop, 2000);
-		};
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					startAnimation();
-				} else {
-					clearInterval(intervalId);
-				}
+			document.fonts.ready.then(() => setTimeout(setWrapperHeight, 100));
+			let resizeTimer;
+			window.addEventListener('resize', () => {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(setWrapperHeight, 100);
 			});
-		}, { threshold: 0.2 });
 
-		observer.observe(section);
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) startAnimation();
+					else clearInterval(intervalId);
+				});
+			}, { threshold: 0.2 });
+			observer.observe(section);
+		});
 	},
 
-	home_counter: () => {
-		const section = document.querySelector(".home-counter");
-		if (!section) return;
+	counters: () => {
+		const sections = document.querySelectorAll(".counter-section");
+		if (!sections.length) return;
 
-		const counters = section.querySelectorAll(".number");
-		// Reset về 0 khi chưa chạy
-		counters.forEach(counter => {
-			const target = counter.getAttribute("data-count");
-			counter.innerText = "0+";
-		});
-
-		const runCounter = () => {
+		sections.forEach(section => {
+			const counters = section.querySelectorAll(".number");
 			counters.forEach(counter => {
-				const target = +counter.getAttribute("data-count");
-				const duration = 2000; // 2 seconds
-				const stepTime = 30;
-				const steps = duration / stepTime;
-				const increment = target / steps;
-				let current = 0;
+				const target = counter.getAttribute("data-count");
+				counter.innerText = "0+";
+			});
 
-				const timer = setInterval(() => {
-					current += increment;
-					if (current >= target) {
-						counter.innerText = target + "+";
-						clearInterval(timer);
-					} else {
-						counter.innerText = Math.ceil(current) + "+";
+			const runCounter = () => {
+				counters.forEach(counter => {
+					const target = +counter.getAttribute("data-count");
+					const duration = 2000;
+					const stepTime = 30;
+					const steps = duration / stepTime;
+					const increment = target / steps;
+					let current = 0;
+
+					const timer = setInterval(() => {
+						current += increment;
+						if (current >= target) {
+							counter.innerText = target + "+";
+							clearInterval(timer);
+						} else {
+							counter.innerText = Math.ceil(current) + "+";
+						}
+					}, stepTime);
+				});
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						runCounter();
+						observer.unobserve(entry.target);
 					}
-				}, stepTime);
-			});
-		};
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					runCounter();
-					observer.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.5 });
-
-		observer.observe(section);
+				});
+			}, { threshold: 0.5 });
+			observer.observe(section);
+		});
 	},
 
 	home_3: () => {
@@ -193,77 +156,76 @@ export const homePage = {
 			observer.observe(section);
 		});
 	},
-	home_4: () => {
-		const section = document.querySelector('.home-4');
-		if (!section) return;
+	productTabsSlider: () => {
+		const sections = document.querySelectorAll(".product-tabs-slider-section");
+		if (!sections.length) return;
 
-		// Init Swiper
-		const swiperEl = section.querySelector('.home-4-swiper');
-		if (!swiperEl) return;
+		sections.forEach((section) => {
+			const swiperEl = section.querySelector(".home-4-swiper");
+			if (!swiperEl) return;
 
-		let home4Swiper;
-		const initSwiper = () => {
-			if (home4Swiper) home4Swiper.destroy(true, true);
-			
-			home4Swiper = new Swiper('.home-4-swiper', {
-				modules: [Pagination, Navigation],
-				slidesPerView: 1,
-				spaceBetween: 14,
-				grid: {
-					rows: 1,
-				},
-				breakpoints: {
-					576: { slidesPerView: 2, spaceBetween: 20 },
-					768: { slidesPerView: 3, spaceBetween: 20 },
-					1024: { slidesPerView: 4, spaceBetween: 20 },
-					1280: { slidesPerView: 5, spaceBetween: 20 },
-				},
-				pagination: {
-					el: '.home-4-pagination',
-					clickable: true,
-				},
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
-				},
-			});
-		};
+			let slider;
+			const initSwiper = () => {
+				if (slider) slider.destroy(true, true);
 
-		const tabs = section.querySelectorAll('.tab-item');
-		// Get slides BEFORE init to avoid swiper classes pollution
-		const wrapper = swiperEl.querySelector('.swiper-wrapper');
-		// Clone nodes deep to keep initial state safe
-		const originalSlides = Array.from(wrapper.children).map(node => node.cloneNode(true));
-		
-		initSwiper();
+				slider = new Swiper(swiperEl, {
+					modules: [Pagination, Navigation],
+					slidesPerView: 1,
+					spaceBetween: 14,
+					grid: {
+						rows: 1,
+					},
+					breakpoints: {
+						576: { slidesPerView: 2, spaceBetween: 20 },
+						768: { slidesPerView: 3, spaceBetween: 20 },
+						1024: { slidesPerView: 4, spaceBetween: 20 },
+						1280: { slidesPerView: 5, spaceBetween: 20 },
+					},
+					pagination: {
+						el: section.querySelector(".home-4-pagination"),
+						clickable: true,
+					},
+					navigation: {
+						nextEl: section.querySelector(".swiper-button-next"),
+						prevEl: section.querySelector(".swiper-button-prev"),
+					},
+				});
+			};
 
-		tabs.forEach(tab => {
-			tab.addEventListener('click', (e) => {
-				e.preventDefault();
-				
-				tabs.forEach(t => t.classList.remove('active'));
-				tab.classList.add('active');
-				
-				const filter = tab.getAttribute('data-tab');
-				
-				// Destroy Swiper
-				if (home4Swiper) home4Swiper.destroy(true, true);
-				
-				wrapper.innerHTML = ''; // Clear Content
-				
-				const filteredSlides = filter === 'all' 
-					? originalSlides 
-					: originalSlides.filter(slide => slide.getAttribute('data-category') === filter);
+			const tabs = section.querySelectorAll(".tab-item");
+			const wrapper = swiperEl.querySelector(".swiper-wrapper");
+			// Clone nodes deep to keep initial state safe
+			const originalSlides = Array.from(wrapper.children).map((node) => node.cloneNode(true));
 
-				if (filteredSlides.length > 0) {
-					filteredSlides.forEach(slide => {
-						// Append CLONE so original stays intact for future filtering
-						wrapper.appendChild(slide.cloneNode(true));
-					});
-					initSwiper();
-				} else {
-					wrapper.innerHTML = '<div style="width:100%; text-align:center; padding: 20px;">Không có sản phẩm phù hợp</div>';
-				}
+			initSwiper();
+
+			tabs.forEach((tab) => {
+				tab.addEventListener("click", (e) => {
+					e.preventDefault();
+
+					tabs.forEach((t) => t.classList.remove("active"));
+					tab.classList.add("active");
+
+					const filter = tab.getAttribute("data-tab");
+
+					if (slider) slider.destroy(true, true);
+					wrapper.innerHTML = "";
+
+					const filteredSlides =
+						filter === "all"
+							? originalSlides
+							: originalSlides.filter((slide) => slide.getAttribute("data-category") === filter);
+
+					if (filteredSlides.length > 0) {
+						filteredSlides.forEach((slide) => {
+							wrapper.appendChild(slide.cloneNode(true));
+						});
+						initSwiper();
+					} else {
+						wrapper.innerHTML =
+							'<div style="width:100%; text-align:center; padding: 20px;">Không có sản phẩm phù hợp</div>';
+					}
+				});
 			});
 		});
 	},
@@ -616,25 +578,110 @@ export const homePage = {
 		});
 	},
 
+	about_3: () => {
+		const section = document.querySelector(".about-3");
+		if (!section) return;
+
+		new Swiper(".about-3-swiper", {
+			modules: [Autoplay],
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			speed: 5000,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+			},
+			allowTouchMove: false, // Ngăn chặn kéo tay để tránh làm gián đoạn hiệu ứng mượt
+		});
+	},
+
+	productDetailInit: () => {
+		const accordions = document.querySelectorAll(".product-detail-accordion .accordion-item");
+		if (!accordions.length) return;
+
+		accordions.forEach((item) => {
+			const header = item.querySelector(".accordion-header");
+			header.addEventListener("click", () => {
+				const isActive = item.classList.contains("active");
+
+				if (isActive) {
+					item.classList.remove("active");
+				} else {
+					item.classList.add("active");
+				}
+			});
+
+			// Xử lý nút Xem thêm bên trong
+			const btnToggle = item.querySelector(".btn-toggle-content");
+			const moreContent = item.querySelector(".more-content");
+
+			if (btnToggle && moreContent) {
+				btnToggle.addEventListener("click", (e) => {
+					e.stopPropagation(); 
+					
+					$(moreContent).slideToggle(400);
+					btnToggle.classList.toggle("active");
+					
+					const span = btnToggle.querySelector("span");
+					if (btnToggle.classList.contains("active")) {
+						span.textContent = "RÚT GỌN";
+					} else {
+						span.textContent = "XEM THÊM";
+					}
+				});
+			}
+		});
+	},
+
+	choThueInit: () => {
+		const btnLoadMore = document.querySelector("#btn-load-more-partners");
+		if (!btnLoadMore) return;
+
+		const hiddenItems = document.querySelectorAll(".chothue-2 .hidden-item");
+		btnLoadMore.addEventListener("click", () => {
+			const isActive = btnLoadMore.classList.contains("active");
+			
+			hiddenItems.forEach(item => {
+				if (!isActive) {
+					item.classList.remove("d-none");
+					$(item).hide().fadeIn(500);
+				} else {
+					$(item).fadeOut(500, function() {
+						$(this).addClass("d-none");
+					});
+				}
+			});
+
+			btnLoadMore.classList.toggle("active");
+			const span = btnLoadMore.querySelector("span");
+			if (btnLoadMore.classList.contains("active")) {
+				span.textContent = "RÚT GỌN";
+			} else {
+				span.textContent = "XEM THÊM";
+			}
+		});
+	},
+
 	init: () => {
-		if ($("body.home").length === 0) return;
-		// Kiểm tra class có tồn tại không trước khi chạy, không chặn theo width
-		const section2 = document.querySelector('.home-2');
-		if (section2) {
-			homePage.home_2();
+		// Chạy cho tất cả các trang nếu có component tương ứng
+		homePage.slidingTitles();
+		homePage.counters();
+		homePage.about_3();
+		homePage.productTabsSlider();
+		homePage.productDetailInit();
+		homePage.choThueInit();
+		
+		// Các logic đặc thù cho Home
+		if ($("body.home").length > 0) {
+			homePage.home_3();
+			homePage.home_5();
+			homePage.home_items_animation();
+			homePage.home_7();
+			homePage.home_8();
+			homePage.homeButtons();
 		}
-		
-		homePage.home_counter();
-		
-		// if ($(window).width() < 1200) return;
-		// homePage.primaryNav();
-		homePage.home_3();
-		homePage.home_4();
-		homePage.home_5();
-		homePage.home_items_animation();
-		homePage.home_7();
-		homePage.home_8();
-		homePage.homeButtons();
+
 		document.fonts.ready.then((e) => {
 			homePage.homeBlockTitles();
 			homePage.homeTitle();

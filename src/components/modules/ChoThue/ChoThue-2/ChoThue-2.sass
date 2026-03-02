@@ -1,0 +1,48 @@
+.chothue-2
+	@apply py-10 lg:rem:py-[80px] bg-white overflow-hidden relative
+	.bg-pattern
+		@apply absolute inset-0 w-full h-full z-0 pointer-events-none
+		img
+			@apply w-full h-full object-cover mix-blend-overlay
+			
+	.container
+		@apply relative z-10
+		
+	.section-header
+		@apply mb-10 text-center
+	.section-title
+		@apply heading-36 font-bold text-Primary-1 uppercase
+	
+	.partner-grid
+		@apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6
+		.item-col
+			&.d-none
+				display: none
+		
+	.partner-item
+		@apply bg-white border border-Utility-gray-50 px-5 py-5 flex-center rem:h-[110px] lg:rem:h-[130px] relative transition-all duration-500 ease-in-out			
+		.partner-logo
+			@apply relative z-10 w-full h-full flex-center transition-all duration-500
+			img
+				@apply w-full h-full object-contain 
+				
+	.hover-line
+		@apply absolute rem:bottom-[10px] left-1/2 -translate-x-1/2 w-10 rem:h-[4px] bg-Primary-1 -z-1 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+		
+	.item-col:hover
+		.partner-item
+			@apply rem:-translate-y-[10px] border-Primary-1/10
+			box-shadow: 4px 4px 24px 0 rgba(0, 0, 0, 0.12)
+		.hover-line
+			@apply bottom-0
+
+	.btn-view-more-wrap
+		@apply flex-center mt-12
+	.btn-view-more
+		@apply flex items-center gap-3 border-2 border-Primary-1 px-8 py-2.5 rem:text-[16px] font-bold text-Primary-1 transition-all
+		@apply hover:bg-Primary-1 hover:text-white
+		i
+			@apply transition-transform duration-300
+		&.active
+			i
+				@apply rotate-180

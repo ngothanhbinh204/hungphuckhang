@@ -1,6 +1,19 @@
 .about-2
-	.wrap-heading
-		.col-left
-			.title
-				span
-					@apply text-Primary-1
+	@apply relative py-12 lg:rem:py-[80px] bg-white text-Utility-gray-950 overflow-hidden
+	.wrapper
+		@apply grid grid-cols-2 lg:grid-cols-4 relative z-10
+		.item
+			@apply text-left flex flex-col items-start justify-center py-4 lg:py-0 
+			// @apply border-r border-Utility-gray-200 last:border-r-0
+			@media (max-width: 1023px)
+				// &:nth-child(2)
+				// 	@apply border-r-0
+				// &:nth-child(1), &:nth-child(2)
+				// 	@apply border-b border-Utility-gray-200 pb-8 mb-8
+				&:nth-child(3), &:nth-child(4)
+					@apply pt-0
+			
+			.number
+				@apply font-secondary rem:text-[40px] lg:text-[60px] xl:rem:text-[72px] font-bold leading-[1.15] mb-2 text-Primary-1
+			.desc
+				@apply text-base lg:text-lg font-bold tracking-wide

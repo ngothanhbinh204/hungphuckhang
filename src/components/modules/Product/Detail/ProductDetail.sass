@@ -1,103 +1,256 @@
-.product-detail-1
-	.format-content
-		p
-			@apply mb-2 
-		table
-			@apply w-full table-fixed
-			tbody
-				@apply flex flex-col gap-3
-				tr
-					@apply  bg-Utility-gray-50 flex
-					td
-						@apply font-bold w-2/4
-						&.parameter
-							@apply font-normal 
-	.swiper-slide
-		.img
-			a
-				@apply  bg-neutral-100 h-full
-	.thumb
-		.swiper
-			@apply absolute inset-0
-			.swiper-slide
-				.img
-					@apply h-full 
-					a				
-						img
-							@apply border-2 border-transparent
-			.swiper-slide-thumb-active
-				.img
-					a
-						img
-							@apply border-Primary-2
-	.main
-		@apply overflow-hidden relative
-		.img
-			a
-				@apply ratio:pt-[649_649]
-		.arrow-button
-			@apply flex items-center gap-6 absolute bottom-0 left-0 p-6 z-10
-	.col-left
-		@apply xl:sticky xl:top-25 h-fit
-	.col-right
-		@apply w-full #{!important}
-		.wrap-info-product
-			@apply bg-white rem:mt-[29px] xl:p-8 p-4
-			@apply border-b-3 border-b-Primary-1
-			.info-product-top
-				@apply grid grid-cols-2 gap-6 mb-5 pb-5
-				@apply border-b border-b-Utility-gray-100
-				.item
-					.label
-						@apply body-1 font-semibold mb-3
-					.value
-						@apply flex items-end gap-3 text-Primary-1
-						.number
-							@apply heading-2 font-extrabold
-						.unit
-							@apply body-1 font-secondary font-normal
-			.info-product-bottom
-				.item
-					@apply pb-5 border-b border-b-Utility-gray-100 mb-5 body-1
-					.title
-						@apply font-semibold mb-4
-						.format-content
-							@apply font-secondary font-normal
-			.info-product-certification
-				@apply flex items-center gap-4
-				.text
-					@apply body-1 font-semibold
-				.img-certification
-					@apply rem:w-[75px] rem:h-[75px]
-					img
-						@apply w-full h-full object-contain
-.product-detail-2
+.product-detail-summary
+	@apply py-10 lg:py-16 xl:rem:pt-[130px] bg-white
+		
 	.wrapper
-		.item
-			@apply transition-all duration-300 border-b-4 border-b-transparent
-			.icon
-				@apply sq-20 inline-flex items-center justify-center
-				img
-					@apply w-full h-full object-contain
-			&:hover
-				@apply bg-white/20 border-b-white
-.other-product
-	.swiper-column-auto
-		.swiper-slide
-			--spv: 1
-			--mr: calc(12/1920*100rem)
-			@screen sm
-				--spv: 2
-			@screen md
-				--spv: 2
-				--mr: calc(40/1920*100rem)
-			@screen lg
-				--spv: 2
-				--mr: calc(24/1920*100rem)
-			@screen xl
-				--spv: 3
-				--mr: calc(80/1920*100rem)
-			.product-item
-				.block-thumb
-					.thumb
-						@apply ratio:pt-[557_520]
+		@apply grid grid-cols-1 lg:grid-cols-12 gap-10 lg:rem:gap-[40px] xl:rem:gap-[40px]
+		
+	.col-left
+		@apply lg:col-span-7 flex flex-col gap-5
+		@apply lg:sticky lg:top-[calc(var(--header-height)+24px)]
+		height: fit-content
+		
+		.gallery-main
+			@apply relative
+			.main-swiper
+				@apply bg-Utility-gray-50 rem:rounded-sm overflow-hidden
+				.img
+					@apply img-ratio ratio:pt-[400_500] lg:rem:pt-[532px]
+					img
+						@apply object-contain p-10
+						
+				.swiper-button-prev
+					@apply rem:left-[20px]
+				.swiper-button-next
+					@apply rem:right-[20px]
+						
+			.thumb-swiper
+				@apply mt-5
+				.swiper-slide
+					@apply cursor-pointer
+					.img
+						@apply bg-Utility-gray-50 border-4 border-transparent transition-all overflow-hidden
+						@apply img-ratio ratio:pt-[106_144]
+						img
+							@apply object-contain w-full h-full
+					&-thumb-active
+						.img
+							@apply border-Primary-1
+
+	.col-right
+		@apply lg:col-span-5 flex flex-col gap-5
+		@apply pl-[0px] xl:rem:pl-[40px]
+		
+		.summary-top
+			@apply flex items-center justify-between
+			.tags
+				@apply flex gap-1
+				.tag
+					@apply rem:text-[14px] font-bold px-2 py-0.5 text-white leading-1.4
+					&.discount
+						@apply bg-Utility-gray-950
+					&.bestseller
+						@apply bg-Primary-1
+			.sku
+				@apply rem:text-[12px] text-[#818998] font-normal
+
+		.product-title
+			@apply rem:text-[26px] lg:rem:text-[36px] font-bold text-Utility-gray-950 leading-tight
+			
+		.price-block
+			@apply flex flex-col
+			.price
+				@apply flex items-center gap-4
+				.current
+					@apply rem:text-[24px] font-bold text-Primary-1 leading-[1.35]
+				.old
+					@apply rem:text-[14px] text-Utility-gray-600 line-through leading-[1.4]
+			.vat-note
+				@apply rem:text-[14px] italic text-Utility-gray-600
+				
+		.config-block
+			@apply flex flex-row flex-wrap gap-2.5 items-center
+			.label
+				@apply body-2 font-bold text-Utility-gray-900
+			.buttons
+				@apply flex flex-wrap gap-2.5
+				.btn-config
+					@apply flex items-center gap-4 border border-Utility-gray-600 px-3 py-3 pb-2.5 rem:text-[18px] text-Utility-gray-600 transition-all font-semibold
+					@apply hover:border-Primary-1 hover:text-Primary-1
+					i
+						@apply text-Primary-1 rem:text-[16px] font-normal
+						
+		.promotion-box
+			@apply bg-Utility-gray-600 rem:rounded-sm overflow-hidden
+			.box-title
+				@apply bg-Utility-gray-600 text-white px-5 py-2.5 font-semibold rem:text-[18px]
+			.promo-list
+				@apply bg-white border border-[#E4E5E6] p-5 flex flex-col gap-3
+				li
+					@apply flex items-start gap-3
+					.num
+						@apply rem:sq-[26px] flex-center bg-Primary-1 text-white rounded-full rem:text-[18px] font-semibold shrink-0 leading-none
+					.text
+						@apply rem:text-[18px] text-Utility-gray-950 font-normal
+						span
+							@apply text-Primary-1
+						strong
+							@apply text-Utility-gray-950 font-bold
+
+		.description-summary
+			@apply flex flex-col gap-5
+			.label
+				@apply body-2 font-bold text-black
+			.checkmark-list
+				@apply flex flex-col gap-1
+				li
+					@apply relative pl-6 body-2 text-Utility-gray-950 leading-normal
+					strong
+						@apply font-bold
+					&::before
+						@apply body-4
+						@apply mt-1
+						content: '\f00c'
+						font-family: 'Font Awesome 6 Pro'
+						font-weight: 300
+						@apply absolute left-0 top-0 text-Primary-1 font-bold
+						
+		.action-buttons
+			@apply flex flex-col gap-5
+			.btn-primary-solid
+				@apply w-full rem:text-[20px]
+			.note
+				@apply body-2 text-Utility-gray-950 leading-1.4
+				// @apply text-balance
+				a
+					@apply text-Primary-1
+			.btn-detail-full
+				@apply flex-center gap-2 bg-Utility-gray-50 py-1 rem:text-[18px] font-normal text-Primary-1 transition-all
+				@apply hover:bg-Utility-gray-100
+				i
+					@apply text-Primary-1 rem:text-[18px] font-normal
+
+		.share-block
+			@apply flex items-center gap-9 mt-1
+			span
+				@apply body-2 font-semibold text-Utility-gray-950
+			.social-links
+				@apply flex gap-2.5
+				a
+					@apply sq-12 flex-center bg-Primary-1 text-white text-[20px] transition-all
+					@apply hover:bg-Primary-2
+
+.product-detail-accordion
+	@apply pb-10 lg:pb-[62px]
+	
+	.container-full
+		@apply lg:rem:px-[60px] xl:rem:px-[160px]
+		
+	.accordion-wrapper
+		@apply flex flex-col p-6 lg:rem:p-[60px] lg:rem:pb-[calc(60px-24px)] xl:rem:p-[80px] xl:rem:pb-[calc(80px-24px)]
+		
+	.accordion-item
+		@apply border-t border-Utility-gray-200
+		
+		.accordion-header
+			@apply flex items-center justify-between py-4 lg:py-6 cursor-pointer select-none transition-all
+			h2
+				@apply rem:text-[24px] lg:rem:text-[36px] font-bold text-Utility-gray-950 leading-1.3
+			
+			.icon-toggle
+				@apply relative sq-6 flex-center
+				span
+					@apply absolute w-6 h-[3px] bg-Primary-1 transition-all rounded-1
+					&::after
+						content: ''
+						@apply absolute w-full h-full bg-Primary-1 transition-all rotate-90 rounded-1
+		
+		.accordion-content
+			@apply overflow-hidden transition-all duration-500 ease-in-out
+			max-height: 0
+			opacity: 0
+			.inner
+				@apply grid grid-cols-1 lg:grid-cols-2 gap-10 items-start
+				@apply pt-2
+				.content-left
+					@apply space-y-5
+				p
+					@apply body-2 leading-1.4
+				
+				.dot-list
+					@apply flex flex-col gap-3
+					li
+						@apply relative pl-6 body-2 leading-1.4
+						&::before
+							content: ''
+							@apply absolute left-0 top-[0.6em] -translate-y-1/2 sq-2 bg-Primary-1 rounded-full
+						strong
+							@apply text-Utility-gray-950 font-bold
+							
+				.content-right
+					.img
+						@apply bg-[#16316314] rem:rounded-sm overflow-hidden
+						@apply img-ratio ratio:pt-[399_600]
+						img
+							@apply object-contain w-full h-full
+							
+			.btn-view-more
+				@apply flex-center my-6
+				a
+					@apply flex items-center gap-3 border-2 border-Primary-1 font-bold text-Primary-1 transition-all
+					@apply hover:bg-Primary-1 hover:text-white
+					i
+						@apply transition-transform duration-300 font-medium
+					&.active
+						i
+							@apply rotate-180
+					
+		&.active
+			.accordion-header
+				h2
+					@apply text-Primary-1
+				.icon-toggle
+					span
+						&::after
+							@apply rotate-0 opacity-0
+			.accordion-content
+				max-height: 2000px
+				opacity: 1
+
+.product-related
+	@apply py-10 lg:rem:py-[60px] bg-white
+	.container-seller
+		@apply relative rem:px-[16px] lg:rem:px-[80px] xl:rem:px-[260px]
+	
+	.section-title
+		@apply heading-36 font-bold text-Primary-1 uppercase mb-5 lg:mb-8 xl:mb-10 text-left
+		
+	// .relative
+	// 	@apply relative rem:px-[0px] lg:rem:px-[60px]
+		
+	// .swiper-button-prev, .swiper-button-next
+	// 	@apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-transparent text-Utility-gray-400 border-2 border-Utility-gray-300 cursor-pointer transition-all duration-300
+	// 	@screen lg
+	// 		@apply flex
+	// 	@screen -lg
+	// 		@apply hidden
+	// 	&::after
+	// 		@apply hidden
+	// 	&:hover
+	// 		@apply bg-Primary-1 text-white border-Primary-1
+			
+	// .swiper-button-prev
+	// 	@apply lg:rem:left-[-10px] xl:rem:left-[-30px]
+	// .swiper-button-next
+	// 	@apply lg:rem:right-[-10px] xl:rem:right-[-30px]
+	.swiper-nav-wrapper
+		.swiper-button-prev
+			@apply lg:rem:left-[-60px] xl:rem:left-[-80px]
+		.swiper-button-next
+			@apply lg:rem:right-[-60px] xl:rem:right-[-80px]
+@screen -lg
+	.swiper-nav-wrapper
+		@apply bg-white mt-0 pt-6
+
+		
+	.product-item
+		@apply h-full

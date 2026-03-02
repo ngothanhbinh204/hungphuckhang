@@ -1,0 +1,30 @@
+section.chothue-2
+	.bg-pattern
+		img(src="./img/bg-7.png", alt="")
+	.container
+		.section-header
+			h2.section-title ĐỐI TÁC THUÊ MÁY
+		
+		.partner-grid
+			- 
+				var partners = [
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png", 
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png",
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png", 
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png",
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png", 
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png",
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png", 
+					"./img/logo_doitac.png", "./img/logo_doitac.png", "./img/logo_doitac.png"
+				]
+			each logo, index in partners
+				.item-col(class=(index >= 12 ? 'hidden-item d-none' : ''))
+					.partner-item
+						.partner-logo
+							img(src=logo, alt="")
+						.hover-line
+
+		.btn-view-more-wrap
+			a#btn-load-more-partners.btn-view-more.btn.btn-primary.btn-primary-hover(href="javascript:void(0)")
+				span XEM THÊM
+				i.fa-light.fa-chevron-down
