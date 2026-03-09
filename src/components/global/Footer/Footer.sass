@@ -22,8 +22,17 @@
 			@apply flex items-start gap-5 text-Utility-gray-950 rem:text-[16px]
 			i
 				@apply mt-1 rem:text-[18px] flex-shrink-0
-			span
-				@apply leading-relaxed
+				
+			a
+				@apply leading-1.4
+				@apply relative text-Utility-gray-950 body-2 transition-all duration-300 leading-1.4
+				@apply hover:text-Primary-1 inline-block
+				&:before
+					content: ""
+					@apply absolute left-0 -bottom-[2px] w-0 h-[1px] bg-Primary-1
+					@apply transition-all duration-300
+				&:hover:before
+					@apply w-full
 				
 	.menu-list
 		@apply flex flex-col gap-2
@@ -45,6 +54,7 @@
 			
 	.footer-col.support-box
 		@apply w-full
+		@apply col-span-1 md:col-span-2 lg:col-span-1
 		.support-card
 			@apply bg-Primary-1 text-white p-5 h-full flex flex-col
 			
@@ -101,9 +111,13 @@
 			@apply flex items-center gap-2.5
 			a
 				@apply sq-12 flex-center bg-Primary-1 text-white transition-all duration-500
-				@apply hover:bg-Utility-gray-900
+				@apply hover:bg-Primary-2
 				i
 					@apply rem:text-[20px]
 					
 .divider
 	@apply h-[1px] bg-white/30 w-full
+.services-page
+	.home-4
+		.title-sale
+			@apply rem:text-[24px] md:rem:text-[28px] xl:rem:text-[36px] font-bold text-Primary-1 uppercase leading-[1.4]

@@ -6,6 +6,7 @@
 		@apply flex items-center justify-between
 		@apply xl:h-[calc(64/1920*100rem)]
 		@apply xl:pl-[calc(80/1920*100rem)] pl-4
+		@apply -xl:pr-4 xl:pr-0
 		@apply -xl:py-2.5
 		// ── LOGO ──────────────────────────────────────────────
 		.header-logo
@@ -29,6 +30,8 @@
 							@apply inline-flex items-center uppercase whitespace-nowrap leading-[1.4]
 							@apply rem:text-[18px] font-semibold text-Utility-gray-950
 							@apply transition-300
+						> ul.sub-menu
+							@apply p-5
 						&:hover
 							> a
 								@apply text-Primary-1
@@ -46,15 +49,22 @@
 							@apply rem:min-w-[200px] bg-white
 							@apply absolute top-full left-0 z-50
 							@apply flex flex-col
-							@apply border-t-2 border-t-Primary-1
+							@apply border-t border-t-Utility-gray-200
 							@apply shadow-Shadow-3
 							@apply opacity-0 transition-300 pointer-events-none
 							> li
 								a
-									@apply block px-5 py-3
-									@apply rem:text-[14px] font-medium text-Utility-gray-950 uppercase
-									@apply hover:text-Primary-1 hover:bg-Utility-gray-50
+									@apply block py-3
+									@apply rem:text-[18px] font-medium text-Utility-gray-800
+									@apply hover:text-Primary-1
 									@apply transition-300
+									@apply border-b border-Utility-gray-200
+								&:first-child
+									a
+										@apply pt-0
+								&:last-child
+									a
+										@apply pb-0 border-b-0
 			// ── HEADER ACTIONS ────────────────────────────────
 			.header-actions
 				@apply xl:flex hidden items-center gap-[calc(30/1920*100rem)] h-full
@@ -67,17 +77,17 @@
 				// ── LANGUAGE ──────────────────────────────────
 				.header-language
 					@apply relative px-4
-					ul
-						@apply flex gap-2.5 items-center cursor-pointer
-						a
-							@apply inline-flex items-center gap-2.5
-							@apply text-Utility-gray-300
-							@apply h-full
-							@apply font-normal uppercase whitespace-nowrap
-							@apply rem:text-[14px]
-							@apply transition-300
-							i
-								@apply rem:text-[18px] text-white
+					.language-horizontal
+						@apply flex items-center gap-1.5
+						li
+							@apply rem:text-[14px] font-normal text-Utility-gray-400 uppercase leading-none
+							@apply transition-300 transition-colors
+							a
+								@apply block
+							&.divider
+								@apply text-Utility-gray-300 font-normal h-full w-fit
+							&.active, &:hover
+								@apply text-Primary-1
 				// .header-language
 				// 	@apply relative
 				// 	&:hover
@@ -118,16 +128,17 @@
 					@apply inline-flex items-center gap-2.5
 					@apply bg-Primary-1 text-white
 					@apply h-full
-					@apply px-4 font-medium uppercase whitespace-nowrap
-					@apply rem:text-[16px]
+					@apply px-6 font-semibold uppercase whitespace-nowrap
+					@apply rem:text-[15px]
 					@apply hover:bg-Primary-2 transition-300
 					i
 						@apply rem:text-[18px] text-white
 			// ── HAMBURGER (mobile) ────────────────────────────
 			.header-bar
 				@apply sq-10 flex-shrink-0
+				@apply bg-Primary-1
 				@apply items-center justify-center xl:hidden flex
-				@apply text-2xl text-Utility-gray-950 cursor-pointer
+				@apply text-2xl text-white cursor-pointer
 				.active
 					i
 						&::before
@@ -135,56 +146,73 @@
 
 	// ── MOBILE NAV ────────────────────────────────────────────
 	.nav-mobile
-		@apply w-[85vw] bg-white h-full
-		@apply fixed top-0 right-0 z-[999] px-6
-		@apply flex flex-col
+		@apply w-full sm:w-[400px] bg-white h-full
+		@apply fixed top-0 right-0 z-[999]
+		@apply flex flex-col shadow-Shadow-3
 		@apply transition-500 translate-x-full opacity-0 pointer-events-none
 		.header-wrap-head
 			@apply flex items-center justify-between
-			@apply py-4 border-b border-b-Utility-gray-100
+			@apply p-5 border-b border-b-Utility-gray-100
 			.header-logo
-				@apply rem:h-[32px] w-auto
+				@apply h-10 w-auto
 				a
 					@apply h-full block
 					img
 						@apply h-full w-auto object-contain
 			.header-close
-				@apply sq-10 bg-Primary-1 inline-flex items-center justify-center cursor-pointer
+				@apply sq-10 bg-Utility-gray-100 inline-flex items-center justify-center cursor-pointer
+				@apply hover:bg-Primary-1 transition-300
 				i
-					@apply text-xl text-white
+					@apply text-xl text-Utility-gray-900 group-hover:text-white
+				&:hover
+					i
+						@apply text-white
 		.header-wrap-menu
-			@apply flex-1 overflow-y-auto py-4
+			@apply flex-1 overflow-y-auto px-5 py-6
 			ul.menu-mobile
-				@apply flex flex-col
+				@apply flex flex-col gap-1
 				> li
-					@apply border-b border-b-Utility-gray-100
+					@apply relative
 					> a
-						@apply block py-3 px-2 text-[16px] font-semibold text-Utility-gray-950 uppercase
+						@apply flex items-center justify-between
+						@apply py-3.5 px-0 text-[18px] font-bold text-Utility-gray-950 uppercase
+						@apply border-b border-b-Utility-gray-50
 						@apply transition-300
 					&.menu-item-has-children
-						> a
-							@apply flex items-center justify-between
-							&::after
-								content: '\\f078'
-								@apply font-awesome font-light text-[14px] transition-300
-							&.dropdown-active
+						.dropdown-toggle
+							@apply absolute right-0 top-0 sq-12 flex items-center justify-center cursor-pointer z-1
+							i
+								@apply text-[18px] transition-300
+						&.active
+							> a
 								@apply text-Primary-1
-								&::after
+							.dropdown-toggle
+								i
 									@apply rotate-180
 					ul.sub-menu
-						@apply hidden bg-Utility-gray-50 mx-2 mb-2
+						display: none
+						@apply py-2 pl-4 flex flex-col gap-1 border-l-2 border-l-Primary-1/20 ml-2 mt-2
 						li
 							a
-								@apply block py-2 px-4 text-[14px] text-Utility-gray-700 hover:text-Primary-1 transition-300
+								@apply block py-2.5 px-2 text-[16px] font-medium text-Utility-gray-700 hover:text-Primary-1 transition-300
 			.header-mobile-bottom
-				@apply flex flex-col gap-4 mt-6 pt-6 border-t border-t-Utility-gray-100
+				@apply mt-auto pt-8 pb-10 flex flex-col gap-6
+				.language-horizontal
+					@apply flex items-center justify-center gap-3
+					li
+						@apply text-[16px] font-normal text-Utility-gray-400 uppercase
+						&.divider
+							@apply text-Utility-gray-200 font-normal h-full w-fit
+						&.active
+							@apply text-Primary-1
 				a.header-hotline
-					@apply inline-flex items-center gap-2
+					@apply flex items-center gap-3
 					@apply bg-Primary-1 text-white justify-center
-					@apply h-11 px-5 font-semibold uppercase
-					@apply text-[14px]
+					@apply py-4 px-6 font-bold uppercase
+					@apply text-[16px] shadow-Shadow-3
+					@apply hover:bg-Primary-2 transition-all duration-300
 					i
-						@apply text-[14px] text-white
+						@apply text-[18px]
 
 	// ── OVERLAY ───────────────────────────────────────────────
 	.header-overlay
@@ -198,6 +226,7 @@
 		height: 100%
 		background-color: rgba(0, 0, 0, 0.5)
 		z-index: 50
+		backdrop-filter: blur(5px)
 
 // ── STICKY / SCROLL STATE ─────────────────────────────────────
 .header.active
@@ -222,6 +251,6 @@ body.isOpenSearch
 		@apply opacity-100 pointer-events-auto translate-y-0
 
 body
-	&.product-detail-page, &.service-page, &.news-detail-page
+	&.product-detail-page, &.service-page, &.news-detail-page, &.contact-page, &.single.single-product, &.single.single-service, &.single.single-post
 		.global-breadcrumb
 			@apply mt-[var(--header-height)]

@@ -1,24 +1,70 @@
 .contact
-	.wrapper-main
-		.col-left
-			.item
-				.link
+	@apply section-py
+	.contact-wrapper
+		@apply grid lg:grid-cols-[1fr_1.5fr] grid-cols-1 gap-10 lg:gap-20
+	
+	.contact-info-col
+		.contact-header
+			@apply mb-5
+			.greeting
+				@apply rem:text-[24px] font-bold text-Utility-gray-950 mb-2
+			.brand-name
+				@apply heading-1 text-Primary-1 uppercase font-black
+		
+		.contact-details
+			@apply flex flex-col gap-6 mb-10
+			.detail-item
+				@apply flex items-start gap-5
+				.icon
+					@apply text-Utility-gray-950 rem:text-[20px] flex-shrink-0 mt-1
+				.text
+					@apply body-1 text-Utility-gray-800 font-medium
 					a
-						@apply hover:text-Primary-2
-.contact-2
-	@apply relative
-	&::before
-		content: ""
-		background: linear-gradient(0deg, rgba(22, 29, 46, 0.60) 0%, rgba(22, 29, 46, 0.60) 100%)
-		@apply absolute top-0 left-0 w-full h-full pointer-events-none z-1
-	.wrap-form-box
-		backdrop-filter: blur(9.550000190734863px)
-		@apply rounded-10 xl:p-16 p-5 bg-white/20 relative z-2
-		form
-			.form-group
-				input, textarea
-					@apply h-12 inline-flex items-center justify-center rounded-full px-6 bg-white/20 placeholder:text-white body-1 font-secondary w-full
-				&.textarea
-					@apply col-span-full 
+						@apply hover:text-Primary-1 transition-300
+		
+		.contact-map
+			@apply w-full overflow-hidden
+			iframe
+				@apply w-full rem:h-[250px] block
+
+	.contact-form-col
+		.form-box
+			@apply bg-Utility-gray-50 p-6 lg:p-10
+			.form-header
+				@apply text-center mb-5
+				p
+					@apply body-2 font-medium text-Utility-gray-950 leading-relaxed
+					span
+						@apply text-Primary-2
+			
+			.form-wrapper
+				@apply flex flex-col gap-5
+				.row_form
+					@apply grid grid-cols-1 md:grid-cols-2 gap-5
+				.form-group
+					@apply w-full
+					&.full-width
+						@apply col-span-full
+					
+					input, textarea
+						@apply w-full bg-white border-none px-5 py-3
+						@apply border border-Utility-gray-100
+						@apply body-3 text-Utility-gray-950 placeholder:text-Utility-gray-600 leading-[1.5]
+						@apply focus:ring-1 focus:ring-Primary-1 transition-all
+						&:focus
+							@apply border-Primary-1
+					
 					textarea
-						@apply px-6 pt-4 rem:min-h-[128px] h-full resize-none rounded-4
+						@apply resize-none rem:h-[180px]
+					
+					.wpcf7-form-control-wrap
+						@apply block w-full
+				
+					
+				.form-submit
+					@apply flex justify-between items-center flex-wrap
+					button
+						@apply h-fit flex items-center gap-4 bg-Primary-1 text-white px-10 py-3.5 rounded-full
+						@apply body-3 font-bold uppercase transition-all hover:bg-opacity-90 hover:shadow-lg
+						i
+							@apply rem:text-[18px]

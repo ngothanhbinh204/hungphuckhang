@@ -1,0 +1,62 @@
+.market-list-hero
+	@apply w-full overflow-hidden
+	.market-wrapper
+		@apply flex flex-col lg:flex-row min-h-[500px] lg:h-[650px] xl:h-[750px]
+		
+	.col-left
+		background: linear-gradient(135deg, #3a1510 0%, #1a0806 100%)
+		@apply flex-1 flex items-center relative
+		@apply py-12 lg:py-0 px-6
+		
+		// Fixed alignment with the 1440px grid system
+		@screen lg
+			padding-left: 80px
+			padding-right: 40px
+		@screen xl
+			// Align to the 1440px container start point
+			// Formula: (100vw - 1440px) / 2 is the gutter. 
+			// We add 140px to match the original design's 380px padding at 1920px width.
+			padding-left: calc((100vw - 1440px) / 2 + 140px)
+			padding-right: 80px
+		
+		.content-inner
+			@apply w-full relative z-2
+			.wrapper-title
+				.description, .title
+					@apply text-left
+				.description
+					@apply text-white
+		.img
+			@apply w-full h-full
+			@apply absolute inset-0 z-0
+			img
+				@apply w-full h-full object-cover block
+					
+	.col-right
+		@apply flex-1 relative
+		.img
+			@apply w-full h-full
+			img
+				@apply w-full h-full object-cover block
+				
+@screen -xl
+	.market-list-hero
+		.col-left
+			@apply lg:rem:pl-[120px] lg:rem:pr-[60px]
+			
+@screen -lg
+	.market-list-hero
+		.market-wrapper
+			@apply h-auto
+		.col-left
+			@apply py-15
+		.col-right
+			@apply rem:h-[400px]
+			
+@screen -md
+	.market-list-hero
+		.col-left
+			.title
+				@apply rem:text-[28px]
+			.desc
+				@apply rem:text-base

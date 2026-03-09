@@ -157,76 +157,102 @@ export const homePage = {
 		});
 	},
 	productTabsSlider: () => {
-		const sections = document.querySelectorAll(".product-tabs-slider-section");
-		if (!sections.length) return;
+		const section = $(".home-4");
+		if (!section.length) return;
 
-		sections.forEach((section) => {
-			const swiperEl = section.querySelector(".home-4-swiper");
-			if (!swiperEl) return;
+		let home4Swiper;
 
-			let slider;
-			const initSwiper = () => {
-				if (slider) slider.destroy(true, true);
-
-				slider = new Swiper(swiperEl, {
-					modules: [Pagination, Navigation],
+		const initSwiper = () => {
+			const swiperEl = document.querySelector(".home-4-swiper");
+			if (swiperEl) {
+				if (home4Swiper) home4Swiper.destroy(true, true);
+				home4Swiper = new Swiper(swiperEl, {
+					modules: [Navigation, Pagination, Autoplay],
 					slidesPerView: 1,
-					spaceBetween: 14,
-					grid: {
-						rows: 1,
+					spaceBetween: 10,
+					navigation: {
+						nextEl: ".home-4 .swiper-button-next",
+						prevEl: ".home-4 .swiper-button-prev",
 					},
 					breakpoints: {
-						576: { slidesPerView: 2, spaceBetween: 20 },
+						640: { slidesPerView: 2, spaceBetween: 20 },
 						768: { slidesPerView: 3, spaceBetween: 20 },
-						1024: { slidesPerView: 4, spaceBetween: 20 },
-						1280: { slidesPerView: 5, spaceBetween: 20 },
+						1025: { slidesPerView: 5, spaceBetween: 30 },
 					},
-					pagination: {
-						el: section.querySelector(".home-4-pagination"),
-						clickable: true,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
 					},
-					navigation: {
-						nextEl: section.querySelector(".swiper-button-next"),
-						prevEl: section.querySelector(".swiper-button-prev"),
+					observer: true,
+					observeParents: true,
+				});
+			}
+		};
+
+		// Initial load
+		initSwiper();
+
+		// AJAX Filter Event
+		$(document).on("click", ".home-4 .tab-item", function (e) {
+			const $this = $(this);
+			const categoryId = $this.attr("data-category-id") || "all";
+			const categoryPool = section.find("ul").attr("data-category-pool") || "";
+			const swiperWrapper = section.find(".swiper-wrapper");
+			const loadingOverlay = section.find(".loading-overlay");
+
+			if ($this.hasClass("active")) return;
+
+			// UI Update: Tab
+			$(".home-4 .tab-item").removeClass("active");
+			$this.addClass("active");
+
+			// UI Update: Loading
+			loadingOverlay.addClass("active");
+
+			/**
+			 * FLOW FOR BACKEND (Home-4 Product Filter):
+			 * 1. Endpoint: wp-admin/admin-ajax.php
+			 * 2. Action name: 'filter_products_by_category'
+			 * 3. Parameters: category_id, category_pool (e.g. san-pham-khuyen-mai)
+			 * 4. Query logic: Get products belonging to category_id + specific taxonomy (pool)
+			 * 5. Output: Return HTML of series of .swiper-slide elements.
+			 */
+
+			// Try to call WordPress AJAX if global variable exists
+			if (typeof canhcam_params !== "undefined" && canhcam_params.ajax_url) {
+				$.ajax({
+					url: canhcam_params.ajax_url,
+					type: "POST",
+					data: {
+						action: "filter_products_by_category",
+						category_id: categoryId,
+						category_pool: categoryPool,
+					},
+					success: function (response) {
+						if (response.success) {
+							swiperWrapper.html(response.data);
+							initSwiper();
+							
+							// Re-init AOS and Lazyload if needed
+							if (window.AOS) window.AOS.refresh();
+							if (window.lozad) window.lozad.observe();
+						}
+					},
+					error: function (err) {
+						console.error("Home-4 Filter Error:", err);
+					},
+					complete: function () {
+						loadingOverlay.removeClass("active");
 					},
 				});
-			};
-
-			const tabs = section.querySelectorAll(".tab-item");
-			const wrapper = swiperEl.querySelector(".swiper-wrapper");
-			// Clone nodes deep to keep initial state safe
-			const originalSlides = Array.from(wrapper.children).map((node) => node.cloneNode(true));
-
-			initSwiper();
-
-			tabs.forEach((tab) => {
-				tab.addEventListener("click", (e) => {
-					e.preventDefault();
-
-					tabs.forEach((t) => t.classList.remove("active"));
-					tab.classList.add("active");
-
-					const filter = tab.getAttribute("data-tab");
-
-					if (slider) slider.destroy(true, true);
-					wrapper.innerHTML = "";
-
-					const filteredSlides =
-						filter === "all"
-							? originalSlides
-							: originalSlides.filter((slide) => slide.getAttribute("data-category") === filter);
-
-					if (filteredSlides.length > 0) {
-						filteredSlides.forEach((slide) => {
-							wrapper.appendChild(slide.cloneNode(true));
-						});
-						initSwiper();
-					} else {
-						wrapper.innerHTML =
-							'<div style="width:100%; text-align:center; padding: 20px;">Không có sản phẩm phù hợp</div>';
-					}
-				});
-			});
+			} else {
+				// Local/Mock fallback for front-end dev
+				setTimeout(() => {
+					console.log(`Mock filtering for Home-4: Category ${categoryId} / Pool ${categoryPool}`);
+					initSwiper();
+					loadingOverlay.removeClass("active");
+				}, 600);
+			}
 		});
 	},
 	home_5: () => {
@@ -587,12 +613,25 @@ export const homePage = {
 			slidesPerView: 'auto',
 			spaceBetween: 20,
 			loop: true,
-			speed: 5000,
+			speed: 4000,
 			autoplay: {
 				delay: 0,
 				disableOnInteraction: false,
 			},
-			allowTouchMove: false, // Ngăn chặn kéo tay để tránh làm gián đoạn hiệu ứng mượt
+			breakpoints: {
+				768: {
+					spaceBetween: 20,
+				},
+				1024: {
+					speed: 5000,
+					spaceBetween: 40,
+				},
+				1440: {
+					speed: 5000,
+					spaceBetween: 60,
+				}
+			},
+			allowTouchMove: false,
 		});
 	},
 
@@ -663,6 +702,26 @@ export const homePage = {
 		});
 	},
 
+	faqAccordion: () => {
+		const faqItems = document.querySelectorAll(".chothue-3 .faq-item");
+		if (!faqItems.length) return;
+
+		faqItems.forEach((item) => {
+			const header = item.querySelector(".faq-header");
+			header.addEventListener("click", () => {
+				const isActive = item.classList.contains("active");
+
+				// Đóng các items khác
+				faqItems.forEach((i) => i.classList.remove("active"));
+
+				// Nếu item hiện tại chưa active thì mở nó
+				if (!isActive) {
+					item.classList.add("active");
+				}
+			});
+		});
+	},
+
 	init: () => {
 		// Chạy cho tất cả các trang nếu có component tương ứng
 		homePage.slidingTitles();
@@ -671,6 +730,7 @@ export const homePage = {
 		homePage.productTabsSlider();
 		homePage.productDetailInit();
 		homePage.choThueInit();
+		homePage.faqAccordion();
 		
 		// Các logic đặc thù cho Home
 		if ($("body.home").length > 0) {

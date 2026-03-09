@@ -1,0 +1,28 @@
+section.chothue-3
+	.container
+		.section-wrapper
+			.col-left(data-aos="fade-right")
+				h2.section-title FAQs
+				p.section-desc Qua nhiều năm kinh nghiệm trong lĩnh vực Bán/ Cho thuê máy photocopy, chúng tôi luôn thao thức và tìm cách để góp phần giảm tải và hạn chế những khó khăn - rủi ro trong quá trình gia công sản xuất sản phẩm nhằm mang lại hiệu quả kinh tế cao.
+			
+			.col-right(data-aos="fade-left")
+				.faq-list
+					- 
+						var faqs = [
+							{ num: '1', q: 'Chi phí thuê máy photocopy được tính như thế nào?', a: 'Chi phí thuê máy photocopy phụ thuộc vào dòng máy, công suất sử dụng và thời gian thuê. Mức giá đã bao gồm thiết bị, lắp đặt và hỗ trợ kỹ thuật cơ bản. Nhân viên sẽ tư vấn chi tiết để lựa chọn phương án phù hợp nhất với nhu cầu thực tế.' },
+							{ num: '2', q: 'Khi thuê máy photocopy có được bảo trì và sửa chữa không?', a: 'Có, toàn bộ các gói thuê máy tại Hưng Phúc Khang đều bao gồm dịch vụ bảo trì định kỳ và sửa chữa miễn phí khi có sự cố kỹ thuật xảy ra.' },
+							{ num: '3', q: 'Thời gian thuê máy photocopy tối thiểu là bao lâu?', a: 'Chúng tôi cung cấp các gói thuê linh hoạt, thời gian tối thiểu thường từ 6 tháng đến 1 năm tùy vào nhu cầu sử dụng của doanh nghiệp.' },
+							{ num: '4', q: 'Máy thuê có đầy đủ chức năng in, scan, sao chụp không?', a: 'Tất cả các dòng máy cho thuê hiện đại của chúng tôi đều tích hợp đầy đủ các tính năng: In mạng, Scan màu và Photocopy chuyên nghiệp.' },
+							{ num: '5', q: 'Thủ tục thuê máy photocopy có phức tạp không?', a: 'Thủ tục vô cùng đơn giản và nhanh chóng. Sau khi chốt phương án, hợp đồng sẽ được ký kết và máy sẽ được bàn giao lắp đặt trong vòng 24h.' }
+						]
+					each item, index in faqs
+						.faq-item(class=(index === 0 ? 'active' : ''))
+							.faq-header
+								.faq-num= item.num
+								h3.faq-question= item.q
+								.faq-icon
+									i.fa-light.fa-chevron-down
+							.faq-body
+								.inner
+									.content-wrap
+										p= item.a

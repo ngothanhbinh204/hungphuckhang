@@ -3,12 +3,14 @@ section.home-8
 		h2.block-title(class="rem:text-[36px]" data-aos="fade-up") Tin tức nổi bật
 		.tabs-wrapper(data-aos="fade-up" data-aos-delay="200")
 			ul.tabs-list
-				li.tab-item.active(data-tab="all") Tất cả
-				li.tab-item(data-tab="company") Tin tức
-				li.tab-item(data-tab="market") Kiến thức
-				li.tab-item(data-tab="event") Sự kiện
+				li.tab-item.active(data-tab="all" data-category-id="0") Tất cả
+				li.tab-item(data-tab="tin-tuc" data-category-id="1") Tin tức
+				li.tab-item(data-tab="kien-thuc" data-category-id="2") Kiến thức
+				li.tab-item(data-tab="su-kien" data-category-id="3") Sự kiện
 		
-		.news-slider-relative(data-aos="fade-up" data-aos-delay="400")
+		#news-filter-result.news-slider-relative(data-aos="fade-up" data-aos-delay="400")
+			.loading-overlay 
+				.spinner
 			.swiper.home-8-swiper
 				.swiper-wrapper
 					- for (var s = 0; s < 3; s++)

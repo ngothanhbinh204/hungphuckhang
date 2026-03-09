@@ -125,9 +125,12 @@
 					@apply text-Primary-1
 			.btn-detail-full
 				@apply flex-center gap-2 bg-Utility-gray-50 py-1 rem:text-[18px] font-normal text-Primary-1 transition-all
-				@apply hover:bg-Utility-gray-100
 				i
 					@apply text-Primary-1 rem:text-[18px] font-normal
+				&:hover
+					@apply bg-Primary-1 text-white
+					i
+						@apply text-white
 
 		.share-block
 			@apply flex items-center gap-9 mt-1
@@ -136,7 +139,7 @@
 			.social-links
 				@apply flex gap-2.5
 				a
-					@apply sq-12 flex-center bg-Primary-1 text-white text-[20px] transition-all
+					@apply sq-12 flex-center bg-Primary-1 text-white rem:text-[20px] transition-all
 					@apply hover:bg-Primary-2
 
 .product-detail-accordion
@@ -176,7 +179,7 @@
 				p
 					@apply body-2 leading-1.4
 				
-				.dot-list
+				ul
 					@apply flex flex-col gap-3
 					li
 						@apply relative pl-6 body-2 leading-1.4

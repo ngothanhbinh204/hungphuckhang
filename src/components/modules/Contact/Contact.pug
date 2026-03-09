@@ -1,41 +1,56 @@
-section.contact(class="section-py")
+section.contact
 	.container 
-		h2.title(class="heading-1 text-center uppercase text-Primary-1 mb-base") Head Office
-		.wrapper-main(class="flex flex-col")
-			-for(var j = 0; j < 2; j++)
-				.wrapper(class="grid lg:grid-cols-2 grid-cols-1 items-center gap-base border-t border-t-Primary-1 py-10")
-					.col-left 
-						h3.title(class="heading-36 font-bold mb-base") Head Office
-						.contact-info(class="flex flex-col gap-4")
-							-for(var i = 0; i < 3; i++)
-								.item(class="flex items-center gap-6 body-1 border-b border-b-Utility-gray-200 pb-4 last:border-b-0 last:pb-0")
-									.label(class="rem:max-w-[240px] w-full font-bold") Address
-									.link(class="flex-1")
-										a(href="#") Lot C2, Doc 2 Street, Phu An Thanh Industrial Park, Ben Luc, Tay Ninh, Vietnam
-					.col-right 
-						.map(class="img-ratio ratio:pt-[380_680]")
-							iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.3561393692544!2d106.69784617605167!3d20.857690793630802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7b0032889f65%3A0x4a6c0d438e72c394!2sTRANSCO!5e0!3m2!1svi!2s!4v1769068193173!5m2!1svi!2s", width="800", height="600", style="border:0;", allowfullscreen, loading="lazy", referrerpolicy="no-referrer-when-downgrade")
-section.contact-2(class="section-py" setBackground="./img/1.jpg")
-	.container 
-		.wrap-form-box(class="rem:max-w-[1160px] w-full mx-auto")
-			.wrap-heading(class="text-center text-white mb-base")
-				h2.title(class="heading-2 uppercase font-bold mb-2") Connect with us now
-				.desc(class="body-1 font-normal")
-					p Please fill out all the information in the form below so that we can contact and assist you quickly and accurately. Our team will respond as soon as possible.
-			form
-				.wrap-form(class="grid md:grid-cols-2 grid-cols-1 gap-4")
-					.form-group
-						input(type="text" placeholder="Full Name")
-					.form-group
-						input(type="text" placeholder="Full Name")
-					.form-group
-						input(type="text" placeholder="Full Name")
-					.form-group
-						input(type="text" placeholder="Full Name")
-					.form-group.textarea(class="w-full")
-						textarea(placeholder="Message")
-				.form-submit(class="flex-center mt-base")
-					button(class="btn btn-primary")
-						span Submit
-						.icon 
-							img(src="./img/arrow.svg", alt="" class="img-svg")
+		.contact-wrapper
+			.contact-info-col
+				.contact-header
+					p.greeting Xin chào chúng tôi là
+					h1.brand-name KC Hà Tĩnh
+				
+				.contact-details
+					.detail-item
+						.icon
+							i.fa-light.fa-location-dot
+						.text
+							p Km 09 đường tránh Thành phố, Phường Hà Huy Tập, tỉnh Hà Tĩnh, Việt Nam
+					.detail-item
+						.icon
+							i.fa-light.fa-phone
+						.text
+							a(href="tel:19008026") 19008026
+					.detail-item
+						.icon
+							i.fa-light.fa-envelope
+						.text
+							a(href="mailto:contact@kchatinh.vn") contact@kchatinh.vn
+
+				.contact-map
+					iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15124.969850624022!2d105.8893148443907!3d18.336043444855077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31384f6869766d95%3A0xc6a8a38575a7c03!2zSMOgIEh1eSBU4bqtcCwgSGF0aW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1709484000000!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+
+			.contact-form-col
+				.form-box
+					.form-header
+						p Mọi sự hợp tác tốt đẹp đều bắt đầu từ một cuộc trò chuyện. Hãy liên hệ với chúng tôi,
+						p mọi mong muốn của bạn #[span sẽ được lắng nghe.]
+					
+					.form-wrapper
+						.row_form
+							.form-group
+								span.wpcf7-form-control-wrap
+									input(type="text" placeholder="Họ và tên")
+							.form-group
+								span.wpcf7-form-control-wrap
+									input(type="email" placeholder="Email")
+						.row_form
+							.form-group
+								span.wpcf7-form-control-wrap
+									input(type="tel" placeholder="Điện thoại")
+							.form-group
+								span.wpcf7-form-control-wrap
+									input(type="text" placeholder="Tiêu đề")
+						.row_form
+							.form-group.full-width
+								span.wpcf7-form-control-wrap
+									textarea(placeholder="Nội dung" rows="5")
+						
+						.form-submit
+							button(type="submit") Gửi #[i.fa-light.fa-arrow-up-right]

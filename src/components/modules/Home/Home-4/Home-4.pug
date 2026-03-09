@@ -6,13 +6,15 @@ section.home-4.section.bg-Utility-gray-50.product-tabs-slider-section
 						+PugImg("./img/fire_icon.svg")
 					h2.title-sale SẢN PHẨM ĐANG GIẢM GIÁ
 				.tabs
-					ul
-						li.tab-item.active(data-tab="all") Máy photocopy Ricoh
-						li.tab-item(data-tab="cat-1") Máy photocopy đa chức năng
-						li.tab-item(data-tab="cat-2") Máy in màu Konica
-						li.tab-item(data-tab="cat-3") Máy sao chụp khổ rộng
+					ul.tabs-scroll-mobile(data-category-pool="san-pham-khuyen-mai")
+						li.tab-item.active(data-tab="all" data-category-id="all") Tất cả
+						li.tab-item(data-tab="cat-1" data-category-id="1") Máy photocopy Ricoh
+						li.tab-item(data-tab="cat-2" data-category-id="2") Máy in màu Konica
+						li.tab-item(data-tab="cat-3" data-category-id="3") Máy sao chụp khổ rộng
 			
-			.relative
+			#product-filter-result.relative
+				.loading-overlay 
+					.spinner
 				.swiper.home-4-swiper.px-4
 					.swiper-wrapper
 						- 

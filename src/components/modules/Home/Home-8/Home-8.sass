@@ -11,14 +11,22 @@
 		.tabs-list
 			@apply flex flex-wrap gap-2 lg:gap-4
 			.tab-item
-				@apply px-6 py-2 bg-Utility-gray-100 text-Utility-gray-600 font-bold cursor-pointer transition-all
+				@apply px-5 py-2 bg-[#F1F3F4] text-Utility-gray-950 font-semibold cursor-pointer transition-all
 				@apply hover:bg-Primary-1/10 hover:text-Primary-1
+				@apply text-lg
+				@apply border border-transparent
 				&.active
-					@apply bg-Primary-1 text-white
+					@apply bg-Primary-1 text-white border-Primary-1
 					
 	.news-slider-relative
 		@apply relative px-0 lg:px-20
-		
+		.loading-overlay
+			@apply absolute inset-0 bg-white/80 z-20 flex-center opacity-0 pointer-events-none transition-all duration-300
+			&.active
+				@apply opacity-100 pointer-events-auto
+			.spinner
+				@apply w-10 h-10 border-4 border-Utility-gray-200 border-t-Primary-1 rounded-full animate-spin
+				
 	.news-group
 		@apply flex flex-col gap-4 lg:gap-5
 		
@@ -37,6 +45,7 @@
 				@apply flex items-center gap-5 text-sm
 				.date
 					@apply text-Utility-gray-500 font-normal
+					@apply mb-0
 				.category
 					@apply text-[#c33] font-semibold
 			.title
@@ -62,7 +71,11 @@
 			.content
 				.desc
 					@apply lg:hidden
-					display: -webkit-box
+					@screen -lg
+						display: -webkit-box
+						-webkit-box-orient: vertical
+						-webkit-line-clamp: 3
+						overflow: hidden
 				
 	.small-items
 		@apply grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10
@@ -80,3 +93,9 @@
 	.swiper-button-prev, .swiper-button-next
 		top: unset
 		@apply lg:bottom-[20%] translate-y-0
+.loading-overlay
+	@apply absolute inset-0 bg-white/80 z-20 flex-center opacity-0 pointer-events-none transition-all duration-300
+	&.active
+		@apply opacity-100 pointer-events-auto
+	.spinner
+		@apply w-10 h-10 border-4 border-Utility-gray-200 border-t-Primary-1 rounded-full animate-spin

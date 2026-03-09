@@ -27,18 +27,17 @@ export const header = {
 			$(".header-bar").removeClass("active");
 			$("body").removeClass("isOpenMenu");
 		});
-		if (window.matchMedia("(max-width: 1199.98px)").matches) {
-			$(".header-wrap-menu .menu-mobile li[class*='has-children']>a").each(function () {
-				$(this)
-					.wrap('<div class="menu-item"></div>')
-					.parent()
-					.append('<div class="icon-arrow"></div>');
-			});
-			$(".header-wrap-menu .menu-mobile li[class*='has-children'] .icon-arrow").on("click", function () {
-				$(this).closest("li").toggleClass("active");
-				$(this).closest("li").find("ul").slideToggle();
-			});
-		}
+		// Handle mobile sub-menu toggle
+		$(".menu-mobile .menu-item-has-children .dropdown-toggle").on("click", function (e) {
+			if (window.matchMedia("(max-width: 1199.98px)").matches) {
+				const $parent = $(this).closest("li");
+				$parent.toggleClass("active");
+				$parent.find("> ul.sub-menu").slideToggle(300);
+				
+				// Optional: Close other sub-menus
+				$parent.siblings().removeClass("active").find("> ul.sub-menu").slideUp(300);
+			}
+		});
 	},
 	initVariable: function () {
 		const $header = document.querySelector("header");

@@ -40,7 +40,7 @@
 					content: "\f078"
 					font-family: "Font Awesome 6 Pro"
 					font-weight: 400
-					@apply absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300
+					@apply absolute right-5 rem:top-[22px] -translate-y-1/2 pointer-events-none transition-transform duration-300
 					@apply text-Utility-gray-800 rem:text-[18px]
 					
 				&:has(select:focus)::after
@@ -52,7 +52,7 @@
 					
 					
 		.form-button
-			@apply mt-0 lg:mt-5 text-left 
+			@apply mt-0 lg:mt-5 text-left flex justify-between items-center flex-wrap gap-5
 			@screen -md
 				@apply text-center
 			button

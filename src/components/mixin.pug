@@ -62,12 +62,12 @@ mixin HeaderLanguageVertical()
 				a(href="") 
 					span EN
 mixin HeaderLanguageHorizontal()
-	ul 
+	ul.language-horizontal
+		li.wpml-ls-item.active
+			a(href="") VN
+		li.divider /
 		li.wpml-ls-item
-			a(href="") 
-				span.wpml-ls-native VN
-				span /
-				span.wpml-ls-native EN
+			a(href="") EN
 mixin BtnPrimary(text="")
 	a(href="", class='btn-primary btn ' + attributes.class)
 		span=text
@@ -123,17 +123,16 @@ mixin PlayIcon()
 		.icon 
 			img(src="./img/play-icon.svg", alt="", class="img-svg")
 mixin NewsItem()
-	.news-item(class="group")
-		.img 
-			a(href="./NewsDetail.html" class="img-ratio ratio:pt-[318_440] zoom-img") 
+	.news-item
+		.img
+			a(href="./NewsDetail.html") 
 				+PugImg()
-		.content(class="xl:p-6 p-4")
-			h3(class="heading-5 font-semibold group-hover:text-Primary-2 mb-3") 
-				a(href="#") Compare the quality and cost of construction stone by region
-			.bottom-content(class="flex items-center gap-2 font-normal body-4 font-secondary")
-				.day 20.08.2025
-				.dot 
-				.category(class="text-Primary-1") Tin công ty
+		.content
+			.date
+				i.fa-light.fa-calendar-day
+				span 08.08.2024
+			h3
+				a(href="./NewsDetail.html") Nông sản là gì? Kinh doanh nông sản cần tuân thủ các điều kiện gì?
 mixin MarketItem()
 	.market-item
 		.img

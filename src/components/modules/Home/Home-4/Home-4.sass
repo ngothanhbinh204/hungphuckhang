@@ -22,10 +22,32 @@
 		img
 			@apply w-full h-full object-contain
 	.tabs
+		@apply w-full max-w-full
 		ul
-			@apply flex items-center justify-center gap-3 flex-wrap
+			@apply flex items-center gap-3
 		
 	.swiper-button-prev
 		@apply lg:rem:left-[-40px] xl:rem:left-[-50px]
 	.swiper-button-next
 		@apply lg:rem:right-[-40px] xl:rem:right-[-50px]
+
+#product-filter-result
+	@apply relative
+	.loading-overlay 
+		@apply absolute inset-0 bg-white/70 z-20 flex-center opacity-0 pointer-events-none transition-all duration-300
+		&.active
+			@apply opacity-100 pointer-events-auto
+		.spinner
+			@apply w-10 h-10 border-4 border-Utility-gray-200 border-t-Primary-1 rounded-full animate-spin
+
+// Utility class cho scroll tabs ngang trên mobile
+.tabs-scroll-mobile
+	@apply flex flex-nowrap overflow-x-auto w-full max-w-full justify-start
+	-webkit-overflow-scrolling: touch
+	scrollbar-width: none
+	&::-webkit-scrollbar
+		display: none
+	> *
+		@apply shrink-0
+	@screen lg
+		@apply flex-wrap overflow-visible justify-center

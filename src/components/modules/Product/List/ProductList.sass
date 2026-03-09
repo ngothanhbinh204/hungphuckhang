@@ -16,20 +16,26 @@
 		.side-box
 			@apply flex flex-col
 			.box-title
-				@apply bg-Primary-1 text-white px-5 py-2.5 font-bold rem:text-[18px] uppercase tracking-wider
+				@apply bg-Primary-1 text-white px-5 py-2.5 font-bold rem:text-[18px] uppercase
 			
 			.category-list
-				@apply bg-Utility-gray-50 flex flex-col
+				@apply bg-Utility-gray-50 flex flex-col p-5
 				li
-					@apply border-b border-Utility-gray-100 last:border-0
+					@apply border-b border-Utility-gray-200 last:border-0
 					a
-						@apply block px-5 py-3 text-Utility-gray-900 font-bold rem:text-[15px] transition-all
+						@apply block py-3 text-Utility-gray-950 font-bold rem:text-[16px] transition-all
+					&:first-child
+						a
+							@apply pt-0
+					&:last-child
+						a
+							@apply pb-0
 					&.active, &:hover
 						a
 							@apply text-Primary-1
 							
 			.price-range
-				@apply bg-Utility-gray-50 p-5 pt-8 pb-10
+				@apply bg-Utility-gray-50 p-5
 				.range-slider
 					@apply h-1 bg-Utility-gray-200 relative mb-6
 					&::before
@@ -42,7 +48,7 @@
 						@apply absolute top-1/2 -translate-y-1/2 right-0 w-3 h-3 bg-Utility-gray-300 rounded-full
 						
 				.range-info
-					@apply flex justify-between body-4 font-bold text-Utility-gray-900
+					@apply flex justify-between body-4 font-normal text-Utility-gray-950
 
 	.main-content
 		@apply flex-1 min-w-0
@@ -77,7 +83,7 @@
 		.pagination-wrapper
 			@apply mt-10 flex justify-center
 			
-.pagination
+.pagination, .page-numbers
 	@apply flex items-center gap-3
 	li
 		@apply transition-all duration-500 ease-in-out w-12 h-12
@@ -90,10 +96,15 @@
 		&.disabled
 			a
 				@apply bg-Utility-gray-50 text-Utility-gray-200 border-Utility-gray-200
-		&.active
+		&.active, &:has(.current)	
 			a
 				@apply bg-Primary-1 text-white border-Primary-1
-	
+			span:has(.current)
+				@apply bg-Primary-1 text-white border-Primary-1
+.page-numbers
+	li
+		span.current
+			@apply bg-Primary-1 flex-center border-2 border-Primary-1 w-full h-full rem:text-[18px] font-bold text-white transition-all duration-500
 	// Specific Overrides for Product Item in List
 	// .product-item
 	// 	.content

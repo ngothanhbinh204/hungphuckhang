@@ -1,5 +1,5 @@
 .home-2
-	@apply relative pt-10 rem:pb-[100px] lg:pt-20 lg:rem:pb-[230px] overflow-hidden
+	@apply relative pt-10 rem:pb-[100px] lg:pt-20 lg:rem:pb-[180px] xl:rem:pb-[230px] overflow-hidden
 	.bg-pattern
 		@apply absolute bottom-0 left-0 w-full z-[-1]
 		img
@@ -40,6 +40,9 @@
 						@apply img-ratio ratio:pt-[660_740] shadow-Shadow-4
 						img
 							@apply w-full h-full object-cover
+					&:hover
+						img
+							@apply scale-105
 				.img-small
 					@apply absolute z-20 w-[60%] lg:rem:w-[320px] xl:rem:w-[362px]
 					@apply left-[-10%] lg:left-[-15%] bottom-[-15%] lg:bottom-[-22%]
@@ -48,3 +51,6 @@
 						@apply img-ratio ratio:pt-[360_362] 
 						img
 							@apply w-full h-full object-cover
+					&:hover
+						img
+							@apply scale-105

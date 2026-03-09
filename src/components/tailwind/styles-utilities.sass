@@ -13,3 +13,10 @@
 		&[data-loaded="true"]
 			opacity: 1
 			filter: blur(0)
+	.zoomEffect
+		overflow: hidden
+		img
+			transition: .3s all ease-in-out
+			overflow: hidden
+			&:hover
+				transform: scale(1.05)

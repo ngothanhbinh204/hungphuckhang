@@ -1,0 +1,66 @@
+.chothue-4
+	@apply py-10 lg:rem:py-[90px] bg-white overflow-hidden
+	.section-header
+		@apply mb-6 xl:mb-10 text-center
+	.section-title
+		@apply heading-36 font-bold text-Primary-1 uppercase
+		
+	.pricing-grid
+		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10
+		@screen -lg
+			.pricing-col:last-child
+				@apply col-span-full
+		@screen -md
+			.pricing-col:last-child
+				@apply col-span-1
+		
+	.pricing-card
+		@apply bg-[#F1F3F4] flex flex-col h-full transition-all duration-300
+		@apply border border-Utility-gray-200
+		&:hover
+			@apply shadow-2xl rem:-translate-y-2
+			@apply border-Primary-1
+			
+		.card-header
+			@apply p-5 border-b border-Utility-gray-200
+			.wrapper-package
+				@apply bg-Primary-1 py-2 px-4 text-center mb-2
+				span
+					@apply text-white font-semibold rem:text-[16px] lg:rem:text-[18px] uppercase
+			.price-block
+				@apply text-center
+				h3.price
+					@apply font-bold text-Utility-gray-950 inline-flex items-baseline
+					@apply gap-2
+				@screen xl
+					h3.price
+						@apply heading-36
+				@screen -xl
+					h3.price
+						@apply rem:text-[28px]
+				
+		.card-body
+			@apply flex-1 flex flex-col p-5 gap-5
+		.feature-list
+			@apply flex flex-col gap-2.5 flex-1
+			li
+				@apply flex items-start gap-3
+				.icon
+					@apply flex-shrink-0 transition-all duration-300
+					i
+						@apply rem:text-[14px]
+				.text
+					@apply rem:text-[16px] lg:rem:text-[18px] text-Utility-gray-800 leading-1.4
+					b
+						@apply font-bold
+				
+				&.inactive
+					@apply opacity-50
+				&:not(.inactive)
+					.icon
+						@apply text-Utility-gray-800
+						
+		.card-footer
+			@apply text-left
+			.note
+				@apply font-bold text-Utility-gray-950 rem:text-[16px] lg:rem:text-[18px]

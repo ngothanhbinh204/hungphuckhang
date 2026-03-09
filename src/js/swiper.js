@@ -111,6 +111,7 @@ export function swiperInit() {
 	swiperBanner();
 	swiperProductDetail();
 	swiperRelatedProducts();
+	swiperNewsRelated();
 	swiperFieldOp();
 
 	const about_5 = new Swiper(`.about-5 .swiper`, {
@@ -831,3 +832,36 @@ function swiperRelatedProducts() {
 // 		});
 // 	}
 // }
+
+// Tin tức liên quan
+function swiperNewsRelated() {
+	const swiperEl = document.querySelector(".news-related-swiper");
+	if (!swiperEl) return;
+
+	new Swiper(swiperEl, {
+		modules: [Navigation, Autoplay],
+		speed: 700,
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 20,
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			992: {
+				slidesPerView: 3,
+				spaceBetween: 24,
+			},
+			1200: {
+				slidesPerView: 3,
+				spaceBetween: 40,
+			}
+		},
+		navigation: {
+			nextEl: ".news-detail-related .related-next",
+			prevEl: ".news-detail-related .related-prev",
+		},
+	});
+}

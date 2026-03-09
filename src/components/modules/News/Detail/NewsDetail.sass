@@ -1,57 +1,55 @@
-body
-	&.single-post
-		.page-banner-main
-			@apply hidden
 .news-detail
-	.col-left
-		.news-item-meta 
-			@apply mb-6
-		.news-item-meta>*+*
-			@apply pl-2 border-l border-l-Utility-gray-500
+	@apply py-10 lg:rem:py-[80px]
+	&-header
+		h1
+			@apply heading-36 lg:rem:text-[40px] text-Primary-1 font-bold mb-5 leading-[1.25]
+	.container
+		@apply flex flex-col gap-10
+	.wrapper-detail
+		@apply px-4 lg:px-0 lg:rem:max-w-[1200px] mx-auto
+	.news-item-meta
+		@apply flex items-center gap-5 relative mb-5 lg:mb-7
+		.news-item-category
+			@apply text-Primary-2 rem:text-[18px] font-normal flex-shrink-0
+		.news-item-date
+			@apply flex items-center gap-3 text-Utility-gray-500 font-normal flex-shrink-0
+			i
+				@apply font-black text-lg
+		.news-meta-line
+			@apply flex-1 h-[1.5px] bg-Primary-2 hidden lg:block
+
+	&-content
 		.format-content
-			h2, h3, h4
-				@apply font-normal text-Primary-1 mb-3
-			b
-				@apply font-medium
+			@apply space-y-5
+			h1, h2, h3, h4
+				@apply text-Primary-1 mb-4 font-bold
 			p
-				@apply mb-6
-			ol
-				list-style: number
-				@apply pl-5 flex flex-col gap-2
-			table
-				@apply my-6
-				tbody
-					tr
-						td
-							@apply border border-Utility-gray-200 p-2
-		.sticky-share-post
-			@apply mr-10
-			ul
-				@apply flex flex-col gap-3
-				li
-					a
-						@apply sq-12 inline-flex items-center justify-center
-						@apply bg-transparent text-Primary-1 rounded-full border-2 border-Primary-1
-					&:hover
-						a
-							@apply bg-Primary-1 text-Utility-white
-	.col-right
-		@apply sticky h-fit top-36
-		.news-detail-list
-			.news-item
-				.title
-					@apply  line-clamp-2 mb-0
-				.desc
-					@apply line-clamp-2
-				.content
-					@apply bg-transparent p-0
-					.top
-						@apply pb-2 mb-2
-				&:hover
-					.content
-						.top
-							.category
-								@apply text-Primary-1
-						.bottom
-							.title
-								@apply text-Primary-1
+				@apply body-2 text-Utility-gray-950 leading-1.4
+			img
+				@apply w-full h-auto my-8
+
+	&-related
+		@apply mt-15 lg:mt-25
+		@apply px-0 lg:px-20
+		.section-header
+			@apply mb-6 lg:mb-10 flex items-center justify-between
+			h2
+				@apply heading-2 text-Primary-1 uppercase leading-none
+		// .swiper-controls
+		// 	@apply flex items-center gap-4
+		// 	.swiper-button-prev, .swiper-button-next
+		// 		@apply static w-10 h-10 rounded-full border border-Primary-1 text-Primary-1 flex items-center justify-center
+		// 		@apply transition-all duration-300 transform-none m-0
+		// 		&::after
+		// 			@apply hidden
+		// 		&:hover
+		// 			@apply bg-Primary-1 text-white
+		
+		.news-related-swiper
+			@apply relative overflow-hidden
+			.swiper-slide
+				@apply h-auto
+
+.container-ofSlide
+	@apply lg:px-0 lg:rem:max-w-[1560px]
+	@apply mx-auto relative

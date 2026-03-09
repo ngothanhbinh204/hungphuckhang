@@ -1,42 +1,86 @@
 .news
-	.news-main
-		.col-left
-			.news-item
-				@apply flex flex-col h-full
-				.content
-					@apply flex flex-col flex-1
-				.title
-					@apply heading-3 line-clamp-1
-				.bottom
-					.desc
-						@apply line-clamp-2
-				&:hover
-					.content
-						.bottom
-							.title
-								@apply text-Primary-1			
-		.col-right
-			@apply flex flex-col gap-6
-			.news-item
-				@apply border-none
-				.title
-					line-height: calc(32/24)
-					@apply heading-3 line-clamp-2 
-				.desc
-					line-height: calc(22/16)
-					@apply line-clamp-2
-				.content
-					@apply bg-transparent
-					
-				&:hover
-					.content
-						.bottom
-							.title
-								@apply text-Primary-1
+	@apply py-10 lg:rem:py-[80px]
+	h1
+		@apply heading-2 text-Primary-1 mb-6 lg:mb-10
+	.nav-primary
+		@apply justify-start border-b border-Utility-gray-200 gap-6 lg:gap-13 pb-0 mb-6 lg:mb-10
+		li
+			@apply relative pb-2
+			a
+				@apply bg-transparent text-Utility-gray-600 font-bold p-0 h-auto normal-case rem:text-[16px] lg:rem:text-[18px]
+				@apply transition-all duration-300
+			
+			&::after
+				content: ''
+				@apply absolute bottom-0 left-0 w-0 h-[2px] bg-Primary-1 transition-all duration-300
+				
+			&:not(:first-child)
+				&::before
+					content: ''
+					@apply absolute right-[calc(100%+8px)] lg:right-[calc(100%+24px)] top-[36%] lg:top-[28%] -translate-y-1/2
+					@apply rem:sq-[4px] rounded-full bg-Utility-gray-200
+
+			&.active, &:hover
+				a
+					@apply text-Primary-1 bg-transparent
+				&::after
+					@apply w-full
+
 	.news-list
-		.news-item
-			@apply grid-cols-1
-			.content
-				.bottom
+		@apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10
+		.news-col
+			@apply h-full
+			.news-item
+				@apply h-full bg-Utility-gray-50 p-4 lg:p-5 flex flex-col transition-all duration-300 border border-transparent
+				.img
+					@apply flex-none overflow-hidden w-full rem:h-[200px] lg:rem:h-[240px]
+					img
+						@apply w-full h-full object-cover transition-transform duration-500
+				.content
+					@apply flex flex-col gap-4 py-4 px-0 flex-1
+					.meta
+						@apply flex items-center gap-5 text-sm
+						.date
+							@apply text-Utility-gray-500 font-normal mb-0
+						.category
+							@apply text-[#c33] font-semibold
 					.title
-						@apply line-clamp-2
+						@apply font-semibold text-Utility-gray-950 transition-colors
+						@apply hover:text-Primary-1 text-lg lg:text-xl
+						a
+							@apply line-clamp-2 leading-1.4
+					.desc
+						@apply text-Utility-gray-800 text-base line-clamp-3 leading-1.4
+				&:hover
+					@apply border-Primary-1
+					.img img
+						@apply scale-110
+
+	.pagination
+		@apply mt-10 lg:mt-16 flex justify-center items-center
+
+.news-item
+	@apply h-full bg-Utility-gray-50 p-4 lg:p-5 flex flex-col transition-all duration-300 border border-transparent
+	.img
+		@apply flex-none overflow-hidden w-full rem:h-[200px] lg:rem:h-[240px]
+		img
+			@apply w-full h-full object-cover transition-transform duration-500
+	.content
+		@apply flex flex-col gap-4 py-4 px-0 flex-1
+		.meta
+			@apply flex items-center gap-5 text-sm
+			.date
+				@apply text-Utility-gray-500 font-normal mb-0
+			.category
+				@apply text-[#c33] font-semibold
+			.title
+				@apply font-semibold text-Utility-gray-950 transition-colors
+				@apply hover:text-Primary-1 text-lg lg:text-xl
+				a
+					@apply line-clamp-2 leading-1.4
+			.desc
+				@apply text-Utility-gray-800 text-base line-clamp-3 leading-1.4
+	&:hover
+		@apply border-Primary-1
+		.img img
+			@apply scale-110

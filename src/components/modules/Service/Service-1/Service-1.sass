@@ -1,5 +1,5 @@
 .service-1
-	@apply relative bg-white overflow-hidden py-10 lg:py-20
+	@apply relative bg-white overflow-hidden py-10 lg:rem:pb-[100px] lg:rem:pt-[24px]
 	
 	.container-full
 		@apply relative rem:px-[16px] lg:rem:pl-[100px] xl:rem:pl-[260px]
@@ -9,14 +9,14 @@
 		
 	.col-content
 		@apply w-full lg:w-1/2 relative z-10
-		@apply pr-4 lg:pr-14 xl:rem:pr-[95px]
+		@apply pr-4 lg:pr-14 xl:rem:pr-[128px]
 		@apply flex flex-col gap-6 lg:gap-10
 		
 		.block-title
 			@apply rem:text-[42px] lg:rem:text-[60px] text-Utility-gray-950 uppercase font-bold leading-[1.2]
 			
 		.desc
-			@apply body-1 text-Utility-gray-950 leading-relaxed
+			@apply body-1 text-Utility-gray-950 leading-1.4 text-justify
 			
 	.counter-wrapper
 		@apply grid grid-cols-1 sm:grid-cols-2 gap-y-8
@@ -36,9 +36,9 @@
 				
 	.col-image
 		@apply w-full lg:w-1/2 relative mt-10 lg:mt-0
-		@apply lg:rem:pr-[60px]
 		.img
 			@apply relative w-full overflow-hidden img-ratio ratio:pt-[450_824] xl:rem:pt-[687px]
+			@apply rem:translate-x-[-40px]
 			img
 				@apply w-full h-full object-contain
 				

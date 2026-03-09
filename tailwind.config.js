@@ -254,7 +254,7 @@ module.exports = {
 				},
 				"Utility": {
 					"white": "#ffffff",
-					"gray-50": "#f6f6f6",
+					"gray-50": "#F1F3F4",
 					"gray-100": "#efefef",
 					"gray-200": "#dcdcdc",
 					"gray-300": "#bdbdbd",
