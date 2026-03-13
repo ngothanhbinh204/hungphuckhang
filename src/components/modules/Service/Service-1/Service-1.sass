@@ -19,14 +19,14 @@
 			@apply body-1 text-Utility-gray-950 leading-1.4 text-justify
 			
 	.counter-wrapper
-		@apply grid grid-cols-1 sm:grid-cols-2 gap-y-8
+		@apply flex flex-row gap-8 flex-wrap
 		
 		.item
-			@apply flex flex-col gap-2
+			@apply flex flex-col gap-2 flex-1
 			.number
 				@apply heading-36 lg:rem:text-[60px] xl:rem:text-[72px] font-bold text-Primary-1 leading-none font-secondary
 			.desc
-				@apply body-2 font-bold text-Utility-gray-950 tracking-wider leading-1.4
+				@apply body-2 font-bold text-Utility-gray-950 tracking-wider leading-1.4 text-left
 				
 	.btn-list
 		@apply flex flex-wrap items-center gap-4
@@ -37,8 +37,8 @@
 	.col-image
 		@apply w-full lg:w-1/2 relative mt-10 lg:mt-0
 		.img
-			@apply relative w-full overflow-hidden img-ratio ratio:pt-[450_824] xl:rem:pt-[687px]
-			@apply rem:translate-x-[-40px]
+			@apply relative w-full overflow-hidden img-ratio lg:ratio:pt-[1_1] xl:rem:pt-[687px]
+			@apply lg:rem:translate-x-[-40px]
 			img
 				@apply w-full h-full object-contain
 				

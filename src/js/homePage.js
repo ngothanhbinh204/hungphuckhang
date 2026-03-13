@@ -248,7 +248,6 @@ export const homePage = {
 			} else {
 				// Local/Mock fallback for front-end dev
 				setTimeout(() => {
-					console.log(`Mock filtering for Home-4: Category ${categoryId} / Pool ${categoryPool}`);
 					initSwiper();
 					loadingOverlay.removeClass("active");
 				}, 600);

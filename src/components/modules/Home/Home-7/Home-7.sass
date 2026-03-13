@@ -1,5 +1,11 @@
 .home-7
 	@apply py-8 lg:rem:py-[90px] bg-white overflow-hidden relative
+	.parallax-img
+		@apply absolute inset-0 overflow-hidden 
+		.wrap-img
+			@apply absolute top-0 left-0 sq-full
+			img
+				@apply w-full object-cover
 	.container
 		@apply lg:px-0 lg:rem:max-w-[1560px]
 	.bg-pattern

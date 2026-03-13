@@ -62,9 +62,11 @@
 				
 					
 				.form-submit
-					@apply flex justify-between items-center flex-wrap
+					@apply flex justify-between items-center flex-wrap gap-4
 					button
-						@apply h-fit flex items-center gap-4 bg-Primary-1 text-white px-10 py-3.5 rounded-full
-						@apply body-3 font-bold uppercase transition-all hover:bg-opacity-90 hover:shadow-lg
+						@apply h-fit flex items-center gap-4 bg-Primary-1 text-white px-10 py-3.5 rounded-full border border-transparent
+						@apply body-3 font-bold uppercase transition-all
 						i
 							@apply rem:text-[18px]
+						&:hover
+							@apply bg-white text-Primary-1 border-Primary-1

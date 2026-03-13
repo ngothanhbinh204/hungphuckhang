@@ -119,8 +119,9 @@
 						@apply shadow-Shadow-3 z-50
 						li
 							a
-								@apply block px-3 py-1.5 rem:text-[13px] font-semibold text-white text-center
-								@apply hover:bg-Primary-2 transition-300
+								@apply block px-3 py-1.5 rem:text-[13px] font-semibold text-white text-center transition-300
+								&:hover
+									@apply bg-white text-Primary-1
 							&.wpml-ls-current-language
 								@apply hidden
 				// ── HOTLINE BUTTON ────────────────────────────
@@ -130,7 +131,9 @@
 					@apply h-full
 					@apply px-6 font-semibold uppercase whitespace-nowrap
 					@apply rem:text-[15px]
-					@apply hover:bg-Primary-2 transition-300
+					@apply transition-300
+					// &:hover
+					// 	@apply bg-white
 					i
 						@apply rem:text-[18px] text-white
 			// ── HAMBURGER (mobile) ────────────────────────────
@@ -251,6 +254,6 @@ body.isOpenSearch
 		@apply opacity-100 pointer-events-auto translate-y-0
 
 body
-	&.product-detail-page, &.service-page, &.news-detail-page, &.contact-page, &.single.single-product, &.single.single-service, &.single.single-post
+	&.product-detail-page, &.service-page, &.news-detail-page, &.contact-page, &.single.single-product, &.single.single-service, &.single.single-post, &.page-template-template-services
 		.global-breadcrumb
 			@apply mt-[var(--header-height)]
