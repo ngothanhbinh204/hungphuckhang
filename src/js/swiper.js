@@ -191,79 +191,95 @@ export function swiperInit() {
 }
 function swiperBanner() {
 	const swiperEl = document.querySelector(".home-1 .swiper");
-	if (!swiperEl) return;
-
-	const swiper = new Swiper(swiperEl, {
-		modules: [Pagination, Navigation, EffectFade, Autoplay],
-		loop: true,
-		effect: "fade",
-		autoplay: {
-			delay: 3500,
-			disableOnInteraction: false,
-		},
-		slidesPerView: 1,
-		speed: 700,
-		pagination: { el: ".home-1 .swiper-pagination", clickable: true },
-		navigation: { nextEl: ".home-1 .btn-next", prevEl: ".home-1 .btn-prev" },
-		on: {
-			init: function () {
-				// Apply animations to the initial active slide
-				applySlideAnimations(this.slides[this.activeIndex]);
+	if (swiperEl) {
+		const swiper = new Swiper(swiperEl, {
+			modules: [Pagination, Navigation, EffectFade, Autoplay],
+			loop: true,
+			effect: "fade",
+			autoplay: {
+				delay: 3500,
+				disableOnInteraction: false,
 			},
-			slideChangeTransitionStart: function () {
-				// Remove animations from all slides before transition starts
-				this.slides.forEach(slide => {
-					const slideInfo = slide.querySelector(".slide-info");
-					const slideImage = slide.querySelector(".slide-image");
-					if (slideInfo) slideInfo.classList.remove("fadeUp");
-					if (slideImage) slideImage.classList.remove("fadeRight");
-				});
+			slidesPerView: 1,
+			speed: 700,
+			pagination: { el: ".home-1 .swiper-pagination", clickable: true },
+			navigation: { nextEl: ".home-1 .btn-next", prevEl: ".home-1 .btn-prev" },
+			on: {
+				init: function () {
+					applySlideAnimations(this.slides[this.activeIndex]);
+				},
+				slideChangeTransitionStart: function () {
+					this.slides.forEach(slide => {
+						const slideInfo = slide.querySelector(".slide-info");
+						const slideImage = slide.querySelector(".slide-image");
+						if (slideInfo) slideInfo.classList.remove("fadeUp");
+						if (slideImage) slideImage.classList.remove("fadeRight");
+					});
+				},
+				slideChangeTransitionEnd: function () {
+					applySlideAnimations(this.slides[this.activeIndex]);
+					const currentSlide = this.slides[this.activeIndex];
+					const isVideo = handleVideo(currentSlide);
+					if (!isVideo) this.autoplay.start();
+				},
 			},
-			slideChangeTransitionEnd: function () {
-				// Apply animations to the new active slide after transition ends
-				applySlideAnimations(this.slides[this.activeIndex]);
+		});
 
-				// Handle video playback
-				const currentSlide = this.slides[this.activeIndex];
-				const isVideo = handleVideo(currentSlide);
-				if (!isVideo) this.autoplay.start();
-			},
-		},
-	});
+		function handleVideo(slide) {
+			if (!slide) return false;
+			const video = slide.querySelector("video");
+			if (!video) return false;
 
-	function handleVideo(slide) {
-		if (!slide) return false;
-		const video = slide.querySelector("video");
-		if (!video) return false;
+			swiper.autoplay.stop();
 
-		swiper.autoplay.stop();
+			if (video.readyState < 2) {
+				video.addEventListener("loadedmetadata", () => video.play());
+			} else {
+				video.play();
+			}
 
-		if (video.readyState < 2) {
-			video.addEventListener("loadedmetadata", () => video.play());
-		} else {
-			video.play();
+			video.onended = () => swiper.slideNext();
+			return true;
 		}
 
-		video.onended = () => swiper.slideNext();
-		return true;
+		function applySlideAnimations(slide) {
+			if (!slide) return;
+			const slideInfo = slide.querySelector(".slide-info");
+			const slideImage = slide.querySelector(".slide-image");
+
+			if (slideInfo) {
+				slideInfo.classList.add("fadeUp");
+			}
+			if (slideImage) {
+				slideImage.classList.add("fadeRight");
+			}
+		}
+
+		// Initial check for video on load
+		if (swiper.slides[swiper.activeIndex]) {
+			handleVideo(swiper.slides[swiper.activeIndex]);
+		}
 	}
 
-	function applySlideAnimations(slide) {
-		if (!slide) return;
-		const slideInfo = slide.querySelector(".slide-info");
-		const slideImage = slide.querySelector(".slide-image");
+	const pageBannerMainEl = document.querySelector(".page-banner-main .swiper");
+	if (pageBannerMainEl) {
+		const bannerSlide = document.querySelector(".page-banner-main .banner-slide");
+		const slideCount = bannerSlide ? parseInt(bannerSlide.getAttribute('data-slide-count')) || 1 : 1;
+		const enableLoop = slideCount > 1;
 
-		if (slideInfo) {
-			slideInfo.classList.add("fadeUp");
-		}
-		if (slideImage) {
-			slideImage.classList.add("fadeRight");
-		}
-	}
-
-	// Initial check for video on load
-	if (swiper.slides[swiper.activeIndex]) {
-		handleVideo(swiper.slides[swiper.activeIndex]);
+		const swiperPageBannerMain = new Swiper(pageBannerMainEl, {
+			modules: [Pagination, Navigation, EffectFade, Autoplay],
+			loop: enableLoop,
+			effect: "fade",
+			autoplay: enableLoop ? {
+				delay: 3500,
+				disableOnInteraction: false,
+			} : false,
+			slidesPerView: 1,
+			speed: 700,
+			pagination: { el: ".page-banner-main .swiper-pagination", clickable: true },
+			navigation: { nextEl: ".page-banner-main .btn-next", prevEl: ".page-banner-main .btn-prev" },
+		});
 	}
 }
 

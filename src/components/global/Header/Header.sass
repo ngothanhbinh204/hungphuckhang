@@ -42,6 +42,7 @@
 								@apply text-Primary-1 font-bold
 						&.current-menu-item,
 						&.current-menu-parent,
+						&.current_page_parent,
 						&.current-menu-ancestor
 							> a
 								@apply text-Primary-1 font-bold
@@ -192,6 +193,12 @@
 							.dropdown-toggle
 								i
 									@apply rotate-180
+					&.current-menu-item,
+					&.current-menu-parent,
+					&.current_page_parent,
+					&.current-menu-ancestor
+						> a
+							@apply text-Primary-1 font-bold
 					ul.sub-menu
 						display: none
 						@apply py-2 pl-4 flex flex-col gap-1 border-l-2 border-l-Primary-1/20 ml-2 mt-2
@@ -254,6 +261,12 @@ body.isOpenSearch
 		@apply opacity-100 pointer-events-auto translate-y-0
 
 body
-	&.product-detail-page, &.service-page, &.news-detail-page, &.contact-page, &.single.single-product, &.single.single-service, &.single.single-post, &.page-template-template-services
+	&.product-detail-page, &.service-page, &.news-detail-page, &.contact-page, &.single.single-product, &.single.single-service, &.single.single-post, &.page-template-template-services,
+	.content-page
 		.global-breadcrumb
+			@apply mt-[var(--header-height)]
+
+body
+	&.page-template-template-about, &.home, &.page-template-templatestemplate-product-list-php
+		.main-content
 			@apply mt-[var(--header-height)]

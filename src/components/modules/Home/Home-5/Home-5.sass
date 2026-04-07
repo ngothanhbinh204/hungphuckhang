@@ -43,7 +43,7 @@
 					@apply w-full h-full object-contain transition-all duration-500
 		
 		.item-content
-			@apply flex-1 flex flex-col gap-3 my-auto
+			@apply flex-1 flex flex-col my-auto
 			.title-wrap
 				h3
 					@apply rem:text-[24px] font-bold text-Utility-gray-950 transition-all duration-500
@@ -61,12 +61,14 @@
 					.desc
 						@apply rem:text-[18px] text-white leading-1.4 font-normal
 					.btn-more
-						@apply inline-flex items-center gap-3 text-white font-normal rem:text-[18px] opacity-70
+						@apply inline-flex items-center gap-3 text-white font-normal rem:text-[18px] opacity-70 transition-all duration-300
 						i
 							@apply transform transition-transform duration-300
 						&:hover
+							@apply opacity-100
 							i
 								@apply translate-x-1
+
 						
 		&.active
 			@apply bg-Primary-1
@@ -78,10 +80,13 @@
 			.item-body
 				grid-template-rows: 1fr
 				@apply opacity-100
-				.desc
-					@apply text-white/90
-				.btn-more
-					@apply text-white
+				.inner
+					@apply pt-3
+					.desc
+						@apply text-white/90
+					.btn-more
+						@apply text-white
+							
 					
 		&:not(.active):hover
 			@apply bg-white shadow-md

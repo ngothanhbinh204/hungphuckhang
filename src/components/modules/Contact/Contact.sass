@@ -12,15 +12,23 @@
 				@apply heading-1 text-Primary-1 uppercase font-black
 		
 		.contact-details
-			@apply flex flex-col gap-6 mb-10
+			@apply flex flex-col gap-3 mb-10
 			.detail-item
-				@apply flex items-start gap-5
+				@apply flex items-start gap-3
 				.icon
-					@apply text-Utility-gray-950 rem:text-[20px] flex-shrink-0 mt-1
-				.text
-					@apply body-1 text-Utility-gray-800 font-medium
-					a
-						@apply hover:text-Primary-1 transition-300
+					@apply text-Utility-gray-950 rem:text-[20px] rem:w-[20px] flex-shrink-0 mt-1
+				> *
+					@apply body-1 text-Utility-gray-950 font-medium
+				a
+					@apply relative inline-block text-Utility-gray-950 transition-all duration-300
+					&::before
+						content: ""
+						@apply absolute left-0 -bottom-[2px] w-0 h-[1px] bg-Primary-1 transition-all duration-300
+					&:hover
+						@apply text-Primary-1
+						&::before
+							@apply w-full
+
 		
 		.contact-map
 			@apply w-full overflow-hidden
@@ -33,7 +41,7 @@
 			.form-header
 				@apply text-center mb-5
 				p
-					@apply body-2 font-medium text-Utility-gray-950 leading-relaxed
+					@apply body-2 font-normal text-Utility-gray-950 leading-relaxed
 					span
 						@apply text-Primary-2
 			
@@ -64,9 +72,16 @@
 				.form-submit
 					@apply flex justify-between items-center flex-wrap gap-4
 					button
-						@apply h-fit flex items-center gap-4 bg-Primary-1 text-white px-10 py-3.5 rounded-full border border-transparent
-						@apply body-3 font-bold uppercase transition-all
-						i
-							@apply rem:text-[18px]
+						@apply transition-all duration-300
+						@apply rem:min-h-[52px] inline-flex items-center justify-center px-6 py-3 bg-Primary-1 gap-4 rem:text-[20px] font-semibold text-white uppercase leading-1.4
+						@apply border-2 border-Primary-1
 						&:hover
-							@apply bg-white text-Primary-1 border-Primary-1
+							@apply text-Primary-1 bg-white border-Primary-1
+							span
+								@apply text-Primary-1
+							.icon
+								@apply w-15
+								svg
+									path
+										@apply fill-Primary-1
+										stroke-width: 0

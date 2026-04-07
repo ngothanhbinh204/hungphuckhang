@@ -1,0 +1,19 @@
+.title-page
+    @apply text-2xl font-bold text-Utility-gray-950
+    @apply uppercase
+    @apply mb-4
+    @apply border-b border-b-Utility-gray-200
+    @apply pb-4 text-center
+    @apply relative
+    &::after
+        content: ''
+        @apply absolute bottom-0 left-0 w-full h-1 bg-Primary-1
+        @apply transition-300
+    &:hover
+        &::after
+            @apply w-full
+
+.content-page-wrapper
+    @apply py-7
+    .content-page-main
+        @apply space-y-3

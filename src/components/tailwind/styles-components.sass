@@ -1,10 +1,18 @@
 @layer components
+	form.submitting
+		button
+			@apply pointer-events-none relative
+			&::before
+				content: ''
+				animation-duration: 0.5s
+				@apply w-5 h-5 border-3 border-[#bababa] border-t-Primary-1 rounded-full inline-block
+				@apply absolute animate-spin left-full ml-3
 	.page-banner-main
 		@apply relative
 		&::before
 			content: ""
-			background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%)
-			backdrop-filter: blur(2px)
+			// background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%)
+			// backdrop-filter: blur(2px)
 			@apply absolute bottom-0 left-0 w-full rem:h-[287px] pointer-events-none z-1
 		.content-banner
 			@apply absolute bottom-16 left-0 w-full text-white text-center z-2
@@ -18,6 +26,8 @@
 						@apply text-white/50
 					.last
 						@apply body-1 font-bold text-white
+		> .img
+			@apply pt-[calc(600/1920*100rem)] #{!important}
 	.indicator-swipe
 		@apply z-30 px-3 
 		@apply w-[calc(104/19.2*1rem)] h-14 rounded-full
@@ -43,22 +53,22 @@
 			&.active, &:hover
 				a
 					@apply bg-Primary-1 text-white
-	.pagination
-		@apply flex items-center justify-center
-		ul
-			@apply flex items-center justify-center gap-6
-			li
-				a, span
-					@apply inline-flex items-center justify-center
-					@apply rem:w-[52px] rem:h-[52px] 
-					@apply bg-Utility-gray-50
-					@apply font-normal
-				&.active
-					a, span
-						@apply bg-Primary-1 text-white
-				&:hover
-					a
-						@apply bg-Primary-1 text-white
+	// .pagination
+	// 	@apply flex items-center justify-center
+	// 	ul
+	// 		@apply flex items-center justify-center gap-6
+	// 		li
+	// 			a, span
+	// 				@apply inline-flex items-center justify-center
+	// 				@apply rem:w-[52px] rem:h-[52px] 
+	// 				@apply bg-Utility-gray-50
+	// 				@apply font-normal
+	// 			&.active
+	// 				a, span
+	// 					@apply bg-Primary-1 text-white
+	// 			&:hover
+	// 				a
+	// 					@apply bg-Primary-1 text-white
 	.product-item
 		@apply bg-white p-4 h-full flex flex-col transition-all duration-300 relative border border-Utility-gray-100
 		.img
@@ -197,7 +207,7 @@
 			background: #b5b5b5
 
 .range-info
-	@apply flex justify-between items-center font-normal mb-5 text-Utility-gray-950 rem:text-[16px]
+	@apply flex justify-between items-center font-normal text-Utility-gray-950 rem:text-[16px]
 
 #price-max-label
 	text-align: right

@@ -81,13 +81,16 @@ export const homePage = {
 		sections.forEach(section => {
 			const counters = section.querySelectorAll(".number");
 			counters.forEach(counter => {
-				const target = counter.getAttribute("data-count");
-				counter.innerText = "0+";
+				const rawTarget = counter.getAttribute("data-count") || "0";
+				const isPadded = rawTarget.startsWith('0') && rawTarget.length > 1;
+				counter.innerText = (isPadded ? "0".padStart(rawTarget.length, '0') : "0") + "+";
 			});
 
 			const runCounter = () => {
 				counters.forEach(counter => {
-					const target = +counter.getAttribute("data-count");
+					const rawTarget = counter.getAttribute("data-count") || "0";
+					const target = +rawTarget;
+					const isPadded = rawTarget.startsWith('0') && rawTarget.length > 1;
 					const duration = 2000;
 					const stepTime = 30;
 					const steps = duration / stepTime;
@@ -97,10 +100,13 @@ export const homePage = {
 					const timer = setInterval(() => {
 						current += increment;
 						if (current >= target) {
-							counter.innerText = target + "+";
+							counter.innerText = rawTarget + "+";
 							clearInterval(timer);
 						} else {
-							counter.innerText = Math.ceil(current) + "+";
+							const displayValue = isPadded 
+								? Math.ceil(current).toString().padStart(rawTarget.length, '0')
+								: Math.ceil(current);
+							counter.innerText = displayValue + "+";
 						}
 					}, stepTime);
 				});
@@ -175,9 +181,9 @@ export const homePage = {
 						prevEl: ".home-4 .swiper-button-prev",
 					},
 					breakpoints: {
-						640: { slidesPerView: 2, spaceBetween: 20 },
-						768: { slidesPerView: 3, spaceBetween: 20 },
-						1025: { slidesPerView: 5, spaceBetween: 30 },
+						640: { slidesPerView: 2, spaceBetween: 12 },
+						768: { slidesPerView: 3, spaceBetween: 12 },
+						1025: { slidesPerView: 5, spaceBetween: 20 },
 					},
 					autoplay: {
 						delay: 5000,
@@ -230,10 +236,22 @@ export const homePage = {
 					},
 					success: function (response) {
 						if (response.success) {
-							swiperWrapper.html(response.data);
+							// chỉ lấy đúng html, không lấy cả object
+							const data = response.data;
+							let htmlString = "";
+							if (typeof data === 'object' && data.html !== undefined) {
+								htmlString = data.html;
+						} else if (typeof data === 'string') {
+								htmlString = data;
+							}
+
+							if (home4Swiper) {
+								home4Swiper.destroy(true, true);
+								home4Swiper = null;
+							}
+							swiperWrapper.html(htmlString);
 							initSwiper();
-							
-							// Re-init AOS and Lazyload if needed
+
 							if (window.AOS) window.AOS.refresh();
 							if (window.lozad) window.lozad.observe();
 						}

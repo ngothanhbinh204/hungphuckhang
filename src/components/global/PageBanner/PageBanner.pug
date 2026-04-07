@@ -1,5 +1,15 @@
 section.page-banner-main
-	.img(class="img-ratio pt-[calc(664/1920*100rem)]")
-		+PugImg()
-
-			
+	.banner-slide(data-slide-count="2")
+		.swiper
+			.swiper-wrapper
+				.swiper-slide
+					.img(class="img-ratio pt-[calc(600/1920*100rem)]")
+						+PugImg()
+				.swiper-slide
+					.img(class="img-ratio pt-[calc(600/1920*100rem)]")
+						+PugImg("./img/banner_10.jpg")
+		.swiper-pagination
+		.btn-prev
+			i.fa-thin.fa-chevron-left
+		.btn-next
+			i.fa-thin.fa-chevron-right

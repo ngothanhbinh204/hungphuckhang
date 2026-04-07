@@ -92,6 +92,7 @@ module.exports = {
 		fontFamily: {
 			primary: ['"Google Sans Flex"', "sans-serif"],
 			secondary: ['"Plus Jakarta Sans"', "sans-serif"],
+			abeezee: ['"ABeeZee"', "sans-serif"],
 			awesome: ['"Font Awesome 6 Pro"'],
 			awesomeSharp: ['"Font Awesome 6 Sharp"'],
 		},

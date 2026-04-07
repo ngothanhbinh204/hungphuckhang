@@ -6,37 +6,33 @@
 		.swiper-slide
 			@apply w-full
 
-		// ── SLIDE ITEM ──────────────────────────────────────────
-		.slide-item
+		.slide-item:not(.simple-banner)
 			@apply relative w-full overflow-hidden
 
-		// ── BACKGROUND ──────────────────────────────────────────
-		.slide-bg
-			@apply relative w-full
-			> a.img-ratio
-				// Mobile ≤ 767px: chiều cao viewport thay vì ratio
-				@screen -md
-					padding-top: 0 #{!important}
-					height: 80svh
-			.slide-overlay
-				@apply absolute top-0 left-0 w-full h-full z-2
-				background: linear-gradient(247deg, rgba(0, 0, 0, 0.20) 35.21%, rgba(0, 0, 0, 0.40) 100%)
-			&::after
-				content: ''
-				@apply absolute top-0 left-0 w-full h-full z-3 pointer-events-none bg-Primary-1
-				clip-path: polygon(66% 0, 100% 0, 100% 100%, 39% 100%)
-				@screen -xl
-					clip-path: polygon(65% 0, 100% 0, 100% 100%, 36% 100%)
-				@screen -md
-					clip-path: polygon(100% 30%, 45% 100%, 100% 100%)
+			.slide-bg
+				@apply relative w-full
+				> a.img-ratio
+					@screen -md
+						padding-top: 0 #{!important}
+						height: 80svh
+				.slide-overlay
+					@apply absolute top-0 left-0 w-full h-full z-2
+					background: linear-gradient(247deg, rgba(0, 0, 0, 0.20) 35.21%, rgba(0, 0, 0, 0.40) 100%)
+				&::after
+					content: ''
+					@apply absolute top-0 left-0 w-full h-full z-3 pointer-events-none bg-Primary-1
+					clip-path: polygon(66% 0, 100% 0, 100% 100%, 39% 100%)
+					@screen -xl
+						clip-path: polygon(65% 0, 100% 0, 100% 100%, 36% 100%)
+					@screen -md
+						clip-path: polygon(100% 30%, 45% 100%, 100% 100%)
 
-			// Union watermark
-			.layer-union
-				@apply absolute right-0 bottom-0 z-4 pointer-events-none select-none
-				@screen -xl
-					@apply rem:w-[200px]
-				@screen xl
-					@apply rem:w-[420px]
+				.layer-union
+					@apply absolute right-0 bottom-0 z-4 pointer-events-none select-none
+					@screen -xl
+						@apply rem:w-[200px]
+					@screen xl
+						@apply rem:w-[420px]
 
 		// ── SLIDE DECORATIONS ────────────────────────────────────
 		.slide-decorations
@@ -206,8 +202,35 @@
 				@screen -md
 					@apply text-[15px]
 			&:hover
-				@apply bg-Primary-1 border-Primary-1
+				@apply bg-Primary-2/20 border-Primary-1 text-white
 				i
 					@apply font-light
 			&.swiper-button-disabled
 				@apply opacity-40 cursor-not-allowed
+
+
+.page-banner-main
+	.slide-controls
+			@apply absolute left-1/2 -translate-x-1/2 z-20 flex items-center gap-3
+			@screen xl
+				bottom: calc(32/1920*100rem)
+			@screen -xl
+				@apply bottom-4
+	.btn-prev,.btn-next
+		@apply flex-center cursor-pointer border border-white text-white transition-300
+		@screen md
+			@apply sq-10
+		@screen -md
+			@apply sq-9
+		i
+			@apply font-thin transition-all duration-300
+			@screen md
+				@apply rem:text-[20px]
+			@screen -md
+				@apply text-[15px]
+		&:hover
+			@apply bg-Primary-2/20 border-Primary-1 text-white
+			i
+				@apply font-light
+		&.swiper-button-disabled
+			@apply opacity-40 cursor-not-allowed

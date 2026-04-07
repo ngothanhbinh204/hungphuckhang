@@ -2,17 +2,24 @@
 	[class*="Module"]
 		height: 100%
 .pagination
-	@apply flex items-center justify-center
-	@apply gap-2.5 mb-10 mt-10
+	@apply flex items-center justify-center gap-2.5 mb-10 mt-10
+	.nav-links, .page-numbers
+		@apply flex items-center justify-center gap-2.5 list-none
 	li
+		@apply list-none
 		&.active
 			a,span
 				@apply bg-primary-main text-white border-primary-main
 		a,span
-			@apply w-[calc(50/1920*100rem)] h-[calc(50/1920*100rem)] rounded-full flex-center bg-transparent text-base font-light text-[#333333]  transition-all duration-300 leading-none border-primary-radial text-primary-radial border
+			@apply w-[calc(50/1920*100rem)] h-[calc(50/1920*100rem)] rounded-full flex-center bg-transparent text-base font-light text-[#333333] transition-all duration-300 leading-none border-primary-radial text-primary-radial border
 			@apply hover:bg-primary-main hover:text-white hover:border-primary-main
-			&.NextPage,&.LastPage,&.FirstPage, &.BackPage
+			&.current
+				@apply bg-primary-main text-white border-primary-main
+			&.NextPage, &.LastPage, &.FirstPage, &.BackPage, &.prev, &.next
 				@apply hidden
+			&.dots
+				@apply border-none hover:bg-transparent hover:text-primary-radial
+
 .notfound .notfound-404 h1
 	-webkit-background-clip: text
 	color: transparent
@@ -20,3 +27,23 @@
 	display: inline-block
 .notfound a
 	background: linear-gradient(90deg,#ed1b24,#bc0049) !important
+
+
+.pagination, .page-numbers
+	@apply flex items-center gap-3
+	li
+		@apply transition-all duration-500 ease-in-out w-12 h-12
+		a
+			@apply flex-center border-2 border-Primary-1 w-full h-full rem:text-[18px] font-bold text-Primary-1 transition-all duration-500
+		&:hover
+			@apply rem:w-[80px]
+			a
+				@apply bg-Primary-1 text-white border-Primary-1
+		&.disabled
+			a
+				@apply bg-Utility-gray-50 text-Utility-gray-200 border-Utility-gray-200
+		&.active, &:has(.current)	
+			a
+				@apply bg-Primary-1 text-white border-Primary-1
+			span:has(.current)
+				@apply bg-Primary-1 text-white border-Primary-1

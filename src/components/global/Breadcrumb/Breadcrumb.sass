@@ -1,7 +1,13 @@
 .global-breadcrumb
 	@apply bg-Utility-gray-50 rem:py-[6px]
-	p
-		@apply h-[calc(20/1920*100rem)] flex items-center gap-4
+	.rank-math-breadcrumb
+		@apply overflow-hidden
+		p
+			@apply h-[calc(20/1920*100rem)] flex items-center gap-4
+			@apply overflow-x-auto
+			&::-webkit-scrollbar
+				@apply hidden
+				
 		// a
 		// 	&:first-child
 		// 		@apply text-0
@@ -10,5 +16,7 @@
 		// 			@apply font-awesome font-black text-base
 		a,span
 			@apply text-sm text-Utility-gray-400 whitespace-nowrap
+		span.separator
+			@apply text-[#D9D9D9] text-xs
 
 
